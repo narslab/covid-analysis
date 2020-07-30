@@ -1,15 +1,12 @@
 #library(BGVAR)
 library(reshape2)
 library(panelvar)
-library(dtw)
 #library(pacman)
 #p_load(tidyverse,panelvar)
 
-#setwd('Projects/covid-analysis/')
+setwd('Projects/covid-analysis/')
 df <- read.csv('mobility/cases_mobility_activity.csv')
-df <- df[, c(2,3,7:190)] #36:95
-
-# Infer missing Apple data
+df <- df[, c(2,3,36:95)] #7:190
 df[df$transportation_type=='driving','X5.11.2020'] = df[df$transportation_type=='driving','X5.10.2020']
 df[df$transportation_type=='driving','X5.12.2020'] = df[df$transportation_type=='driving','X5.10.2020']
 df[df$transportation_type=='walking','X5.11.2020'] = df[df$transportation_type=='walking','X5.10.2020']
@@ -18,83 +15,34 @@ df[df$transportation_type=='transit','X5.11.2020'] = df[df$transportation_type==
 df[df$transportation_type=='transit','X5.12.2020'] = df[df$transportation_type=='transit','X5.10.2020']
 
 
-# Convert dataframe
+
 melted.df <- melt(df, id.vars = c('region', 'transportation_type'))
 m.data <- dcast(melted.df, region + variable~transportation_type)
 colnames(m.data) = c('Country', 'Date', 'cov', 'car', 'groc', 'parks', 'home', 'reta', 'tran', 'tstop', 'walk', 'work' )
-
-# Convert countries to factors
-m.data$Country <- as.factor(m.data$Country)
-
-# Convert numbers to numeric
-for (i in seq(3, length(c('Country', 'Date', 'cov', 'car', 'groc', 'parks', 'home', 'reta', 'tran', 'tstop', 'walk', 'work' )  ) )) {
-  m.data[,i] = as.numeric(m.data[,i], na.pass=TRUE)
-}
-
-# Correct Google (add 100 to baseline)
-m.data[,c( 'groc', 'parks', 'home', 'reta',  'tstop', 'work' )] = m.data[,c( 'groc', 'parks', 'home', 'reta',  'tstop', 'work' )] + 100
-
-# Remove Apple data
-endovars <-  c('cov', 'groc', 'parks', 'home', 'reta',  'tstop', 'work' )
+endovars <-  c('cov', 'car', 'home', 'tstop', 'work' )
 m.data <- subset(m.data, select = c('Country', 'Date', endovars) )
 m.data <- na.omit(m.data)
-#m.data <- m.data[-1,]
 
-m.data <- m.data[m.data$cov >= 1,] # remove all zero covid cases
-m.data['day'] = 1 # initialize day column
-for (i in unique(m.data$Country)) {
-  for (j in seq(1,nrow(m.data[m.data$Country==i,]) ) ) {
-    m.data[m.data$Country==i,][j, 'day'] = j
-  }
+m.data$Country <- as.factor(m.data$Country)
+for (i in seq(3, length(c('Country', 'Date', endovars)) )) {
+  m.data[,i] = as.numeric(m.data[,i])
 }
-#m.data <- m.data[m.data$day <= 60,]
-
-
-# Drop date column
-m.data <- subset(m.data, select = -Date)
-
-
-#Log and difference
-m.data[,endovars] = log(m.data[,endovars])
-#diff(m.data[,endovars])
-
 #ggplot(m.data, aes(x=Date,y=car,color=Country,group=Country)) + geom_point() + geom_line()
 #ggplot(m.data, aes(x=Date,y=home,color=Country,group=Country)) + geom_point() + geom_line()
 
-
-########################################
-# DTW 
-########################################
-dm <- matrix(0, nrow=length(unique(m.data$Country)), ncol =length(unique(m.data$Country))  )
-rownames(dm) <- unique(m.data$Country)
-colnames(dm) <- unique(m.data$Country)
-
-ii = jj = 0
-for (i in unique(m.data$Country)) {
-  ii = ii + 1
-  for (j in unique(m.data$Country)) {
-    jj = jj + 1
-    if (jj > ii) {
-      dm[i,j] <- dtw(dist(m.data[m.data$Country==i,], m.data[m.data$Country==j,]), distance.only = T)$normalizedDistance
-    }
-  }
-}
-
-write.csv(dm,file='disimilarity-matrix.csv')
-
-# mod.pvar1 <- pvargmm(
-#   dependent_vars = endovars,
-#   lags = 1,
-#   transformation = "fd",
-#   data = m.data,
-#   panel_identifier=c("Country", "day"),
-#   steps = c("twostep"),
-#   system_instruments = FALSE,
-#   collapse = FALSE
-# )
+mod.pvar1 <- pvargmm(
+  dependent_vars = endovars,
+  lags = 1,
+  transformation = "fd",
+  data = m.data,
+  panel_identifier=c("Country", "Date"),
+  steps = c("twostep"),
+  system_instruments = FALSE,
+  collapse = FALSE
+)
 
 
-#m.data <- subset(m.data, select = c(Country, Data, cov, car, groc, parks, home, reta, reta))
+  #m.data <- subset(m.data, select = c(Country, Data, cov, car, groc, parks, home, reta, reta))
 #l.data <- vector(mode = "list", length = length(unique(m.data$Country)))
 # for (i in unique(m.data$Country)) {
 #   l.data[[i]] <- subset(m.data, Country==i)
