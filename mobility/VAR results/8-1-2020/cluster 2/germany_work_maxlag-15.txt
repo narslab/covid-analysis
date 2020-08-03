@@ -1,0 +1,90 @@
+  Summary of Regression Results   
+==================================
+Model:                         VAR
+Method:                        OLS
+Date:           Sat, 01, Aug, 2020
+Time:                     01:12:43
+--------------------------------------------------------------------
+No. of Equations:         2.00000    BIC:                   -7.44456
+Nobs:                     132.000    HQIC:                  -8.24839
+Log likelihood:           268.108    FPE:                0.000153664
+AIC:                     -8.79861    Det(Omega_mle):     0.000100773
+--------------------------------------------------------------------
+Results for equation confirmed_cases
+==============================================================================================================
+                                                 coefficient       std. error           t-stat            prob
+--------------------------------------------------------------------------------------------------------------
+const                                              -0.002817         0.003041           -0.926           0.354
+L1.confirmed_cases                                 -0.054495         0.096226           -0.566           0.571
+L1.workplaces_percent_change_from_baseline          0.005629         0.008082            0.696           0.486
+L2.confirmed_cases                                  0.578742         0.094906            6.098           0.000
+L2.workplaces_percent_change_from_baseline          0.010673         0.010402            1.026           0.305
+L3.confirmed_cases                                  0.217891         0.089446            2.436           0.015
+L3.workplaces_percent_change_from_baseline          0.014971         0.012169            1.230           0.219
+L4.confirmed_cases                                 -0.264043         0.082020           -3.219           0.001
+L4.workplaces_percent_change_from_baseline          0.017213         0.012895            1.335           0.182
+L5.confirmed_cases                                 -0.082927         0.080499           -1.030           0.303
+L5.workplaces_percent_change_from_baseline          0.018315         0.013763            1.331           0.183
+L6.confirmed_cases                                  0.142466         0.064883            2.196           0.028
+L6.workplaces_percent_change_from_baseline          0.019658         0.014337            1.371           0.170
+L7.confirmed_cases                                  0.160738         0.062526            2.571           0.010
+L7.workplaces_percent_change_from_baseline          0.018670         0.014624            1.277           0.202
+L8.confirmed_cases                                  0.070952         0.056694            1.251           0.211
+L8.workplaces_percent_change_from_baseline          0.017463         0.014510            1.203           0.229
+L9.confirmed_cases                                  0.016527         0.055005            0.300           0.764
+L9.workplaces_percent_change_from_baseline          0.014583         0.014434            1.010           0.312
+L10.confirmed_cases                                -0.072790         0.049624           -1.467           0.142
+L10.workplaces_percent_change_from_baseline         0.014230         0.014052            1.013           0.311
+L11.confirmed_cases                                -0.121437         0.049772           -2.440           0.015
+L11.workplaces_percent_change_from_baseline         0.013544         0.013521            1.002           0.316
+L12.confirmed_cases                                 0.156885         0.049945            3.141           0.002
+L12.workplaces_percent_change_from_baseline         0.010453         0.012745            0.820           0.412
+L13.confirmed_cases                                 0.348035         0.047865            7.271           0.000
+L13.workplaces_percent_change_from_baseline         0.008051         0.012110            0.665           0.506
+L14.confirmed_cases                                -0.131487         0.058167           -2.261           0.024
+L14.workplaces_percent_change_from_baseline         0.006196         0.010392            0.596           0.551
+L15.confirmed_cases                                -0.097764         0.054575           -1.791           0.073
+L15.workplaces_percent_change_from_baseline         0.003370         0.008092            0.416           0.677
+==============================================================================================================
+
+Results for equation workplaces_percent_change_from_baseline
+==============================================================================================================
+                                                 coefficient       std. error           t-stat            prob
+--------------------------------------------------------------------------------------------------------------
+const                                               0.035122         0.037471            0.937           0.349
+L1.confirmed_cases                                  1.168959         1.185620            0.986           0.324
+L1.workplaces_percent_change_from_baseline         -0.816188         0.099582           -8.196           0.000
+L2.confirmed_cases                                  1.104187         1.169354            0.944           0.345
+L2.workplaces_percent_change_from_baseline         -0.810580         0.128159           -6.325           0.000
+L3.confirmed_cases                                  0.006443         1.102081            0.006           0.995
+L3.workplaces_percent_change_from_baseline         -0.581222         0.149940           -3.876           0.000
+L4.confirmed_cases                                 -0.255023         1.010583           -0.252           0.801
+L4.workplaces_percent_change_from_baseline         -0.635120         0.158883           -3.997           0.000
+L5.confirmed_cases                                  0.351231         0.991840            0.354           0.723
+L5.workplaces_percent_change_from_baseline         -0.620486         0.169572           -3.659           0.000
+L6.confirmed_cases                                  0.548681         0.799433            0.686           0.492
+L6.workplaces_percent_change_from_baseline         -0.570009         0.176653           -3.227           0.001
+L7.confirmed_cases                                  0.277247         0.770393            0.360           0.719
+L7.workplaces_percent_change_from_baseline         -0.349586         0.180186           -1.940           0.052
+L8.confirmed_cases                                 -0.115958         0.698537           -0.166           0.868
+L8.workplaces_percent_change_from_baseline         -0.358717         0.178786           -2.006           0.045
+L9.confirmed_cases                                 -0.352702         0.677723           -0.520           0.603
+L9.workplaces_percent_change_from_baseline         -0.399969         0.177848           -2.249           0.025
+L10.confirmed_cases                                -0.141735         0.611426           -0.232           0.817
+L10.workplaces_percent_change_from_baseline        -0.345302         0.173136           -1.994           0.046
+L11.confirmed_cases                                -0.116300         0.613253           -0.190           0.850
+L11.workplaces_percent_change_from_baseline        -0.187739         0.166592           -1.127           0.260
+L12.confirmed_cases                                -0.087287         0.615383           -0.142           0.887
+L12.workplaces_percent_change_from_baseline        -0.231483         0.157033           -1.474           0.140
+L13.confirmed_cases                                -0.425945         0.589747           -0.722           0.470
+L13.workplaces_percent_change_from_baseline        -0.192266         0.149207           -1.289           0.198
+L14.confirmed_cases                                -0.825517         0.716685           -1.152           0.249
+L14.workplaces_percent_change_from_baseline        -0.060872         0.128041           -0.475           0.634
+L15.confirmed_cases                                -0.628457         0.672423           -0.935           0.350
+L15.workplaces_percent_change_from_baseline         0.018279         0.099702            0.183           0.855
+==============================================================================================================
+
+Correlation matrix of residuals
+                                           confirmed_cases  workplaces_percent_change_from_baseline
+confirmed_cases                                   1.000000                                 0.080523
+workplaces_percent_change_from_baseline           0.080523                                 1.000000

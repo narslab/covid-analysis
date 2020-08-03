@@ -1,0 +1,609 @@
+Summary of Regression Results   
+==================================
+Model:                         VAR
+Method:                        OLS
+Date:           Fri, 31, Jul, 2020
+Time:                     01:06:10
+--------------------------------------------------------------------
+No. of Equations:         7.00000    BIC:                   -30.3993
+Nobs:                     88.0000    HQIC:                  -39.5776
+Log likelihood:           1685.82    FPE:                1.87875e-17
+AIC:                     -45.7701    Det(Omega_mle):     2.21050e-19
+--------------------------------------------------------------------
+Results for equation confirmed_cases
+=========================================================================================================================
+                                                            coefficient       std. error           t-stat            prob
+-------------------------------------------------------------------------------------------------------------------------
+const                                                         -0.009420         0.014641           -0.643           0.520
+L1.confirmed_cases                                            -0.375310         0.326298           -1.150           0.250
+L1.grocery_and_pharmacy_percent_change_from_baseline          -0.021795         0.311165           -0.070           0.944
+L1.parks_percent_change_from_baseline                         -0.048984         0.105340           -0.465           0.642
+L1.retail_and_recreation_percent_change_from_baseline         -0.024360         0.166866           -0.146           0.884
+L1.workplaces_percent_change_from_baseline                    -0.145449         0.210694           -0.690           0.490
+L1.residential_percent_change_from_baseline                   -0.579138         1.464403           -0.395           0.692
+L1.transit_stations_percent_change_from_baseline               0.019657         0.261236            0.075           0.940
+L2.confirmed_cases                                            -0.161993         0.257646           -0.629           0.530
+L2.grocery_and_pharmacy_percent_change_from_baseline          -0.256767         0.305978           -0.839           0.401
+L2.parks_percent_change_from_baseline                         -0.120481         0.107183           -1.124           0.261
+L2.retail_and_recreation_percent_change_from_baseline         -0.062738         0.176816           -0.355           0.723
+L2.workplaces_percent_change_from_baseline                    -0.299965         0.261488           -1.147           0.251
+L2.residential_percent_change_from_baseline                   -2.297038         1.375200           -1.670           0.095
+L2.transit_stations_percent_change_from_baseline               0.323768         0.395495            0.819           0.413
+L3.confirmed_cases                                            -0.130692         0.238752           -0.547           0.584
+L3.grocery_and_pharmacy_percent_change_from_baseline          -0.193517         0.334343           -0.579           0.563
+L3.parks_percent_change_from_baseline                         -0.101767         0.080099           -1.271           0.204
+L3.retail_and_recreation_percent_change_from_baseline         -0.043858         0.156847           -0.280           0.780
+L3.workplaces_percent_change_from_baseline                    -0.276292         0.268117           -1.030           0.303
+L3.residential_percent_change_from_baseline                   -3.799082         1.544983           -2.459           0.014
+L3.transit_stations_percent_change_from_baseline              -0.043119         0.345053           -0.125           0.901
+L4.confirmed_cases                                             0.743701         0.268001            2.775           0.006
+L4.grocery_and_pharmacy_percent_change_from_baseline          -0.256729         0.402181           -0.638           0.523
+L4.parks_percent_change_from_baseline                         -0.043777         0.075134           -0.583           0.560
+L4.retail_and_recreation_percent_change_from_baseline          0.160444         0.178017            0.901           0.367
+L4.workplaces_percent_change_from_baseline                    -0.482462         0.277020           -1.742           0.082
+L4.residential_percent_change_from_baseline                   -4.260032         2.395849           -1.778           0.075
+L4.transit_stations_percent_change_from_baseline               0.059920         0.392106            0.153           0.879
+L5.confirmed_cases                                             0.845092         0.362297            2.333           0.020
+L5.grocery_and_pharmacy_percent_change_from_baseline           0.116634         0.409690            0.285           0.776
+L5.parks_percent_change_from_baseline                          0.014758         0.078710            0.188           0.851
+L5.retail_and_recreation_percent_change_from_baseline          0.261318         0.168550            1.550           0.121
+L5.workplaces_percent_change_from_baseline                    -0.778846         0.363037           -2.145           0.032
+L5.residential_percent_change_from_baseline                   -4.107498         2.363636           -1.738           0.082
+L5.transit_stations_percent_change_from_baseline              -0.112468         0.334138           -0.337           0.736
+L6.confirmed_cases                                             0.330882         0.316972            1.044           0.297
+L6.grocery_and_pharmacy_percent_change_from_baseline           0.226971         0.490022            0.463           0.643
+L6.parks_percent_change_from_baseline                         -0.019492         0.103887           -0.188           0.851
+L6.retail_and_recreation_percent_change_from_baseline          0.482035         0.166225            2.900           0.004
+L6.workplaces_percent_change_from_baseline                    -0.915089         0.417488           -2.192           0.028
+L6.residential_percent_change_from_baseline                   -1.459981         2.842240           -0.514           0.607
+L6.transit_stations_percent_change_from_baseline               0.013194         0.382832            0.034           0.973
+L7.confirmed_cases                                             0.038843         0.231148            0.168           0.867
+L7.grocery_and_pharmacy_percent_change_from_baseline           0.504646         0.432251            1.167           0.243
+L7.parks_percent_change_from_baseline                          0.006874         0.068797            0.100           0.920
+L7.retail_and_recreation_percent_change_from_baseline          0.056904         0.200509            0.284           0.777
+L7.workplaces_percent_change_from_baseline                    -0.883196         0.417210           -2.117           0.034
+L7.residential_percent_change_from_baseline                   -0.949332         2.381534           -0.399           0.690
+L7.transit_stations_percent_change_from_baseline               0.149245         0.471945            0.316           0.752
+L8.confirmed_cases                                            -0.169126         0.111037           -1.523           0.128
+L8.grocery_and_pharmacy_percent_change_from_baseline           0.053680         0.360170            0.149           0.882
+L8.parks_percent_change_from_baseline                         -0.030987         0.058785           -0.527           0.598
+L8.retail_and_recreation_percent_change_from_baseline          0.201873         0.179711            1.123           0.261
+L8.workplaces_percent_change_from_baseline                    -0.390698         0.426712           -0.916           0.360
+L8.residential_percent_change_from_baseline                    2.066552         2.666758            0.775           0.438
+L8.transit_stations_percent_change_from_baseline               0.330571         0.341948            0.967           0.334
+L9.confirmed_cases                                             0.249640         0.168431            1.482           0.138
+L9.grocery_and_pharmacy_percent_change_from_baseline           0.153164         0.368494            0.416           0.678
+L9.parks_percent_change_from_baseline                         -0.047796         0.054430           -0.878           0.380
+L9.retail_and_recreation_percent_change_from_baseline         -0.146236         0.163439           -0.895           0.371
+L9.workplaces_percent_change_from_baseline                    -0.547295         0.409128           -1.338           0.181
+L9.residential_percent_change_from_baseline                   -0.753478         2.919514           -0.258           0.796
+L9.transit_stations_percent_change_from_baseline               0.511672         0.389351            1.314           0.189
+L10.confirmed_cases                                           -0.065669         0.200903           -0.327           0.744
+L10.grocery_and_pharmacy_percent_change_from_baseline         -0.116391         0.247903           -0.470           0.639
+L10.parks_percent_change_from_baseline                        -0.022329         0.067002           -0.333           0.739
+L10.retail_and_recreation_percent_change_from_baseline        -0.047181         0.237567           -0.199           0.843
+L10.workplaces_percent_change_from_baseline                   -0.335747         0.336765           -0.997           0.319
+L10.residential_percent_change_from_baseline                  -0.177002         1.518652           -0.117           0.907
+L10.transit_stations_percent_change_from_baseline              0.577947         0.362853            1.593           0.111
+L11.confirmed_cases                                            0.002273         0.094348            0.024           0.981
+L11.grocery_and_pharmacy_percent_change_from_baseline         -0.025667         0.314550           -0.082           0.935
+L11.parks_percent_change_from_baseline                        -0.050990         0.064217           -0.794           0.427
+L11.retail_and_recreation_percent_change_from_baseline        -0.001639         0.233991           -0.007           0.994
+L11.workplaces_percent_change_from_baseline                   -0.343875         0.359413           -0.957           0.339
+L11.residential_percent_change_from_baseline                  -0.865923         1.577446           -0.549           0.583
+L11.transit_stations_percent_change_from_baseline              0.290412         0.295362            0.983           0.325
+=========================================================================================================================
+
+Results for equation grocery_and_pharmacy_percent_change_from_baseline
+=========================================================================================================================
+                                                            coefficient       std. error           t-stat            prob
+-------------------------------------------------------------------------------------------------------------------------
+const                                                         -0.011393         0.056640           -0.201           0.841
+L1.confirmed_cases                                            -0.777218         1.262320           -0.616           0.538
+L1.grocery_and_pharmacy_percent_change_from_baseline          -0.431849         1.203776           -0.359           0.720
+L1.parks_percent_change_from_baseline                          0.231616         0.407521            0.568           0.570
+L1.retail_and_recreation_percent_change_from_baseline          0.062304         0.645541            0.097           0.923
+L1.workplaces_percent_change_from_baseline                    -1.270201         0.815091           -1.558           0.119
+L1.residential_percent_change_from_baseline                   -3.836101         5.665205           -0.677           0.498
+L1.transit_stations_percent_change_from_baseline               1.092271         1.010622            1.081           0.280
+L2.confirmed_cases                                             1.143609         0.996730            1.147           0.251
+L2.grocery_and_pharmacy_percent_change_from_baseline          -0.924537         1.183708           -0.781           0.435
+L2.parks_percent_change_from_baseline                         -0.327343         0.414650           -0.789           0.430
+L2.retail_and_recreation_percent_change_from_baseline          0.687286         0.684034            1.005           0.315
+L2.workplaces_percent_change_from_baseline                    -0.120533         1.011594           -0.119           0.905
+L2.residential_percent_change_from_baseline                   -5.168606         5.320115           -0.972           0.331
+L2.transit_stations_percent_change_from_baseline              -0.619798         1.530018           -0.405           0.685
+L3.confirmed_cases                                             1.033666         0.923639            1.119           0.263
+L3.grocery_and_pharmacy_percent_change_from_baseline          -1.516885         1.293441           -1.173           0.241
+L3.parks_percent_change_from_baseline                          0.090906         0.309873            0.293           0.769
+L3.retail_and_recreation_percent_change_from_baseline          0.670455         0.606780            1.105           0.269
+L3.workplaces_percent_change_from_baseline                    -1.319495         1.037241           -1.272           0.203
+L3.residential_percent_change_from_baseline                    7.989036         5.976940            1.337           0.181
+L3.transit_stations_percent_change_from_baseline               2.561334         1.334874            1.919           0.055
+L4.confirmed_cases                                             0.183138         1.036791            0.177           0.860
+L4.grocery_and_pharmacy_percent_change_from_baseline           0.354429         1.555883            0.228           0.820
+L4.parks_percent_change_from_baseline                         -0.135898         0.290663           -0.468           0.640
+L4.retail_and_recreation_percent_change_from_baseline         -0.065208         0.688680           -0.095           0.925
+L4.workplaces_percent_change_from_baseline                    -0.635813         1.071682           -0.593           0.553
+L4.residential_percent_change_from_baseline                   -5.143850         9.268606           -0.555           0.579
+L4.transit_stations_percent_change_from_baseline              -0.144717         1.516905           -0.095           0.924
+L5.confirmed_cases                                             0.965708         1.401587            0.689           0.491
+L5.grocery_and_pharmacy_percent_change_from_baseline          -1.583156         1.584930           -0.999           0.318
+L5.parks_percent_change_from_baseline                          0.259275         0.304499            0.851           0.395
+L5.retail_and_recreation_percent_change_from_baseline          0.673345         0.652052            1.033           0.302
+L5.workplaces_percent_change_from_baseline                    -0.255150         1.404449           -0.182           0.856
+L5.residential_percent_change_from_baseline                    8.640359         9.143986            0.945           0.345
+L5.transit_stations_percent_change_from_baseline               1.422360         1.292651            1.100           0.271
+L6.confirmed_cases                                            -0.319368         1.226242           -0.260           0.795
+L6.grocery_and_pharmacy_percent_change_from_baseline          -0.044806         1.895703           -0.024           0.981
+L6.parks_percent_change_from_baseline                         -0.060802         0.401900           -0.151           0.880
+L6.retail_and_recreation_percent_change_from_baseline         -0.155029         0.643058           -0.241           0.809
+L6.workplaces_percent_change_from_baseline                    -1.065353         1.615098           -0.660           0.509
+L6.residential_percent_change_from_baseline                    0.944897        10.995521            0.086           0.932
+L6.transit_stations_percent_change_from_baseline               1.545512         1.481028            1.044           0.297
+L7.confirmed_cases                                            -0.941346         0.894221           -1.053           0.292
+L7.grocery_and_pharmacy_percent_change_from_baseline           0.114071         1.672210            0.068           0.946
+L7.parks_percent_change_from_baseline                          0.261428         0.266147            0.982           0.326
+L7.retail_and_recreation_percent_change_from_baseline         -0.006357         0.775690           -0.008           0.993
+L7.workplaces_percent_change_from_baseline                    -0.557255         1.614023           -0.345           0.730
+L7.residential_percent_change_from_baseline                    6.891866         9.213227            0.748           0.454
+L7.transit_stations_percent_change_from_baseline               0.417563         1.825770            0.229           0.819
+L8.confirmed_cases                                             0.201722         0.429558            0.470           0.639
+L8.grocery_and_pharmacy_percent_change_from_baseline          -1.617812         1.393357           -1.161           0.246
+L8.parks_percent_change_from_baseline                         -0.265167         0.227418           -1.166           0.244
+L8.retail_and_recreation_percent_change_from_baseline         -0.029884         0.695233           -0.043           0.966
+L8.workplaces_percent_change_from_baseline                     0.919082         1.650784            0.557           0.578
+L8.residential_percent_change_from_baseline                   11.937546        10.316650            1.157           0.247
+L8.transit_stations_percent_change_from_baseline               2.334913         1.322864            1.765           0.078
+L9.confirmed_cases                                            -1.133079         0.651593           -1.739           0.082
+L9.grocery_and_pharmacy_percent_change_from_baseline           0.737296         1.425561            0.517           0.605
+L9.parks_percent_change_from_baseline                          0.005704         0.210568            0.027           0.978
+L9.retail_and_recreation_percent_change_from_baseline         -0.428576         0.632283           -0.678           0.498
+L9.workplaces_percent_change_from_baseline                    -1.455421         1.582757           -0.920           0.358
+L9.residential_percent_change_from_baseline                   -2.517651        11.294464           -0.223           0.824
+L9.transit_stations_percent_change_from_baseline               0.434152         1.506249            0.288           0.773
+L10.confirmed_cases                                            0.700828         0.777214            0.902           0.367
+L10.grocery_and_pharmacy_percent_change_from_baseline         -1.444465         0.959041           -1.506           0.132
+L10.parks_percent_change_from_baseline                        -0.016933         0.259204           -0.065           0.948
+L10.retail_and_recreation_percent_change_from_baseline        -0.468934         0.919056           -0.510           0.610
+L10.workplaces_percent_change_from_baseline                    1.248655         1.302813            0.958           0.338
+L10.residential_percent_change_from_baseline                   1.876996         5.875074            0.319           0.749
+L10.transit_stations_percent_change_from_baseline              1.186526         1.403736            0.845           0.398
+L11.confirmed_cases                                           -0.458993         0.364997           -1.258           0.209
+L11.grocery_and_pharmacy_percent_change_from_baseline          0.224960         1.216870            0.185           0.853
+L11.parks_percent_change_from_baseline                        -0.188655         0.248432           -0.759           0.448
+L11.retail_and_recreation_percent_change_from_baseline         0.690096         0.905222            0.762           0.446
+L11.workplaces_percent_change_from_baseline                   -0.578566         1.390429           -0.416           0.677
+L11.residential_percent_change_from_baseline                  -0.158384         6.102523           -0.026           0.979
+L11.transit_stations_percent_change_from_baseline             -0.408858         1.142640           -0.358           0.720
+=========================================================================================================================
+
+Results for equation parks_percent_change_from_baseline
+=========================================================================================================================
+                                                            coefficient       std. error           t-stat            prob
+-------------------------------------------------------------------------------------------------------------------------
+const                                                          0.000287         0.053799            0.005           0.996
+L1.confirmed_cases                                            -1.001589         1.199006           -0.835           0.404
+L1.grocery_and_pharmacy_percent_change_from_baseline          -0.511391         1.143398           -0.447           0.655
+L1.parks_percent_change_from_baseline                         -0.210074         0.387081           -0.543           0.587
+L1.retail_and_recreation_percent_change_from_baseline         -0.314474         0.613163           -0.513           0.608
+L1.workplaces_percent_change_from_baseline                    -0.488237         0.774209           -0.631           0.528
+L1.residential_percent_change_from_baseline                   -1.912112         5.381057           -0.355           0.722
+L1.transit_stations_percent_change_from_baseline               1.311652         0.959932            1.366           0.172
+L2.confirmed_cases                                            -0.475785         0.946738           -0.503           0.615
+L2.grocery_and_pharmacy_percent_change_from_baseline          -0.466833         1.124337           -0.415           0.678
+L2.parks_percent_change_from_baseline                         -0.507661         0.393853           -1.289           0.197
+L2.retail_and_recreation_percent_change_from_baseline          0.290474         0.649725            0.447           0.655
+L2.workplaces_percent_change_from_baseline                    -0.274792         0.960855           -0.286           0.775
+L2.residential_percent_change_from_baseline                   -5.613601         5.053276           -1.111           0.267
+L2.transit_stations_percent_change_from_baseline              -0.152753         1.453277           -0.105           0.916
+L3.confirmed_cases                                             0.487700         0.877312            0.556           0.578
+L3.grocery_and_pharmacy_percent_change_from_baseline          -0.380214         1.228566           -0.309           0.757
+L3.parks_percent_change_from_baseline                         -0.286734         0.294331           -0.974           0.330
+L3.retail_and_recreation_percent_change_from_baseline          0.398129         0.576346            0.691           0.490
+L3.workplaces_percent_change_from_baseline                    -1.628236         0.985216           -1.653           0.098
+L3.residential_percent_change_from_baseline                   -3.301762         5.677156           -0.582           0.561
+L3.transit_stations_percent_change_from_baseline               1.169205         1.267921            0.922           0.356
+L4.confirmed_cases                                            -0.232159         0.984789           -0.236           0.814
+L4.grocery_and_pharmacy_percent_change_from_baseline           1.269102         1.477845            0.859           0.390
+L4.parks_percent_change_from_baseline                         -0.264586         0.276085           -0.958           0.338
+L4.retail_and_recreation_percent_change_from_baseline         -0.493223         0.654138           -0.754           0.451
+L4.workplaces_percent_change_from_baseline                    -1.137275         1.017930           -1.117           0.264
+L4.residential_percent_change_from_baseline                   -8.689362         8.803723           -0.987           0.324
+L4.transit_stations_percent_change_from_baseline              -0.787989         1.440822           -0.547           0.584
+L5.confirmed_cases                                             0.443285         1.331288            0.333           0.739
+L5.grocery_and_pharmacy_percent_change_from_baseline          -0.607389         1.505436           -0.403           0.687
+L5.parks_percent_change_from_baseline                          0.106678         0.289226            0.369           0.712
+L5.retail_and_recreation_percent_change_from_baseline          1.015716         0.619348            1.640           0.101
+L5.workplaces_percent_change_from_baseline                    -0.854042         1.334006           -0.640           0.522
+L5.residential_percent_change_from_baseline                    0.409833         8.685354            0.047           0.962
+L5.transit_stations_percent_change_from_baseline              -0.170843         1.227816           -0.139           0.889
+L6.confirmed_cases                                             0.164373         1.164738            0.141           0.888
+L6.grocery_and_pharmacy_percent_change_from_baseline           1.051843         1.800621            0.584           0.559
+L6.parks_percent_change_from_baseline                         -0.200871         0.381742           -0.526           0.599
+L6.retail_and_recreation_percent_change_from_baseline          0.038320         0.610804            0.063           0.950
+L6.workplaces_percent_change_from_baseline                    -1.851055         1.534090           -1.207           0.228
+L6.residential_percent_change_from_baseline                  -10.088907        10.444022           -0.966           0.334
+L6.transit_stations_percent_change_from_baseline              -0.173351         1.406745           -0.123           0.902
+L7.confirmed_cases                                             0.031623         0.849369            0.037           0.970
+L7.grocery_and_pharmacy_percent_change_from_baseline          -0.668279         1.588337           -0.421           0.674
+L7.parks_percent_change_from_baseline                          0.179647         0.252798            0.711           0.477
+L7.retail_and_recreation_percent_change_from_baseline          0.716892         0.736784            0.973           0.331
+L7.workplaces_percent_change_from_baseline                    -1.928002         1.533069           -1.258           0.209
+L7.residential_percent_change_from_baseline                   -3.288755         8.751122           -0.376           0.707
+L7.transit_stations_percent_change_from_baseline               0.909304         1.734195            0.524           0.600
+L8.confirmed_cases                                             0.768649         0.408012            1.884           0.060
+L8.grocery_and_pharmacy_percent_change_from_baseline          -0.453255         1.323471           -0.342           0.732
+L8.parks_percent_change_from_baseline                         -0.302501         0.216011           -1.400           0.161
+L8.retail_and_recreation_percent_change_from_baseline          0.086137         0.660362            0.130           0.896
+L8.workplaces_percent_change_from_baseline                    -1.835577         1.567986           -1.171           0.242
+L8.residential_percent_change_from_baseline                   -3.026261         9.799201           -0.309           0.757
+L8.transit_stations_percent_change_from_baseline               1.984471         1.256513            1.579           0.114
+L9.confirmed_cases                                            -0.245769         0.618911           -0.397           0.691
+L9.grocery_and_pharmacy_percent_change_from_baseline           0.149603         1.354060            0.110           0.912
+L9.parks_percent_change_from_baseline                         -0.192450         0.200007           -0.962           0.336
+L9.retail_and_recreation_percent_change_from_baseline          1.551948         0.600570            2.584           0.010
+L9.workplaces_percent_change_from_baseline                    -1.798931         1.503371           -1.197           0.231
+L9.residential_percent_change_from_baseline                   -3.454822        10.727970           -0.322           0.747
+L9.transit_stations_percent_change_from_baseline              -0.785285         1.430701           -0.549           0.583
+L10.confirmed_cases                                            0.499309         0.738232            0.676           0.499
+L10.grocery_and_pharmacy_percent_change_from_baseline         -1.118199         0.910939           -1.228           0.220
+L10.parks_percent_change_from_baseline                        -0.125882         0.246203           -0.511           0.609
+L10.retail_and_recreation_percent_change_from_baseline         0.558801         0.872959            0.640           0.522
+L10.workplaces_percent_change_from_baseline                    0.196980         1.237468            0.159           0.874
+L10.residential_percent_change_from_baseline                   5.087252         5.580399            0.912           0.362
+L10.transit_stations_percent_change_from_baseline              0.713985         1.333329            0.535           0.592
+L11.confirmed_cases                                           -0.170091         0.346690           -0.491           0.624
+L11.grocery_and_pharmacy_percent_change_from_baseline         -0.582252         1.155836           -0.504           0.614
+L11.parks_percent_change_from_baseline                        -0.081259         0.235971           -0.344           0.731
+L11.retail_and_recreation_percent_change_from_baseline         1.133731         0.859819            1.319           0.187
+L11.workplaces_percent_change_from_baseline                   -0.502663         1.320690           -0.381           0.703
+L11.residential_percent_change_from_baseline                   2.078186         5.796441            0.359           0.720
+L11.transit_stations_percent_change_from_baseline              0.062131         1.085329            0.057           0.954
+=========================================================================================================================
+
+Results for equation retail_and_recreation_percent_change_from_baseline
+=========================================================================================================================
+                                                            coefficient       std. error           t-stat            prob
+-------------------------------------------------------------------------------------------------------------------------
+const                                                          0.045950         0.052962            0.868           0.386
+L1.confirmed_cases                                            -0.053129         1.180343           -0.045           0.964
+L1.grocery_and_pharmacy_percent_change_from_baseline          -0.135851         1.125600           -0.121           0.904
+L1.parks_percent_change_from_baseline                         -0.024484         0.381056           -0.064           0.949
+L1.retail_and_recreation_percent_change_from_baseline         -0.456940         0.603619           -0.757           0.449
+L1.workplaces_percent_change_from_baseline                    -0.759115         0.762158           -0.996           0.319
+L1.residential_percent_change_from_baseline                   -1.910344         5.297297           -0.361           0.718
+L1.transit_stations_percent_change_from_baseline               0.880091         0.944990            0.931           0.352
+L2.confirmed_cases                                             0.401462         0.932001            0.431           0.667
+L2.grocery_and_pharmacy_percent_change_from_baseline          -0.914345         1.106836           -0.826           0.409
+L2.parks_percent_change_from_baseline                         -0.400544         0.387722           -1.033           0.302
+L2.retail_and_recreation_percent_change_from_baseline          0.412262         0.639611            0.645           0.519
+L2.workplaces_percent_change_from_baseline                     0.241211         0.945899            0.255           0.799
+L2.residential_percent_change_from_baseline                   -5.596594         4.974618           -1.125           0.261
+L2.transit_stations_percent_change_from_baseline              -0.734020         1.430656           -0.513           0.608
+L3.confirmed_cases                                             0.151214         0.863656            0.175           0.861
+L3.grocery_and_pharmacy_percent_change_from_baseline          -0.589313         1.209443           -0.487           0.626
+L3.parks_percent_change_from_baseline                         -0.032706         0.289749           -0.113           0.910
+L3.retail_and_recreation_percent_change_from_baseline          0.426831         0.567375            0.752           0.452
+L3.workplaces_percent_change_from_baseline                    -1.483028         0.969881           -1.529           0.126
+L3.residential_percent_change_from_baseline                    1.873853         5.588787            0.335           0.737
+L3.transit_stations_percent_change_from_baseline               1.442627         1.248185            1.156           0.248
+L4.confirmed_cases                                             0.408714         0.969460            0.422           0.673
+L4.grocery_and_pharmacy_percent_change_from_baseline           1.651314         1.454841            1.135           0.256
+L4.parks_percent_change_from_baseline                         -0.386493         0.271787           -1.422           0.155
+L4.retail_and_recreation_percent_change_from_baseline         -0.201544         0.643956           -0.313           0.754
+L4.workplaces_percent_change_from_baseline                    -2.096832         1.002085           -2.092           0.036
+L4.residential_percent_change_from_baseline                  -14.447275         8.666687           -1.667           0.096
+L4.transit_stations_percent_change_from_baseline              -0.690338         1.418394           -0.487           0.626
+L5.confirmed_cases                                             0.391236         1.310565            0.299           0.765
+L5.grocery_and_pharmacy_percent_change_from_baseline           0.693625         1.482002            0.468           0.640
+L5.parks_percent_change_from_baseline                         -0.182409         0.284724           -0.641           0.522
+L5.retail_and_recreation_percent_change_from_baseline          0.611299         0.609707            1.003           0.316
+L5.workplaces_percent_change_from_baseline                    -1.645481         1.313242           -1.253           0.210
+L5.residential_percent_change_from_baseline                   -2.305589         8.550160           -0.270           0.787
+L5.transit_stations_percent_change_from_baseline              -0.425121         1.208704           -0.352           0.725
+L6.confirmed_cases                                            -1.138450         1.146608           -0.993           0.321
+L6.grocery_and_pharmacy_percent_change_from_baseline           1.764474         1.772593            0.995           0.320
+L6.parks_percent_change_from_baseline                         -0.364914         0.375800           -0.971           0.332
+L6.retail_and_recreation_percent_change_from_baseline          0.463352         0.601297            0.771           0.441
+L6.workplaces_percent_change_from_baseline                    -2.099173         1.510211           -1.390           0.165
+L6.residential_percent_change_from_baseline                   -9.425773        10.281453           -0.917           0.359
+L6.transit_stations_percent_change_from_baseline              -0.870413         1.384848           -0.629           0.530
+L7.confirmed_cases                                            -1.109924         0.836148           -1.327           0.184
+L7.grocery_and_pharmacy_percent_change_from_baseline           1.429677         1.563614            0.914           0.361
+L7.parks_percent_change_from_baseline                          0.133295         0.248863            0.536           0.592
+L7.retail_and_recreation_percent_change_from_baseline          0.200152         0.725315            0.276           0.783
+L7.workplaces_percent_change_from_baseline                    -1.933450         1.509206           -1.281           0.200
+L7.residential_percent_change_from_baseline                   -7.264325         8.614905           -0.843           0.399
+L7.transit_stations_percent_change_from_baseline              -0.886568         1.707201           -0.519           0.604
+L8.confirmed_cases                                             0.549031         0.401661            1.367           0.172
+L8.grocery_and_pharmacy_percent_change_from_baseline          -1.492985         1.302870           -1.146           0.252
+L8.parks_percent_change_from_baseline                         -0.223900         0.212649           -1.053           0.292
+L8.retail_and_recreation_percent_change_from_baseline          0.537130         0.650083            0.826           0.409
+L8.workplaces_percent_change_from_baseline                    -0.652596         1.543579           -0.423           0.672
+L8.residential_percent_change_from_baseline                   -1.539276         9.646669           -0.160           0.873
+L8.transit_stations_percent_change_from_baseline               2.041318         1.236955            1.650           0.099
+L9.confirmed_cases                                            -0.154076         0.609277           -0.253           0.800
+L9.grocery_and_pharmacy_percent_change_from_baseline           2.037133         1.332983            1.528           0.126
+L9.parks_percent_change_from_baseline                         -0.037127         0.196894           -0.189           0.850
+L9.retail_and_recreation_percent_change_from_baseline         -0.453232         0.591222           -0.767           0.443
+L9.workplaces_percent_change_from_baseline                    -3.906285         1.479970           -2.639           0.008
+L9.residential_percent_change_from_baseline                  -14.890062        10.560982           -1.410           0.159
+L9.transit_stations_percent_change_from_baseline               0.282655         1.408431            0.201           0.841
+L10.confirmed_cases                                            0.752685         0.726741            1.036           0.300
+L10.grocery_and_pharmacy_percent_change_from_baseline         -0.837033         0.896759           -0.933           0.351
+L10.parks_percent_change_from_baseline                        -0.066419         0.242371           -0.274           0.784
+L10.retail_and_recreation_percent_change_from_baseline        -0.198807         0.859371           -0.231           0.817
+L10.workplaces_percent_change_from_baseline                   -0.087092         1.218206           -0.071           0.943
+L10.residential_percent_change_from_baseline                   0.197290         5.493536            0.036           0.971
+L10.transit_stations_percent_change_from_baseline              1.172105         1.312575            0.893           0.372
+L11.confirmed_cases                                           -0.335723         0.341293           -0.984           0.325
+L11.grocery_and_pharmacy_percent_change_from_baseline          0.352320         1.137844            0.310           0.757
+L11.parks_percent_change_from_baseline                        -0.144035         0.232298           -0.620           0.535
+L11.retail_and_recreation_percent_change_from_baseline         0.482715         0.846435            0.570           0.568
+L11.workplaces_percent_change_from_baseline                   -0.624218         1.300132           -0.480           0.631
+L11.residential_percent_change_from_baseline                   4.727854         5.706215            0.829           0.407
+L11.transit_stations_percent_change_from_baseline             -0.133153         1.068435           -0.125           0.901
+=========================================================================================================================
+
+Results for equation workplaces_percent_change_from_baseline
+=========================================================================================================================
+                                                            coefficient       std. error           t-stat            prob
+-------------------------------------------------------------------------------------------------------------------------
+const                                                          0.001157         0.058069            0.020           0.984
+L1.confirmed_cases                                            -0.952266         1.294167           -0.736           0.462
+L1.grocery_and_pharmacy_percent_change_from_baseline          -0.143963         1.234146           -0.117           0.907
+L1.parks_percent_change_from_baseline                         -0.093910         0.417802           -0.225           0.822
+L1.retail_and_recreation_percent_change_from_baseline          0.105620         0.661828            0.160           0.873
+L1.workplaces_percent_change_from_baseline                    -1.638498         0.835655           -1.961           0.050
+L1.residential_percent_change_from_baseline                   -2.593358         5.808132           -0.447           0.655
+L1.transit_stations_percent_change_from_baseline               1.264577         1.036119            1.220           0.222
+L2.confirmed_cases                                            -0.199385         1.021877           -0.195           0.845
+L2.grocery_and_pharmacy_percent_change_from_baseline          -0.761240         1.213572           -0.627           0.530
+L2.parks_percent_change_from_baseline                         -0.439855         0.425111           -1.035           0.301
+L2.retail_and_recreation_percent_change_from_baseline          0.516344         0.701291            0.736           0.462
+L2.workplaces_percent_change_from_baseline                    -0.748536         1.037115           -0.722           0.470
+L2.residential_percent_change_from_baseline                   -4.412650         5.454336           -0.809           0.419
+L2.transit_stations_percent_change_from_baseline               0.000013         1.568618            0.000           1.000
+L3.confirmed_cases                                             0.694137         0.946941            0.733           0.464
+L3.grocery_and_pharmacy_percent_change_from_baseline          -1.333658         1.326073           -1.006           0.315
+L3.parks_percent_change_from_baseline                         -0.230076         0.317691           -0.724           0.469
+L3.retail_and_recreation_percent_change_from_baseline          0.910327         0.622089            1.463           0.143
+L3.workplaces_percent_change_from_baseline                    -2.005875         1.063410           -1.886           0.059
+L3.residential_percent_change_from_baseline                    3.265327         6.127732            0.533           0.594
+L3.transit_stations_percent_change_from_baseline               2.355242         1.368551            1.721           0.085
+L4.confirmed_cases                                             0.919912         1.062949            0.865           0.387
+L4.grocery_and_pharmacy_percent_change_from_baseline           0.815024         1.595136            0.511           0.609
+L4.parks_percent_change_from_baseline                         -0.258728         0.297997           -0.868           0.385
+L4.retail_and_recreation_percent_change_from_baseline         -0.115249         0.706054           -0.163           0.870
+L4.workplaces_percent_change_from_baseline                    -2.066116         1.098719           -1.880           0.060
+L4.residential_percent_change_from_baseline                  -10.666735         9.502443           -1.123           0.262
+L4.transit_stations_percent_change_from_baseline               0.345919         1.555175            0.222           0.824
+L5.confirmed_cases                                             0.537207         1.436947            0.374           0.709
+L5.grocery_and_pharmacy_percent_change_from_baseline          -0.818779         1.624917           -0.504           0.614
+L5.parks_percent_change_from_baseline                          0.041650         0.312181            0.133           0.894
+L5.retail_and_recreation_percent_change_from_baseline          0.965074         0.668503            1.444           0.149
+L5.workplaces_percent_change_from_baseline                    -1.751283         1.439882           -1.216           0.224
+L5.residential_percent_change_from_baseline                    0.686884         9.374680            0.073           0.942
+L5.transit_stations_percent_change_from_baseline               1.048397         1.325263            0.791           0.429
+L6.confirmed_cases                                            -0.461356         1.257179           -0.367           0.714
+L6.grocery_and_pharmacy_percent_change_from_baseline           0.246232         1.943530            0.127           0.899
+L6.parks_percent_change_from_baseline                         -0.024545         0.412040           -0.060           0.952
+L6.retail_and_recreation_percent_change_from_baseline          0.215958         0.659282            0.328           0.743
+L6.workplaces_percent_change_from_baseline                    -2.402061         1.655845           -1.451           0.147
+L6.residential_percent_change_from_baseline                   -5.052601        11.272927           -0.448           0.654
+L6.transit_stations_percent_change_from_baseline               1.346682         1.518393            0.887           0.375
+L7.confirmed_cases                                            -0.001860         0.916781           -0.002           0.998
+L7.grocery_and_pharmacy_percent_change_from_baseline           0.905870         1.714398            0.528           0.597
+L7.parks_percent_change_from_baseline                          0.130236         0.272862            0.477           0.633
+L7.retail_and_recreation_percent_change_from_baseline          0.119461         0.795260            0.150           0.881
+L7.workplaces_percent_change_from_baseline                    -1.463393         1.654744           -0.884           0.377
+L7.residential_percent_change_from_baseline                    1.719553         9.445668            0.182           0.856
+L7.transit_stations_percent_change_from_baseline              -0.073592         1.871832           -0.039           0.969
+L8.confirmed_cases                                             0.601757         0.440395            1.366           0.172
+L8.grocery_and_pharmacy_percent_change_from_baseline          -1.744349         1.428510           -1.221           0.222
+L8.parks_percent_change_from_baseline                         -0.182784         0.233155           -0.784           0.433
+L8.retail_and_recreation_percent_change_from_baseline          0.280281         0.712773            0.393           0.694
+L8.workplaces_percent_change_from_baseline                    -0.404707         1.692432           -0.239           0.811
+L8.residential_percent_change_from_baseline                    6.891757        10.576929            0.652           0.515
+L8.transit_stations_percent_change_from_baseline               2.831436         1.356238            2.088           0.037
+L9.confirmed_cases                                            -0.575491         0.668032           -0.861           0.389
+L9.grocery_and_pharmacy_percent_change_from_baseline           1.016127         1.461526            0.695           0.487
+L9.parks_percent_change_from_baseline                         -0.038144         0.215881           -0.177           0.860
+L9.retail_and_recreation_percent_change_from_baseline         -0.563411         0.648235           -0.869           0.385
+L9.workplaces_percent_change_from_baseline                    -2.641586         1.622689           -1.628           0.104
+L9.residential_percent_change_from_baseline                   -3.898747        11.579412           -0.337           0.736
+L9.transit_stations_percent_change_from_baseline               1.519554         1.544251            0.984           0.325
+L10.confirmed_cases                                            0.298218         0.796823            0.374           0.708
+L10.grocery_and_pharmacy_percent_change_from_baseline         -1.315131         0.983237           -1.338           0.181
+L10.parks_percent_change_from_baseline                        -0.132802         0.265744           -0.500           0.617
+L10.retail_and_recreation_percent_change_from_baseline         0.039872         0.942243            0.042           0.966
+L10.workplaces_percent_change_from_baseline                    0.236595         1.335682            0.177           0.859
+L10.residential_percent_change_from_baseline                   0.716714         6.023296            0.119           0.905
+L10.transit_stations_percent_change_from_baseline              1.362555         1.439151            0.947           0.344
+L11.confirmed_cases                                           -0.273012         0.374205           -0.730           0.466
+L11.grocery_and_pharmacy_percent_change_from_baseline         -0.047764         1.247570           -0.038           0.969
+L11.parks_percent_change_from_baseline                        -0.251587         0.254699           -0.988           0.323
+L11.retail_and_recreation_percent_change_from_baseline         0.544598         0.928060            0.587           0.557
+L11.workplaces_percent_change_from_baseline                   -0.277487         1.425508           -0.195           0.846
+L11.residential_percent_change_from_baseline                   6.170890         6.256484            0.986           0.324
+L11.transit_stations_percent_change_from_baseline              0.387621         1.171468            0.331           0.741
+=========================================================================================================================
+
+Results for equation residential_percent_change_from_baseline
+=========================================================================================================================
+                                                            coefficient       std. error           t-stat            prob
+-------------------------------------------------------------------------------------------------------------------------
+const                                                         -0.003297         0.004084           -0.807           0.420
+L1.confirmed_cases                                             0.088798         0.091017            0.976           0.329
+L1.grocery_and_pharmacy_percent_change_from_baseline           0.084342         0.086796            0.972           0.331
+L1.parks_percent_change_from_baseline                          0.038463         0.029384            1.309           0.191
+L1.retail_and_recreation_percent_change_from_baseline          0.048668         0.046546            1.046           0.296
+L1.workplaces_percent_change_from_baseline                     0.077418         0.058771            1.317           0.188
+L1.residential_percent_change_from_baseline                   -0.444765         0.408480           -1.089           0.276
+L1.transit_stations_percent_change_from_baseline              -0.236691         0.072869           -3.248           0.001
+L2.confirmed_cases                                             0.102892         0.071867            1.432           0.152
+L2.grocery_and_pharmacy_percent_change_from_baseline           0.230047         0.085349            2.695           0.007
+L2.parks_percent_change_from_baseline                          0.086173         0.029898            2.882           0.004
+L2.retail_and_recreation_percent_change_from_baseline         -0.019606         0.049321           -0.398           0.691
+L2.workplaces_percent_change_from_baseline                     0.027629         0.072939            0.379           0.705
+L2.residential_percent_change_from_baseline                    0.243362         0.383598            0.634           0.526
+L2.transit_stations_percent_change_from_baseline              -0.166885         0.110319           -1.513           0.130
+L3.confirmed_cases                                            -0.038586         0.066597           -0.579           0.562
+L3.grocery_and_pharmacy_percent_change_from_baseline           0.191551         0.093261            2.054           0.040
+L3.parks_percent_change_from_baseline                          0.025414         0.022343            1.137           0.255
+L3.retail_and_recreation_percent_change_from_baseline         -0.032219         0.043751           -0.736           0.461
+L3.workplaces_percent_change_from_baseline                     0.194015         0.074788            2.594           0.009
+L3.residential_percent_change_from_baseline                    0.068114         0.430957            0.158           0.874
+L3.transit_stations_percent_change_from_baseline              -0.277036         0.096249           -2.878           0.004
+L4.confirmed_cases                                            -0.146954         0.074756           -1.966           0.049
+L4.grocery_and_pharmacy_percent_change_from_baseline          -0.091403         0.112184           -0.815           0.415
+L4.parks_percent_change_from_baseline                          0.043438         0.020958            2.073           0.038
+L4.retail_and_recreation_percent_change_from_baseline         -0.010998         0.049656           -0.221           0.825
+L4.workplaces_percent_change_from_baseline                     0.271705         0.077272            3.516           0.000
+L4.residential_percent_change_from_baseline                    1.144956         0.668297            1.713           0.087
+L4.transit_stations_percent_change_from_baseline              -0.041093         0.109374           -0.376           0.707
+L5.confirmed_cases                                             0.018586         0.101059            0.184           0.854
+L5.grocery_and_pharmacy_percent_change_from_baseline           0.075253         0.114279            0.659           0.510
+L5.parks_percent_change_from_baseline                          0.021382         0.021955            0.974           0.330
+L5.retail_and_recreation_percent_change_from_baseline         -0.156189         0.047015           -3.322           0.001
+L5.workplaces_percent_change_from_baseline                     0.202357         0.101265            1.998           0.046
+L5.residential_percent_change_from_baseline                   -0.157829         0.659311           -0.239           0.811
+L5.transit_stations_percent_change_from_baseline              -0.051250         0.093204           -0.550           0.582
+L6.confirmed_cases                                             0.119306         0.088416            1.349           0.177
+L6.grocery_and_pharmacy_percent_change_from_baseline          -0.032952         0.136686           -0.241           0.809
+L6.parks_percent_change_from_baseline                         -0.005742         0.028978           -0.198           0.843
+L6.retail_and_recreation_percent_change_from_baseline         -0.055904         0.046367           -1.206           0.228
+L6.workplaces_percent_change_from_baseline                     0.268660         0.116454            2.307           0.021
+L6.residential_percent_change_from_baseline                    0.551246         0.792813            0.695           0.487
+L6.transit_stations_percent_change_from_baseline              -0.077599         0.106787           -0.727           0.467
+L7.confirmed_cases                                             0.015070         0.064476            0.234           0.815
+L7.grocery_and_pharmacy_percent_change_from_baseline          -0.051716         0.120572           -0.429           0.668
+L7.parks_percent_change_from_baseline                         -0.011366         0.019190           -0.592           0.554
+L7.retail_and_recreation_percent_change_from_baseline         -0.061254         0.055930           -1.095           0.273
+L7.workplaces_percent_change_from_baseline                     0.246598         0.116376            2.119           0.034
+L7.residential_percent_change_from_baseline                    0.824977         0.664304            1.242           0.214
+L7.transit_stations_percent_change_from_baseline               0.023173         0.131644            0.176           0.860
+L8.confirmed_cases                                            -0.125517         0.030972           -4.053           0.000
+L8.grocery_and_pharmacy_percent_change_from_baseline           0.237415         0.100466            2.363           0.018
+L8.parks_percent_change_from_baseline                          0.019999         0.016398            1.220           0.223
+L8.retail_and_recreation_percent_change_from_baseline         -0.075468         0.050129           -1.505           0.132
+L8.workplaces_percent_change_from_baseline                     0.191283         0.119027            1.607           0.108
+L8.residential_percent_change_from_baseline                   -0.092701         0.743864           -0.125           0.901
+L8.transit_stations_percent_change_from_baseline              -0.362384         0.095383           -3.799           0.000
+L9.confirmed_cases                                            -0.027704         0.046982           -0.590           0.555
+L9.grocery_and_pharmacy_percent_change_from_baseline          -0.093364         0.102788           -0.908           0.364
+L9.parks_percent_change_from_baseline                          0.001950         0.015183            0.128           0.898
+L9.retail_and_recreation_percent_change_from_baseline          0.038304         0.045590            0.840           0.401
+L9.workplaces_percent_change_from_baseline                     0.414306         0.114122            3.630           0.000
+L9.residential_percent_change_from_baseline                    0.610722         0.814368            0.750           0.453
+L9.transit_stations_percent_change_from_baseline              -0.234304         0.108605           -2.157           0.031
+L10.confirmed_cases                                           -0.008288         0.056040           -0.148           0.882
+L10.grocery_and_pharmacy_percent_change_from_baseline          0.140854         0.069150            2.037           0.042
+L10.parks_percent_change_from_baseline                         0.030404         0.018689            1.627           0.104
+L10.retail_and_recreation_percent_change_from_baseline        -0.097222         0.066267           -1.467           0.142
+L10.workplaces_percent_change_from_baseline                    0.068985         0.093937            0.734           0.463
+L10.residential_percent_change_from_baseline                  -0.364753         0.423612           -0.861           0.389
+L10.transit_stations_percent_change_from_baseline             -0.145412         0.101214           -1.437           0.151
+L11.confirmed_cases                                            0.006825         0.026317            0.259           0.795
+L11.grocery_and_pharmacy_percent_change_from_baseline          0.093946         0.087740            1.071           0.284
+L11.parks_percent_change_from_baseline                         0.042097         0.017913            2.350           0.019
+L11.retail_and_recreation_percent_change_from_baseline        -0.153187         0.065269           -2.347           0.019
+L11.workplaces_percent_change_from_baseline                   -0.027037         0.100254           -0.270           0.787
+L11.residential_percent_change_from_baseline                  -1.185088         0.440012           -2.693           0.007
+L11.transit_stations_percent_change_from_baseline             -0.031049         0.082388           -0.377           0.706
+=========================================================================================================================
+
+Results for equation transit_stations_percent_change_from_baseline
+=========================================================================================================================
+                                                            coefficient       std. error           t-stat            prob
+-------------------------------------------------------------------------------------------------------------------------
+const                                                         -0.004836         0.056279           -0.086           0.932
+L1.confirmed_cases                                            -1.156376         1.254264           -0.922           0.357
+L1.grocery_and_pharmacy_percent_change_from_baseline          -0.019566         1.196093           -0.016           0.987
+L1.parks_percent_change_from_baseline                          0.235146         0.404920            0.581           0.561
+L1.retail_and_recreation_percent_change_from_baseline          0.022646         0.641421            0.035           0.972
+L1.workplaces_percent_change_from_baseline                    -1.074832         0.809889           -1.327           0.184
+L1.residential_percent_change_from_baseline                   -3.523982         5.629049           -0.626           0.531
+L1.transit_stations_percent_change_from_baseline               0.516608         1.004172            0.514           0.607
+L2.confirmed_cases                                             0.323402         0.990369            0.327           0.744
+L2.grocery_and_pharmacy_percent_change_from_baseline          -0.806488         1.176153           -0.686           0.493
+L2.parks_percent_change_from_baseline                         -0.449345         0.412004           -1.091           0.275
+L2.retail_and_recreation_percent_change_from_baseline          0.829267         0.679668            1.220           0.222
+L2.workplaces_percent_change_from_baseline                    -0.492171         1.005137           -0.490           0.624
+L2.residential_percent_change_from_baseline                   -7.269635         5.286161           -1.375           0.169
+L2.transit_stations_percent_change_from_baseline              -0.569839         1.520253           -0.375           0.708
+L3.confirmed_cases                                             0.810900         0.917744            0.884           0.377
+L3.grocery_and_pharmacy_percent_change_from_baseline          -1.224550         1.285186           -0.953           0.341
+L3.parks_percent_change_from_baseline                         -0.122647         0.307895           -0.398           0.690
+L3.retail_and_recreation_percent_change_from_baseline          0.685077         0.602908            1.136           0.256
+L3.workplaces_percent_change_from_baseline                    -1.831407         1.030621           -1.777           0.076
+L3.residential_percent_change_from_baseline                    1.910946         5.938794            0.322           0.748
+L3.transit_stations_percent_change_from_baseline               2.265619         1.326355            1.708           0.088
+L4.confirmed_cases                                             0.838850         1.030174            0.814           0.415
+L4.grocery_and_pharmacy_percent_change_from_baseline           0.796769         1.545953            0.515           0.606
+L4.parks_percent_change_from_baseline                         -0.239660         0.288808           -0.830           0.407
+L4.retail_and_recreation_percent_change_from_baseline         -0.203522         0.684284           -0.297           0.766
+L4.workplaces_percent_change_from_baseline                    -1.513901         1.064842           -1.422           0.155
+L4.residential_percent_change_from_baseline                   -8.890874         9.209452           -0.965           0.334
+L4.transit_stations_percent_change_from_baseline               0.067716         1.507223            0.045           0.964
+L5.confirmed_cases                                             1.103979         1.392641            0.793           0.428
+L5.grocery_and_pharmacy_percent_change_from_baseline          -1.388572         1.574815           -0.882           0.378
+L5.parks_percent_change_from_baseline                          0.050936         0.302555            0.168           0.866
+L5.retail_and_recreation_percent_change_from_baseline          1.166063         0.647891            1.800           0.072
+L5.workplaces_percent_change_from_baseline                    -0.914049         1.395486           -0.655           0.512
+L5.residential_percent_change_from_baseline                    5.034098         9.085628            0.554           0.580
+L5.transit_stations_percent_change_from_baseline               1.139010         1.284401            0.887           0.375
+L6.confirmed_cases                                            -0.458250         1.218416           -0.376           0.707
+L6.grocery_and_pharmacy_percent_change_from_baseline           0.085335         1.883605            0.045           0.964
+L6.parks_percent_change_from_baseline                          0.032926         0.399335            0.082           0.934
+L6.retail_and_recreation_percent_change_from_baseline          0.062584         0.638954            0.098           0.922
+L6.workplaces_percent_change_from_baseline                    -1.406308         1.604790           -0.876           0.381
+L6.residential_percent_change_from_baseline                   -0.550132        10.925346           -0.050           0.960
+L6.transit_stations_percent_change_from_baseline               1.274318         1.471576            0.866           0.387
+L7.confirmed_cases                                            -0.766901         0.888514           -0.863           0.388
+L7.grocery_and_pharmacy_percent_change_from_baseline           0.165427         1.661538            0.100           0.921
+L7.parks_percent_change_from_baseline                          0.362740         0.264449            1.372           0.170
+L7.retail_and_recreation_percent_change_from_baseline          0.183746         0.770739            0.238           0.812
+L7.workplaces_percent_change_from_baseline                    -1.040931         1.603722           -0.649           0.516
+L7.residential_percent_change_from_baseline                    5.066850         9.154427            0.553           0.580
+L7.transit_stations_percent_change_from_baseline               0.474871         1.814118            0.262           0.794
+L8.confirmed_cases                                             0.552567         0.426816            1.295           0.195
+L8.grocery_and_pharmacy_percent_change_from_baseline          -1.605465         1.384464           -1.160           0.246
+L8.parks_percent_change_from_baseline                         -0.191280         0.225966           -0.846           0.397
+L8.retail_and_recreation_percent_change_from_baseline         -0.082563         0.690796           -0.120           0.905
+L8.workplaces_percent_change_from_baseline                     0.057340         1.640248            0.035           0.972
+L8.residential_percent_change_from_baseline                    9.786047        10.250808            0.955           0.340
+L8.transit_stations_percent_change_from_baseline               2.829829         1.314421            2.153           0.031
+L9.confirmed_cases                                            -0.735823         0.647434           -1.137           0.256
+L9.grocery_and_pharmacy_percent_change_from_baseline           0.770176         1.416463            0.544           0.587
+L9.parks_percent_change_from_baseline                          0.099175         0.209224            0.474           0.635
+L9.retail_and_recreation_percent_change_from_baseline         -0.664980         0.628248           -1.058           0.290
+L9.workplaces_percent_change_from_baseline                    -1.706508         1.572656           -1.085           0.278
+L9.residential_percent_change_from_baseline                    0.537575        11.222381            0.048           0.962
+L9.transit_stations_percent_change_from_baseline               1.154255         1.496636            0.771           0.441
+L10.confirmed_cases                                            0.435917         0.772254            0.564           0.572
+L10.grocery_and_pharmacy_percent_change_from_baseline         -1.217969         0.952920           -1.278           0.201
+L10.parks_percent_change_from_baseline                        -0.049731         0.257550           -0.193           0.847
+L10.retail_and_recreation_percent_change_from_baseline        -0.576904         0.913190           -0.632           0.528
+L10.workplaces_percent_change_from_baseline                    0.620075         1.294498            0.479           0.632
+L10.residential_percent_change_from_baseline                   3.351624         5.837578            0.574           0.566
+L10.transit_stations_percent_change_from_baseline              1.731842         1.394777            1.242           0.214
+L11.confirmed_cases                                           -0.430751         0.362667           -1.188           0.235
+L11.grocery_and_pharmacy_percent_change_from_baseline         -0.626123         1.209104           -0.518           0.605
+L11.parks_percent_change_from_baseline                        -0.350825         0.246846           -1.421           0.155
+L11.retail_and_recreation_percent_change_from_baseline         1.022850         0.899445            1.137           0.255
+L11.workplaces_percent_change_from_baseline                   -0.073839         1.381555           -0.053           0.957
+L11.residential_percent_change_from_baseline                   5.565847         6.063576            0.918           0.359
+L11.transit_stations_percent_change_from_baseline              0.416789         1.135348            0.367           0.714
+=========================================================================================================================
+
+Correlation matrix of residuals
+                                                      confirmed_cases  grocery_and_pharmacy_percent_change_from_baseline  parks_percent_change_from_baseline  retail_and_recreation_percent_change_from_baseline  workplaces_percent_change_from_baseline  residential_percent_change_from_baseline  transit_stations_percent_change_from_baseline
+confirmed_cases                                              1.000000                                           0.073893                            0.461044                                            0.118760                                 0.049885                                 -0.250288                                       0.148881
+grocery_and_pharmacy_percent_change_from_baseline            0.073893                                           1.000000                            0.369399                                            0.951589                                 0.914994                                 -0.606638                                       0.975053
+parks_percent_change_from_baseline                           0.461044                                           0.369399                            1.000000                                            0.530035                                 0.294602                                 -0.240910                                       0.544121
+retail_and_recreation_percent_change_from_baseline           0.118760                                           0.951589                            0.530035                                            1.000000                                 0.884795                                 -0.602421                                       0.956660
+workplaces_percent_change_from_baseline                      0.049885                                           0.914994                            0.294602                                            0.884795                                 1.000000                                 -0.779683                                       0.888273
+residential_percent_change_from_baseline                    -0.250288                                          -0.606638                           -0.240910                                           -0.602421                                -0.779683                                  1.000000                                      -0.627012
+transit_stations_percent_change_from_baseline                0.148881                                           0.975053                            0.544121                                            0.956660                                 0.888273                                 -0.627012                                       1.000000

@@ -1,0 +1,458 @@
+  Summary of Regression Results   
+==================================
+Model:                         VAR
+Method:                        OLS
+Date:           Thu, 30, Jul, 2020
+Time:                     14:40:11
+--------------------------------------------------------------------
+No. of Equations:         6.00000    BIC:                   -21.3562
+Nobs:                     85.0000    HQIC:                  -28.2618
+Log likelihood:           1076.95    FPE:                1.44391e-13
+AIC:                     -32.9085    Det(Omega_mle):     4.41561e-15
+--------------------------------------------------------------------
+Results for equation confirmed_cases
+=========================================================================================================================
+                                                            coefficient       std. error           t-stat            prob
+-------------------------------------------------------------------------------------------------------------------------
+const                                                          0.000379         0.011390            0.033           0.973
+L1.confirmed_cases                                             0.091141         0.229200            0.398           0.691
+L1.driving                                                     0.006637         0.143692            0.046           0.963
+L1.walking                                                     0.014211         0.134519            0.106           0.916
+L1.retail_and_recreation_percent_change_from_baseline         -0.040859         0.090339           -0.452           0.651
+L1.workplaces_percent_change_from_baseline                    -0.130714         0.116243           -1.124           0.261
+L1.residential_percent_change_from_baseline                   -0.618737         1.093897           -0.566           0.572
+L2.confirmed_cases                                            -0.070548         0.226307           -0.312           0.755
+L2.driving                                                    -0.248482         0.138749           -1.791           0.073
+L2.walking                                                     0.180351         0.157943            1.142           0.254
+L2.retail_and_recreation_percent_change_from_baseline          0.033239         0.096991            0.343           0.732
+L2.workplaces_percent_change_from_baseline                    -0.021301         0.116087           -0.183           0.854
+L2.residential_percent_change_from_baseline                   -0.364596         1.142575           -0.319           0.750
+L3.confirmed_cases                                             0.095093         0.145996            0.651           0.515
+L3.driving                                                    -0.194773         0.145855           -1.335           0.182
+L3.walking                                                     0.070543         0.143510            0.492           0.623
+L3.retail_and_recreation_percent_change_from_baseline          0.036886         0.099482            0.371           0.711
+L3.workplaces_percent_change_from_baseline                    -0.065293         0.107723           -0.606           0.544
+L3.residential_percent_change_from_baseline                   -1.166788         1.345636           -0.867           0.386
+L4.confirmed_cases                                             0.716903         0.144467            4.962           0.000
+L4.driving                                                    -0.208497         0.167652           -1.244           0.214
+L4.walking                                                     0.234391         0.171959            1.363           0.173
+L4.retail_and_recreation_percent_change_from_baseline         -0.005698         0.123632           -0.046           0.963
+L4.workplaces_percent_change_from_baseline                    -0.047655         0.130414           -0.365           0.715
+L4.residential_percent_change_from_baseline                   -1.008961         1.746399           -0.578           0.563
+L5.confirmed_cases                                             0.207264         0.229593            0.903           0.367
+L5.driving                                                    -0.214732         0.186171           -1.153           0.249
+L5.walking                                                     0.165109         0.195579            0.844           0.399
+L5.retail_and_recreation_percent_change_from_baseline          0.078110         0.107722            0.725           0.468
+L5.workplaces_percent_change_from_baseline                    -0.229728         0.139308           -1.649           0.099
+L5.residential_percent_change_from_baseline                   -1.726650         1.816934           -0.950           0.342
+L6.confirmed_cases                                             0.065731         0.193780            0.339           0.734
+L6.driving                                                     0.194676         0.164576            1.183           0.237
+L6.walking                                                    -0.031758         0.172140           -0.184           0.854
+L6.retail_and_recreation_percent_change_from_baseline         -0.020701         0.114418           -0.181           0.856
+L6.workplaces_percent_change_from_baseline                    -0.104363         0.142636           -0.732           0.464
+L6.residential_percent_change_from_baseline                    0.374990         1.663622            0.225           0.822
+L7.confirmed_cases                                            -0.027389         0.167940           -0.163           0.870
+L7.driving                                                    -0.004821         0.166374           -0.029           0.977
+L7.walking                                                     0.037091         0.171741            0.216           0.829
+L7.retail_and_recreation_percent_change_from_baseline          0.057045         0.101245            0.563           0.573
+L7.workplaces_percent_change_from_baseline                    -0.046554         0.144840           -0.321           0.748
+L7.residential_percent_change_from_baseline                    0.911514         1.601950            0.569           0.569
+L8.confirmed_cases                                            -0.142924         0.094672           -1.510           0.131
+L8.driving                                                     0.057380         0.201988            0.284           0.776
+L8.walking                                                    -0.072507         0.189271           -0.383           0.702
+L8.retail_and_recreation_percent_change_from_baseline         -0.003144         0.126154           -0.025           0.980
+L8.workplaces_percent_change_from_baseline                     0.146902         0.146427            1.003           0.316
+L8.residential_percent_change_from_baseline                    2.097055         1.593932            1.316           0.188
+L9.confirmed_cases                                             0.181658         0.081252            2.236           0.025
+L9.driving                                                    -0.190546         0.218363           -0.873           0.383
+L9.walking                                                     0.276072         0.174918            1.578           0.114
+L9.retail_and_recreation_percent_change_from_baseline         -0.070355         0.141915           -0.496           0.620
+L9.workplaces_percent_change_from_baseline                     0.104915         0.137490            0.763           0.445
+L9.residential_percent_change_from_baseline                    0.061743         1.163432            0.053           0.958
+L10.confirmed_cases                                           -0.280340         0.107513           -2.608           0.009
+L10.driving                                                   -0.165437         0.183017           -0.904           0.366
+L10.walking                                                    0.125775         0.154577            0.814           0.416
+L10.retail_and_recreation_percent_change_from_baseline         0.032276         0.111867            0.289           0.773
+L10.workplaces_percent_change_from_baseline                    0.028864         0.129806            0.222           0.824
+L10.residential_percent_change_from_baseline                  -0.272000         1.055052           -0.258           0.797
+L11.confirmed_cases                                            0.166036         0.079083            2.100           0.036
+L11.driving                                                   -0.148243         0.132990           -1.115           0.265
+L11.walking                                                    0.158185         0.131835            1.200           0.230
+L11.retail_and_recreation_percent_change_from_baseline        -0.050580         0.103058           -0.491           0.624
+L11.workplaces_percent_change_from_baseline                   -0.010040         0.107141           -0.094           0.925
+L11.residential_percent_change_from_baseline                  -0.725102         0.899107           -0.806           0.420
+=========================================================================================================================
+
+Results for equation driving
+=========================================================================================================================
+                                                            coefficient       std. error           t-stat            prob
+-------------------------------------------------------------------------------------------------------------------------
+const                                                          0.047823         0.039866            1.200           0.230
+L1.confirmed_cases                                             0.358602         0.802235            0.447           0.655
+L1.driving                                                    -1.006713         0.502945           -2.002           0.045
+L1.walking                                                     0.911621         0.470836            1.936           0.053
+L1.retail_and_recreation_percent_change_from_baseline          0.247092         0.316200            0.781           0.435
+L1.workplaces_percent_change_from_baseline                     0.160512         0.406869            0.395           0.693
+L1.residential_percent_change_from_baseline                    3.182425         3.828808            0.831           0.406
+L2.confirmed_cases                                             0.497133         0.792109            0.628           0.530
+L2.driving                                                    -0.106966         0.485642           -0.220           0.826
+L2.walking                                                     0.112801         0.552826            0.204           0.838
+L2.retail_and_recreation_percent_change_from_baseline          0.289366         0.339483            0.852           0.394
+L2.workplaces_percent_change_from_baseline                    -0.504744         0.406322           -1.242           0.214
+L2.residential_percent_change_from_baseline                   -6.130945         3.999188           -1.533           0.125
+L3.confirmed_cases                                            -0.577323         0.511009           -1.130           0.259
+L3.driving                                                     0.094026         0.510513            0.184           0.854
+L3.walking                                                     0.175484         0.502308            0.349           0.727
+L3.retail_and_recreation_percent_change_from_baseline          0.022917         0.348202            0.066           0.948
+L3.workplaces_percent_change_from_baseline                    -0.113831         0.377047           -0.302           0.763
+L3.residential_percent_change_from_baseline                    2.668891         4.709932            0.567           0.571
+L4.confirmed_cases                                             0.543040         0.505657            1.074           0.283
+L4.driving                                                    -0.992205         0.586809           -1.691           0.091
+L4.walking                                                     1.160160         0.601883            1.928           0.054
+L4.retail_and_recreation_percent_change_from_baseline         -0.683409         0.432730           -1.579           0.114
+L4.workplaces_percent_change_from_baseline                     0.541632         0.456470            1.187           0.235
+L4.residential_percent_change_from_baseline                    2.425590         6.112663            0.397           0.692
+L5.confirmed_cases                                             1.177949         0.803610            1.466           0.143
+L5.driving                                                     0.966331         0.651627            1.483           0.138
+L5.walking                                                    -0.530262         0.684555           -0.775           0.439
+L5.retail_and_recreation_percent_change_from_baseline         -0.269943         0.377045           -0.716           0.474
+L5.workplaces_percent_change_from_baseline                     0.293409         0.487599            0.602           0.547
+L5.residential_percent_change_from_baseline                    4.915278         6.359549            0.773           0.440
+L6.confirmed_cases                                            -0.870341         0.678258           -1.283           0.199
+L6.driving                                                     0.449827         0.576042            0.781           0.435
+L6.walking                                                    -0.484185         0.602516           -0.804           0.422
+L6.retail_and_recreation_percent_change_from_baseline         -0.166942         0.400482           -0.417           0.677
+L6.workplaces_percent_change_from_baseline                    -0.476867         0.499248           -0.955           0.339
+L6.residential_percent_change_from_baseline                   -3.480638         5.822934           -0.598           0.550
+L7.confirmed_cases                                            -1.580400         0.587814           -2.689           0.007
+L7.driving                                                     0.064833         0.582335            0.111           0.911
+L7.walking                                                     0.444802         0.601121            0.740           0.459
+L7.retail_and_recreation_percent_change_from_baseline         -0.000036         0.354375           -0.000           1.000
+L7.workplaces_percent_change_from_baseline                    -0.145909         0.506961           -0.288           0.773
+L7.residential_percent_change_from_baseline                    6.327194         5.607071            1.128           0.259
+L8.confirmed_cases                                            -0.535875         0.331365           -1.617           0.106
+L8.driving                                                    -0.591142         0.706988           -0.836           0.403
+L8.walking                                                     0.367624         0.662477            0.555           0.579
+L8.retail_and_recreation_percent_change_from_baseline          0.105467         0.441557            0.239           0.811
+L8.workplaces_percent_change_from_baseline                     0.389325         0.512519            0.760           0.447
+L8.residential_percent_change_from_baseline                    4.230243         5.579005            0.758           0.448
+L9.confirmed_cases                                             0.121007         0.284393            0.425           0.670
+L9.driving                                                    -1.103449         0.764304           -1.444           0.149
+L9.walking                                                     0.481152         0.612240            0.786           0.432
+L9.retail_and_recreation_percent_change_from_baseline          0.672984         0.496723            1.355           0.175
+L9.workplaces_percent_change_from_baseline                    -0.692752         0.481235           -1.440           0.150
+L9.residential_percent_change_from_baseline                   -3.494763         4.072191           -0.858           0.391
+L10.confirmed_cases                                            0.601583         0.376311            1.599           0.110
+L10.driving                                                   -0.919756         0.640587           -1.436           0.151
+L10.walking                                                    0.858526         0.541043            1.587           0.113
+L10.retail_and_recreation_percent_change_from_baseline        -0.076873         0.391550           -0.196           0.844
+L10.workplaces_percent_change_from_baseline                   -0.603733         0.454340           -1.329           0.184
+L10.residential_percent_change_from_baseline                  -7.078774         3.692843           -1.917           0.055
+L11.confirmed_cases                                           -0.316983         0.276804           -1.145           0.252
+L11.driving                                                    0.637826         0.465487            1.370           0.171
+L11.walking                                                    0.186635         0.461442            0.404           0.686
+L11.retail_and_recreation_percent_change_from_baseline        -0.314909         0.360719           -0.873           0.383
+L11.workplaces_percent_change_from_baseline                   -0.020337         0.375010           -0.054           0.957
+L11.residential_percent_change_from_baseline                   3.652529         3.147013            1.161           0.246
+=========================================================================================================================
+
+Results for equation walking
+=========================================================================================================================
+                                                            coefficient       std. error           t-stat            prob
+-------------------------------------------------------------------------------------------------------------------------
+const                                                          0.056388         0.042148            1.338           0.181
+L1.confirmed_cases                                             0.080998         0.848161            0.095           0.924
+L1.driving                                                    -0.660962         0.531737           -1.243           0.214
+L1.walking                                                     0.389945         0.497790            0.783           0.433
+L1.retail_and_recreation_percent_change_from_baseline         -0.058685         0.334302           -0.176           0.861
+L1.workplaces_percent_change_from_baseline                     0.371523         0.430161            0.864           0.388
+L1.residential_percent_change_from_baseline                    1.660602         4.047999            0.410           0.682
+L2.confirmed_cases                                             0.455673         0.837456            0.544           0.586
+L2.driving                                                     0.337645         0.513444            0.658           0.511
+L2.walking                                                    -0.446618         0.584474           -0.764           0.445
+L2.retail_and_recreation_percent_change_from_baseline          0.001260         0.358917            0.004           0.997
+L2.workplaces_percent_change_from_baseline                    -0.463768         0.429583           -1.080           0.280
+L2.residential_percent_change_from_baseline                   -8.589420         4.228133           -2.031           0.042
+L3.confirmed_cases                                            -0.419904         0.540263           -0.777           0.437
+L3.driving                                                     0.607144         0.539739            1.125           0.261
+L3.walking                                                    -0.325787         0.531064           -0.613           0.540
+L3.retail_and_recreation_percent_change_from_baseline         -0.349690         0.368136           -0.950           0.342
+L3.workplaces_percent_change_from_baseline                    -0.359701         0.398632           -0.902           0.367
+L3.residential_percent_change_from_baseline                   -3.783704         4.979565           -0.760           0.447
+L4.confirmed_cases                                             0.275323         0.534605            0.515           0.607
+L4.driving                                                    -0.535033         0.620403           -0.862           0.388
+L4.walking                                                     0.455413         0.636339            0.716           0.474
+L4.retail_and_recreation_percent_change_from_baseline         -0.517963         0.457503           -1.132           0.258
+L4.workplaces_percent_change_from_baseline                     0.119138         0.482602            0.247           0.805
+L4.residential_percent_change_from_baseline                   -1.690807         6.462599           -0.262           0.794
+L5.confirmed_cases                                             0.953093         0.849615            1.122           0.262
+L5.driving                                                     1.408221         0.688931            2.044           0.041
+L5.walking                                                    -1.053966         0.723744           -1.456           0.145
+L5.retail_and_recreation_percent_change_from_baseline         -0.276742         0.398630           -0.694           0.488
+L5.workplaces_percent_change_from_baseline                    -0.013789         0.515513           -0.027           0.979
+L5.residential_percent_change_from_baseline                    1.588264         6.723619            0.236           0.813
+L6.confirmed_cases                                            -0.844646         0.717087           -1.178           0.239
+L6.driving                                                     0.724921         0.609019            1.190           0.234
+L6.walking                                                    -0.815956         0.637009           -1.281           0.200
+L6.retail_and_recreation_percent_change_from_baseline         -0.236073         0.423408           -0.558           0.577
+L6.workplaces_percent_change_from_baseline                    -0.442760         0.527828           -0.839           0.402
+L6.residential_percent_change_from_baseline                   -4.158118         6.156284           -0.675           0.499
+L7.confirmed_cases                                            -1.617228         0.621465           -2.602           0.009
+L7.driving                                                     0.367889         0.615673            0.598           0.550
+L7.walking                                                     0.007303         0.635534            0.011           0.991
+L7.retail_and_recreation_percent_change_from_baseline         -0.294792         0.374662           -0.787           0.431
+L7.workplaces_percent_change_from_baseline                    -0.406553         0.535983           -0.759           0.448
+L7.residential_percent_change_from_baseline                    0.643544         5.928064            0.109           0.914
+L8.confirmed_cases                                            -0.300351         0.350335           -0.857           0.391
+L8.driving                                                    -0.306882         0.747461           -0.411           0.681
+L8.walking                                                     0.188745         0.700402            0.269           0.788
+L8.retail_and_recreation_percent_change_from_baseline          0.006580         0.466835            0.014           0.989
+L8.workplaces_percent_change_from_baseline                     0.065557         0.541859            0.121           0.904
+L8.residential_percent_change_from_baseline                    1.637351         5.898391            0.278           0.781
+L9.confirmed_cases                                             0.106207         0.300674            0.353           0.724
+L9.driving                                                    -0.765751         0.808058           -0.948           0.343
+L9.walking                                                     0.116677         0.647289            0.180           0.857
+L9.retail_and_recreation_percent_change_from_baseline          0.710055         0.525159            1.352           0.176
+L9.workplaces_percent_change_from_baseline                    -0.851214         0.508784           -1.673           0.094
+L9.residential_percent_change_from_baseline                   -4.379464         4.305315           -1.017           0.309
+L10.confirmed_cases                                            0.638131         0.397854            1.604           0.109
+L10.driving                                                   -0.764716         0.677259           -1.129           0.259
+L10.walking                                                    0.571037         0.572017            0.998           0.318
+L10.retail_and_recreation_percent_change_from_baseline         0.104779         0.413965            0.253           0.800
+L10.workplaces_percent_change_from_baseline                   -0.777542         0.480350           -1.619           0.106
+L10.residential_percent_change_from_baseline                  -7.149762         3.904250           -1.831           0.067
+L11.confirmed_cases                                           -0.130220         0.292650           -0.445           0.656
+L11.driving                                                    0.675878         0.492135            1.373           0.170
+L11.walking                                                    0.142097         0.487858            0.291           0.771
+L11.retail_and_recreation_percent_change_from_baseline        -0.271478         0.381369           -0.712           0.477
+L11.workplaces_percent_change_from_baseline                   -0.023876         0.396478           -0.060           0.952
+L11.residential_percent_change_from_baseline                   3.889038         3.327173            1.169           0.242
+=========================================================================================================================
+
+Results for equation retail_and_recreation_percent_change_from_baseline
+=========================================================================================================================
+                                                            coefficient       std. error           t-stat            prob
+-------------------------------------------------------------------------------------------------------------------------
+const                                                          0.060098         0.044021            1.365           0.172
+L1.confirmed_cases                                            -0.370103         0.885858           -0.418           0.676
+L1.driving                                                    -0.950675         0.555371           -1.712           0.087
+L1.walking                                                     1.488680         0.519915            2.863           0.004
+L1.retail_and_recreation_percent_change_from_baseline         -0.190245         0.349160           -0.545           0.586
+L1.workplaces_percent_change_from_baseline                     0.274314         0.449280            0.611           0.541
+L1.residential_percent_change_from_baseline                    7.354006         4.227916            1.739           0.082
+L2.confirmed_cases                                             0.586602         0.874677            0.671           0.502
+L2.driving                                                    -0.291965         0.536265           -0.544           0.586
+L2.walking                                                     0.357102         0.610451            0.585           0.559
+L2.retail_and_recreation_percent_change_from_baseline          0.540943         0.374870            1.443           0.149
+L2.workplaces_percent_change_from_baseline                    -0.691287         0.448676           -1.541           0.123
+L2.residential_percent_change_from_baseline                   -2.707619         4.416057           -0.613           0.540
+L3.confirmed_cases                                            -0.570971         0.564276           -1.012           0.312
+L3.driving                                                    -0.591633         0.563728           -1.049           0.294
+L3.walking                                                     0.634169         0.554667            1.143           0.253
+L3.retail_and_recreation_percent_change_from_baseline          0.809677         0.384498            2.106           0.035
+L3.workplaces_percent_change_from_baseline                    -0.173260         0.416350           -0.416           0.677
+L3.residential_percent_change_from_baseline                    8.646781         5.200887            1.663           0.096
+L4.confirmed_cases                                            -0.088803         0.558366           -0.159           0.874
+L4.driving                                                    -2.087675         0.647977           -3.222           0.001
+L4.walking                                                     1.917376         0.664622            2.885           0.004
+L4.retail_and_recreation_percent_change_from_baseline         -0.366911         0.477837           -0.768           0.443
+L4.workplaces_percent_change_from_baseline                     0.308675         0.504051            0.612           0.540
+L4.residential_percent_change_from_baseline                    2.568623         6.749836            0.381           0.704
+L5.confirmed_cases                                             1.554402         0.887377            1.752           0.080
+L5.driving                                                     0.352242         0.719552            0.490           0.624
+L5.walking                                                     0.318434         0.755912            0.421           0.674
+L5.retail_and_recreation_percent_change_from_baseline         -0.789035         0.416347           -1.895           0.058
+L5.workplaces_percent_change_from_baseline                     0.288496         0.538425            0.536           0.592
+L5.residential_percent_change_from_baseline                    3.108362         7.022457            0.443           0.658
+L6.confirmed_cases                                            -0.203217         0.748958           -0.271           0.786
+L6.driving                                                    -0.077909         0.636088           -0.122           0.903
+L6.walking                                                     0.302264         0.665322            0.454           0.650
+L6.retail_and_recreation_percent_change_from_baseline         -0.315552         0.442227           -0.714           0.476
+L6.workplaces_percent_change_from_baseline                    -1.106101         0.551288           -2.006           0.045
+L6.residential_percent_change_from_baseline                   -8.709918         6.429906           -1.355           0.176
+L7.confirmed_cases                                            -1.104488         0.649087           -1.702           0.089
+L7.driving                                                    -0.298439         0.643037           -0.464           0.643
+L7.walking                                                     0.646624         0.663781            0.974           0.330
+L7.retail_and_recreation_percent_change_from_baseline          0.542362         0.391314            1.386           0.166
+L7.workplaces_percent_change_from_baseline                    -1.005224         0.559805           -1.796           0.073
+L7.residential_percent_change_from_baseline                    3.677670         6.191542            0.594           0.553
+L8.confirmed_cases                                            -0.448320         0.365906           -1.225           0.220
+L8.driving                                                    -1.129356         0.780683           -1.447           0.148
+L8.walking                                                     0.913037         0.731532            1.248           0.212
+L8.retail_and_recreation_percent_change_from_baseline          0.703788         0.487584            1.443           0.149
+L8.workplaces_percent_change_from_baseline                     0.359497         0.565943            0.635           0.525
+L8.residential_percent_change_from_baseline                    8.390327         6.160551            1.362           0.173
+L9.confirmed_cases                                            -0.416460         0.314038           -1.326           0.185
+L9.driving                                                    -1.616953         0.843973           -1.916           0.055
+L9.walking                                                     1.022870         0.676059            1.513           0.130
+L9.retail_and_recreation_percent_change_from_baseline          1.066829         0.548500            1.945           0.052
+L9.workplaces_percent_change_from_baseline                    -0.595051         0.531398           -1.120           0.263
+L9.residential_percent_change_from_baseline                    1.094389         4.496669            0.243           0.808
+L10.confirmed_cases                                            0.724909         0.415537            1.745           0.081
+L10.driving                                                   -1.272270         0.707361           -1.799           0.072
+L10.walking                                                    1.318934         0.597441            2.208           0.027
+L10.retail_and_recreation_percent_change_from_baseline        -0.363515         0.432365           -0.841           0.400
+L10.workplaces_percent_change_from_baseline                   -0.229098         0.501700           -0.457           0.648
+L10.residential_percent_change_from_baseline                  -6.298337         4.077778           -1.545           0.122
+L11.confirmed_cases                                           -0.290164         0.305657           -0.949           0.342
+L11.driving                                                    0.327714         0.514008            0.638           0.524
+L11.walking                                                    0.529372         0.509541            1.039           0.299
+L11.retail_and_recreation_percent_change_from_baseline        -0.619756         0.398319           -1.556           0.120
+L11.workplaces_percent_change_from_baseline                    0.123798         0.414100            0.299           0.765
+L11.residential_percent_change_from_baseline                   2.983086         3.475052            0.858           0.391
+=========================================================================================================================
+
+Results for equation workplaces_percent_change_from_baseline
+=========================================================================================================================
+                                                            coefficient       std. error           t-stat            prob
+-------------------------------------------------------------------------------------------------------------------------
+const                                                          0.059822         0.045679            1.310           0.190
+L1.confirmed_cases                                            -0.791147         0.919215           -0.861           0.389
+L1.driving                                                    -0.814928         0.576283           -1.414           0.157
+L1.walking                                                     1.189233         0.539492            2.204           0.027
+L1.retail_and_recreation_percent_change_from_baseline         -0.047467         0.362308           -0.131           0.896
+L1.workplaces_percent_change_from_baseline                     0.212780         0.466198            0.456           0.648
+L1.residential_percent_change_from_baseline                    7.890446         4.387116            1.799           0.072
+L2.confirmed_cases                                             0.151044         0.907613            0.166           0.868
+L2.driving                                                    -0.671731         0.556457           -1.207           0.227
+L2.walking                                                     0.669884         0.633438            1.058           0.290
+L2.retail_and_recreation_percent_change_from_baseline          0.585459         0.388985            1.505           0.132
+L2.workplaces_percent_change_from_baseline                    -0.360420         0.465571           -0.774           0.439
+L2.residential_percent_change_from_baseline                    1.861891         4.582341            0.406           0.685
+L3.confirmed_cases                                             0.207151         0.585523            0.354           0.723
+L3.driving                                                    -0.513569         0.584955           -0.878           0.380
+L3.walking                                                     0.603251         0.575553            1.048           0.295
+L3.retail_and_recreation_percent_change_from_baseline          0.725538         0.398976            1.819           0.069
+L3.workplaces_percent_change_from_baseline                    -0.317529         0.432027           -0.735           0.462
+L3.residential_percent_change_from_baseline                    5.174883         5.396724            0.959           0.338
+L4.confirmed_cases                                             0.181791         0.579391            0.314           0.754
+L4.driving                                                    -2.303861         0.672376           -3.426           0.001
+L4.walking                                                     2.189697         0.689648            3.175           0.001
+L4.retail_and_recreation_percent_change_from_baseline         -0.203169         0.495830           -0.410           0.682
+L4.workplaces_percent_change_from_baseline                     0.160012         0.523031            0.306           0.760
+L4.residential_percent_change_from_baseline                    0.247380         7.003997            0.035           0.972
+L5.confirmed_cases                                             0.887082         0.920791            0.963           0.335
+L5.driving                                                     0.477264         0.746646            0.639           0.523
+L5.walking                                                     0.271118         0.784375            0.346           0.730
+L5.retail_and_recreation_percent_change_from_baseline         -0.406318         0.432024           -0.940           0.347
+L5.workplaces_percent_change_from_baseline                    -0.094491         0.558699           -0.169           0.866
+L5.residential_percent_change_from_baseline                    2.173258         7.286884            0.298           0.766
+L6.confirmed_cases                                            -0.223213         0.777160           -0.287           0.774
+L6.driving                                                     0.050188         0.660039            0.076           0.939
+L6.walking                                                     0.369320         0.690374            0.535           0.593
+L6.retail_and_recreation_percent_change_from_baseline         -0.190234         0.458879           -0.415           0.678
+L6.workplaces_percent_change_from_baseline                    -0.587309         0.572047           -1.027           0.305
+L6.residential_percent_change_from_baseline                   -2.775043         6.672020           -0.416           0.677
+L7.confirmed_cases                                            -0.512026         0.673528           -0.760           0.447
+L7.driving                                                    -0.306550         0.667250           -0.459           0.646
+L7.walking                                                     0.188283         0.688776            0.273           0.785
+L7.retail_and_recreation_percent_change_from_baseline          0.585350         0.406049            1.442           0.149
+L7.workplaces_percent_change_from_baseline                    -0.348345         0.580885           -0.600           0.549
+L7.residential_percent_change_from_baseline                    6.270779         6.424682            0.976           0.329
+L8.confirmed_cases                                            -0.360040         0.379684           -0.948           0.343
+L8.driving                                                    -0.641811         0.810079           -0.792           0.428
+L8.walking                                                     0.822314         0.759078            1.083           0.279
+L8.retail_and_recreation_percent_change_from_baseline          0.192842         0.505944            0.381           0.703
+L8.workplaces_percent_change_from_baseline                     0.387242         0.587253            0.659           0.510
+L8.residential_percent_change_from_baseline                    5.844716         6.392523            0.914           0.361
+L9.confirmed_cases                                            -0.549731         0.325863           -1.687           0.092
+L9.driving                                                    -1.380771         0.875753           -1.577           0.115
+L9.walking                                                     0.892488         0.701515            1.272           0.203
+L9.retail_and_recreation_percent_change_from_baseline          0.870107         0.569154            1.529           0.126
+L9.workplaces_percent_change_from_baseline                    -0.116286         0.551407           -0.211           0.833
+L9.residential_percent_change_from_baseline                    2.573375         4.665988            0.552           0.581
+L10.confirmed_cases                                            0.456014         0.431184            1.058           0.290
+L10.driving                                                   -0.838357         0.733996           -1.142           0.253
+L10.walking                                                    0.737804         0.619937            1.190           0.234
+L10.retail_and_recreation_percent_change_from_baseline        -0.270023         0.448645           -0.602           0.547
+L10.workplaces_percent_change_from_baseline                   -0.399395         0.520591           -0.767           0.443
+L10.residential_percent_change_from_baseline                  -8.238360         4.231324           -1.947           0.052
+L11.confirmed_cases                                            0.031474         0.317167            0.099           0.921
+L11.driving                                                    0.212661         0.533363            0.399           0.690
+L11.walking                                                    0.456076         0.528728            0.863           0.388
+L11.retail_and_recreation_percent_change_from_baseline        -0.240963         0.413318           -0.583           0.560
+L11.workplaces_percent_change_from_baseline                    0.288781         0.429693            0.672           0.502
+L11.residential_percent_change_from_baseline                   5.547908         3.605903            1.539           0.124
+=========================================================================================================================
+
+Results for equation residential_percent_change_from_baseline
+=========================================================================================================================
+                                                            coefficient       std. error           t-stat            prob
+-------------------------------------------------------------------------------------------------------------------------
+const                                                         -0.009789         0.005187           -1.887           0.059
+L1.confirmed_cases                                             0.031146         0.104380            0.298           0.765
+L1.driving                                                     0.131541         0.065439            2.010           0.044
+L1.walking                                                    -0.176033         0.061261           -2.873           0.004
+L1.retail_and_recreation_percent_change_from_baseline          0.002618         0.041141            0.064           0.949
+L1.workplaces_percent_change_from_baseline                    -0.063560         0.052938           -1.201           0.230
+L1.residential_percent_change_from_baseline                   -1.070181         0.498171           -2.148           0.032
+L2.confirmed_cases                                             0.034192         0.103062            0.332           0.740
+L2.driving                                                     0.037214         0.063188            0.589           0.556
+L2.walking                                                    -0.051629         0.071929           -0.718           0.473
+L2.retail_and_recreation_percent_change_from_baseline         -0.058569         0.044171           -1.326           0.185
+L2.workplaces_percent_change_from_baseline                     0.022762         0.052867            0.431           0.667
+L2.residential_percent_change_from_baseline                   -0.211906         0.520340           -0.407           0.684
+L3.confirmed_cases                                             0.013276         0.066488            0.200           0.842
+L3.driving                                                     0.088870         0.066424            1.338           0.181
+L3.walking                                                    -0.109949         0.065356           -1.682           0.093
+L3.retail_and_recreation_percent_change_from_baseline         -0.021056         0.045305           -0.465           0.642
+L3.workplaces_percent_change_from_baseline                    -0.008535         0.049058           -0.174           0.862
+L3.residential_percent_change_from_baseline                   -0.598924         0.612815           -0.977           0.328
+L4.confirmed_cases                                            -0.047758         0.065792           -0.726           0.468
+L4.driving                                                     0.208720         0.076351            2.734           0.006
+L4.walking                                                    -0.204097         0.078312           -2.606           0.009
+L4.retail_and_recreation_percent_change_from_baseline          0.025271         0.056303            0.449           0.654
+L4.workplaces_percent_change_from_baseline                    -0.054416         0.059392           -0.916           0.360
+L4.residential_percent_change_from_baseline                   -0.563648         0.795327           -0.709           0.479
+L5.confirmed_cases                                            -0.070798         0.104559           -0.677           0.498
+L5.driving                                                    -0.092056         0.084784           -1.086           0.278
+L5.walking                                                    -0.000313         0.089068           -0.004           0.997
+L5.retail_and_recreation_percent_change_from_baseline          0.064252         0.049058            1.310           0.190
+L5.workplaces_percent_change_from_baseline                     0.010968         0.063442            0.173           0.863
+L5.residential_percent_change_from_baseline                   -0.280285         0.827449           -0.339           0.735
+L6.confirmed_cases                                             0.071002         0.088249            0.805           0.421
+L6.driving                                                    -0.006949         0.074950           -0.093           0.926
+L6.walking                                                    -0.034560         0.078394           -0.441           0.659
+L6.retail_and_recreation_percent_change_from_baseline         -0.000931         0.052107           -0.018           0.986
+L6.workplaces_percent_change_from_baseline                     0.076221         0.064958            1.173           0.241
+L6.residential_percent_change_from_baseline                    0.071119         0.757630            0.094           0.925
+L7.confirmed_cases                                             0.122636         0.076481            1.603           0.109
+L7.driving                                                     0.116895         0.075768            1.543           0.123
+L7.walking                                                    -0.095351         0.078213           -1.219           0.223
+L7.retail_and_recreation_percent_change_from_baseline         -0.080003         0.046108           -1.735           0.083
+L7.workplaces_percent_change_from_baseline                     0.060183         0.065961            0.912           0.362
+L7.residential_percent_change_from_baseline                   -0.489371         0.729543           -0.671           0.502
+L8.confirmed_cases                                             0.019290         0.043114            0.447           0.655
+L8.driving                                                     0.151636         0.091987            1.648           0.099
+L8.walking                                                    -0.123084         0.086196           -1.428           0.153
+L8.retail_and_recreation_percent_change_from_baseline         -0.095639         0.057452           -1.665           0.096
+L8.workplaces_percent_change_from_baseline                    -0.020078         0.066684           -0.301           0.763
+L8.residential_percent_change_from_baseline                   -0.898613         0.725892           -1.238           0.216
+L9.confirmed_cases                                             0.005571         0.037003            0.151           0.880
+L9.driving                                                     0.215019         0.099445            2.162           0.031
+L9.walking                                                    -0.138600         0.079659           -1.740           0.082
+L9.retail_and_recreation_percent_change_from_baseline         -0.097600         0.064629           -1.510           0.131
+L9.workplaces_percent_change_from_baseline                     0.066236         0.062614            1.058           0.290
+L9.residential_percent_change_from_baseline                    0.251134         0.529838            0.474           0.636
+L10.confirmed_cases                                           -0.040358         0.048962           -0.824           0.410
+L10.driving                                                    0.068738         0.083348            0.825           0.410
+L10.walking                                                   -0.099424         0.070396           -1.412           0.158
+L10.retail_and_recreation_percent_change_from_baseline         0.047108         0.050945            0.925           0.355
+L10.workplaces_percent_change_from_baseline                    0.052533         0.059115            0.889           0.374
+L10.residential_percent_change_from_baseline                   0.692431         0.480481            1.441           0.150
+L11.confirmed_cases                                           -0.007270         0.036015           -0.202           0.840
+L11.driving                                                   -0.054823         0.060565           -0.905           0.365
+L11.walking                                                   -0.035225         0.060039           -0.587           0.557
+L11.retail_and_recreation_percent_change_from_baseline         0.056689         0.046934            1.208           0.227
+L11.workplaces_percent_change_from_baseline                   -0.046436         0.048793           -0.952           0.341
+L11.residential_percent_change_from_baseline                  -0.451342         0.409462           -1.102           0.270
+=========================================================================================================================
+
+Correlation matrix of residuals
+                                                      confirmed_cases   driving   walking  retail_and_recreation_percent_change_from_baseline  workplaces_percent_change_from_baseline  residential_percent_change_from_baseline
+confirmed_cases                                              1.000000 -0.110889 -0.021314                                            0.052752                                 0.106263                                 -0.263396
+driving                                                     -0.110889  1.000000  0.865537                                            0.714607                                 0.540052                                 -0.567623
+walking                                                     -0.021314  0.865537  1.000000                                            0.694104                                 0.453337                                 -0.594767
+retail_and_recreation_percent_change_from_baseline           0.052752  0.714607  0.694104                                            1.000000                                 0.743064                                 -0.725304
+workplaces_percent_change_from_baseline                      0.106263  0.540052  0.453337                                            0.743064                                 1.000000                                 -0.846129
+residential_percent_change_from_baseline                    -0.263396 -0.567623 -0.594767                                           -0.725304                                -0.846129                                  1.000000
