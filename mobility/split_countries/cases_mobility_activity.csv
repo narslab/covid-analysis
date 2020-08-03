@@ -1,0 +1,11 @@
+Metric,Description,Source,Overview
+confirmed_cases,Newly confirmed cases of COVID-19,Johns Hopkins University,
+driving,Requests for driving directions in Apple Maps. ,Apple Maps,"Compared to a baseline volume on January 13th, 2020."
+walking,Requests for walking directions in Apple Maps,Apple Maps,"Compared to a baseline volume on January 13th, 2020."
+transit,Requests for transit directions in Apple Maps,Apple Maps,"Compared to a baseline volume on January 13th, 2020."
+retail_and_recreation_percent_change_from_baseline,Retail and recreation movement trends.,Google Community Mobility Reports,"Compared to a baseline day (the median value from the 5?week period Jan 3 – Feb 6, 2020)"
+grocery_and_pharmacy_percent_change_from_baseline,Grocery and pharmacy movement trends.,Google Community Mobility Reports,
+parks_percent_change_from_baseline,Parks movement trends.,Google Community Mobility Reports,
+transit_stations_percent_change_from_baseline,Transit stations movement trends.,Google Community Mobility Reports,
+workplaces_percent_change_from_baseline,Workplaces movement trends.,Google Community Mobility Reports,
+residential_percent_change_from_baseline,Retail and recreation movement trends.,Google Community Mobility Reports,

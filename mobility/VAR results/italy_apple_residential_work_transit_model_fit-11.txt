@@ -1,0 +1,609 @@
+Summary of Regression Results   
+==================================
+Model:                         VAR
+Method:                        OLS
+Date:           Fri, 31, Jul, 2020
+Time:                     01:24:14
+---------------------------------------------------------------------
+No. of Equations:         7.00000    BIC:                    -456.453
+Nobs:                     64.0000    HQIC:                   -467.615
+Log likelihood:           15106.2    FPE:               -2.50759e-207
+AIC:                     -474.871    Det(Omega_mle):    -9.47324e-210
+---------------------------------------------------------------------
+Results for equation confirmed_cases
+====================================================================================================================
+                                                       coefficient       std. error           t-stat            prob
+--------------------------------------------------------------------------------------------------------------------
+const                                                    -0.002096              NAN              NAN             NAN
+L1.confirmed_cases                                        0.061356              NAN              NAN             NAN
+L1.driving                                               -0.051369              NAN              NAN             NAN
+L1.transit                                                0.051656              NAN              NAN             NAN
+L1.walking                                               -0.119671              NAN              NAN             NAN
+L1.workplaces_percent_change_from_baseline               -0.035710         0.000000     -2719157.434           0.000
+L1.residential_percent_change_from_baseline               0.132905         0.000000      1032497.975           0.000
+L1.transit_stations_percent_change_from_baseline          0.066954              NAN              NAN             NAN
+L2.confirmed_cases                                       -0.147567         0.000000    -10155905.141           0.000
+L2.driving                                               -0.040527              NAN              NAN             NAN
+L2.transit                                                0.082777              NAN              NAN             NAN
+L2.walking                                               -0.230243              NAN              NAN             NAN
+L2.workplaces_percent_change_from_baseline               -0.007268              NAN              NAN             NAN
+L2.residential_percent_change_from_baseline              -0.021499              NAN              NAN             NAN
+L2.transit_stations_percent_change_from_baseline          0.017157              NAN              NAN             NAN
+L3.confirmed_cases                                        0.300426         0.000000      7890927.593           0.000
+L3.driving                                                0.013384              NAN              NAN             NAN
+L3.transit                                                0.059256         0.000000     35393699.711           0.000
+L3.walking                                               -0.242217              NAN              NAN             NAN
+L3.workplaces_percent_change_from_baseline                0.022853              NAN              NAN             NAN
+L3.residential_percent_change_from_baseline              -0.075473              NAN              NAN             NAN
+L3.transit_stations_percent_change_from_baseline         -0.027399              NAN              NAN             NAN
+L4.confirmed_cases                                        0.007930              NAN              NAN             NAN
+L4.driving                                                0.026227              NAN              NAN             NAN
+L4.transit                                                0.003655         0.000000       316028.133           0.000
+L4.walking                                               -0.238473              NAN              NAN             NAN
+L4.workplaces_percent_change_from_baseline               -0.030009              NAN              NAN             NAN
+L4.residential_percent_change_from_baseline              -0.117001         0.000000      -931488.300           0.000
+L4.transit_stations_percent_change_from_baseline          0.033347              NAN              NAN             NAN
+L5.confirmed_cases                                       -0.096126              NAN              NAN             NAN
+L5.driving                                               -0.015200         0.000000     -6122172.330           0.000
+L5.transit                                                0.029314              NAN              NAN             NAN
+L5.walking                                               -0.009025              NAN              NAN             NAN
+L5.workplaces_percent_change_from_baseline               -0.020734         0.000000     -5784531.941           0.000
+L5.residential_percent_change_from_baseline               0.051060              NAN              NAN             NAN
+L5.transit_stations_percent_change_from_baseline          0.055839         0.000000      2761051.951           0.000
+L6.confirmed_cases                                        0.030160         0.000000       762879.687           0.000
+L6.driving                                               -0.013350         0.000000     -1843551.685           0.000
+L6.transit                                                0.030651         0.000000      2689305.210           0.000
+L6.walking                                               -0.077126         0.000000     -1983989.489           0.000
+L6.workplaces_percent_change_from_baseline               -0.001393         0.000000      -235382.481           0.000
+L6.residential_percent_change_from_baseline               0.140497         0.000000      1110275.114           0.000
+L6.transit_stations_percent_change_from_baseline          0.074380              NAN              NAN             NAN
+L7.confirmed_cases                                        0.213021              NAN              NAN             NAN
+L7.driving                                               -0.042714              NAN              NAN             NAN
+L7.transit                                               -0.034603         0.000000     -1140350.579           0.000
+L7.walking                                               -0.053324         0.000000     -1764803.526           0.000
+L7.workplaces_percent_change_from_baseline               -0.021705              NAN              NAN             NAN
+L7.residential_percent_change_from_baseline               0.058673              NAN              NAN             NAN
+L7.transit_stations_percent_change_from_baseline          0.072627              NAN              NAN             NAN
+L8.confirmed_cases                                        0.152187         0.000000     13741957.534           0.000
+L8.driving                                                0.135901              NAN              NAN             NAN
+L8.transit                                               -0.085141              NAN              NAN             NAN
+L8.walking                                               -0.073192              NAN              NAN             NAN
+L8.workplaces_percent_change_from_baseline                0.018912              NAN              NAN             NAN
+L8.residential_percent_change_from_baseline              -0.110905              NAN              NAN             NAN
+L8.transit_stations_percent_change_from_baseline         -0.054428              NAN              NAN             NAN
+L9.confirmed_cases                                       -0.251885         0.000000     -9409721.848           0.000
+L9.driving                                               -0.011537              NAN              NAN             NAN
+L9.transit                                               -0.030628              NAN              NAN             NAN
+L9.walking                                                0.072102              NAN              NAN             NAN
+L9.workplaces_percent_change_from_baseline               -0.029781         0.000000    -12247197.408           0.000
+L9.residential_percent_change_from_baseline               0.101022         0.000000      3796906.714           0.000
+L9.transit_stations_percent_change_from_baseline          0.041024              NAN              NAN             NAN
+L10.confirmed_cases                                       0.272284         0.000000     13508307.364           0.000
+L10.driving                                               0.137901         0.000000      5356958.715           0.000
+L10.transit                                              -0.058220         0.000000     -2529440.182           0.000
+L10.walking                                              -0.206413              NAN              NAN             NAN
+L10.workplaces_percent_change_from_baseline              -0.025138         0.000000     -1268365.700           0.000
+L10.residential_percent_change_from_baseline              0.095489              NAN              NAN             NAN
+L10.transit_stations_percent_change_from_baseline         0.009558         0.000000       326692.660           0.000
+L11.confirmed_cases                                       0.118297              NAN              NAN             NAN
+L11.driving                                               0.077032         0.000000      3646475.958           0.000
+L11.transit                                              -0.012310         0.000000      -561829.094           0.000
+L11.walking                                              -0.106145              NAN              NAN             NAN
+L11.workplaces_percent_change_from_baseline              -0.000889              NAN              NAN             NAN
+L11.residential_percent_change_from_baseline              0.003310              NAN              NAN             NAN
+L11.transit_stations_percent_change_from_baseline        -0.014866         0.000000     -1303119.154           0.000
+====================================================================================================================
+
+Results for equation driving
+====================================================================================================================
+                                                       coefficient       std. error           t-stat            prob
+--------------------------------------------------------------------------------------------------------------------
+const                                                     0.013457              NAN              NAN             NAN
+L1.confirmed_cases                                        0.391691              NAN              NAN             NAN
+L1.driving                                               -0.411919              NAN              NAN             NAN
+L1.transit                                                1.040854              NAN              NAN             NAN
+L1.walking                                                0.139436              NAN              NAN             NAN
+L1.workplaces_percent_change_from_baseline                0.078956         0.000000      2392900.999           0.000
+L1.residential_percent_change_from_baseline              -0.683387         0.000000     -2113021.093           0.000
+L1.transit_stations_percent_change_from_baseline         -0.517312              NAN              NAN             NAN
+L2.confirmed_cases                                        0.477081         0.000000     13068044.881           0.000
+L2.driving                                                0.722012              NAN              NAN             NAN
+L2.transit                                                0.253129              NAN              NAN             NAN
+L2.walking                                                2.790823              NAN              NAN             NAN
+L2.workplaces_percent_change_from_baseline                0.425348              NAN              NAN             NAN
+L2.residential_percent_change_from_baseline               3.001359              NAN              NAN             NAN
+L2.transit_stations_percent_change_from_baseline         -0.914849              NAN              NAN             NAN
+L3.confirmed_cases                                       -1.496825         0.000000    -15647706.257           0.000
+L3.driving                                                0.432990              NAN              NAN             NAN
+L3.transit                                               -0.488634         0.000000   -116161982.796           0.000
+L3.walking                                               -0.449334              NAN              NAN             NAN
+L3.workplaces_percent_change_from_baseline                0.141160              NAN              NAN             NAN
+L3.residential_percent_change_from_baseline               1.206012              NAN              NAN             NAN
+L3.transit_stations_percent_change_from_baseline          0.073811              NAN              NAN             NAN
+L4.confirmed_cases                                       -1.281409              NAN              NAN             NAN
+L4.driving                                               -1.963053              NAN              NAN             NAN
+L4.transit                                                0.506492         0.000000     17429407.518           0.000
+L4.walking                                               -0.371349              NAN              NAN             NAN
+L4.workplaces_percent_change_from_baseline               -1.099606              NAN              NAN             NAN
+L4.residential_percent_change_from_baseline              -1.783791         0.000000     -5652235.372           0.000
+L4.transit_stations_percent_change_from_baseline          1.910867              NAN              NAN             NAN
+L5.confirmed_cases                                        0.576225              NAN              NAN             NAN
+L5.driving                                               -0.245974         0.000000    -39431702.141           0.000
+L5.transit                                                0.627681              NAN              NAN             NAN
+L5.walking                                               -1.216056              NAN              NAN             NAN
+L5.workplaces_percent_change_from_baseline               -0.322613         0.000000    -35823067.137           0.000
+L5.residential_percent_change_from_baseline              -2.597022              NAN              NAN             NAN
+L5.transit_stations_percent_change_from_baseline          0.388514         0.000000      7645909.206           0.000
+L6.confirmed_cases                                        0.250564         0.000000      2522490.053           0.000
+L6.driving                                                0.397179         0.000000     21829558.127           0.000
+L6.transit                                               -0.437855         0.000000    -15290222.044           0.000
+L6.walking                                                0.060076         0.000000       615073.712           0.000
+L6.workplaces_percent_change_from_baseline                0.302298         0.000000     20327914.095           0.000
+L6.residential_percent_change_from_baseline               1.842839         0.000000      5796141.542           0.000
+L6.transit_stations_percent_change_from_baseline         -0.490512              NAN              NAN             NAN
+L7.confirmed_cases                                        0.131915              NAN              NAN             NAN
+L7.driving                                                0.026445              NAN              NAN             NAN
+L7.transit                                               -0.356137         0.000000     -4671284.531           0.000
+L7.walking                                                0.051930         0.000000       684042.094           0.000
+L7.workplaces_percent_change_from_baseline               -0.477607              NAN              NAN             NAN
+L7.residential_percent_change_from_baseline               0.745711              NAN              NAN             NAN
+L7.transit_stations_percent_change_from_baseline          0.022809              NAN              NAN             NAN
+L8.confirmed_cases                                       -0.919897         0.000000    -33059681.667           0.000
+L8.driving                                                0.875773              NAN              NAN             NAN
+L8.transit                                                0.377496              NAN              NAN             NAN
+L8.walking                                               -1.263937              NAN              NAN             NAN
+L8.workplaces_percent_change_from_baseline               -0.144794              NAN              NAN             NAN
+L8.residential_percent_change_from_baseline               0.487881              NAN              NAN             NAN
+L8.transit_stations_percent_change_from_baseline          0.108607              NAN              NAN             NAN
+L9.confirmed_cases                                       -0.479285         0.000000     -7126193.322           0.000
+L9.driving                                               -2.008537              NAN              NAN             NAN
+L9.transit                                                1.637931              NAN              NAN             NAN
+L9.walking                                               -1.088807              NAN              NAN             NAN
+L9.workplaces_percent_change_from_baseline               -0.055659         0.000000     -9110237.785           0.000
+L9.residential_percent_change_from_baseline               0.969269         0.000000     14499260.591           0.000
+L9.transit_stations_percent_change_from_baseline          1.025790              NAN              NAN             NAN
+L10.confirmed_cases                                      -0.014325         0.000000      -282858.878           0.000
+L10.driving                                              -0.313869         0.000000     -4852741.658           0.000
+L10.transit                                               0.158813         0.000000      2746196.534           0.000
+L10.walking                                              -0.066349              NAN              NAN             NAN
+L10.workplaces_percent_change_from_baseline               0.348189         0.000000      6992323.766           0.000
+L10.residential_percent_change_from_baseline              0.273099              NAN              NAN             NAN
+L10.transit_stations_percent_change_from_baseline        -0.233646         0.000000     -3178528.533           0.000
+L11.confirmed_cases                                       1.875395              NAN              NAN             NAN
+L11.driving                                               0.351989         0.000000      6631615.832           0.000
+L11.transit                                               0.148749         0.000000      2701986.724           0.000
+L11.walking                                               0.141741              NAN              NAN             NAN
+L11.workplaces_percent_change_from_baseline               0.557381              NAN              NAN             NAN
+L11.residential_percent_change_from_baseline              1.650868              NAN              NAN             NAN
+L11.transit_stations_percent_change_from_baseline        -0.930027         0.000000    -32446113.716           0.000
+====================================================================================================================
+
+Results for equation transit
+====================================================================================================================
+                                                       coefficient       std. error           t-stat            prob
+--------------------------------------------------------------------------------------------------------------------
+const                                                     0.028871              NAN              NAN             NAN
+L1.confirmed_cases                                        0.728161              NAN              NAN             NAN
+L1.driving                                               -0.729806              NAN              NAN             NAN
+L1.transit                                                0.465882              NAN              NAN             NAN
+L1.walking                                                1.161044              NAN              NAN             NAN
+L1.workplaces_percent_change_from_baseline               -0.451321         0.000000    -14990516.612           0.000
+L1.residential_percent_change_from_baseline              -2.530972         0.000000     -8576633.890           0.000
+L1.transit_stations_percent_change_from_baseline         -0.061927              NAN              NAN             NAN
+L2.confirmed_cases                                        0.968035         0.000000     29060444.873           0.000
+L2.driving                                                1.898360              NAN              NAN             NAN
+L2.transit                                               -0.156276              NAN              NAN             NAN
+L2.walking                                                0.904445              NAN              NAN             NAN
+L2.workplaces_percent_change_from_baseline                0.385436              NAN              NAN             NAN
+L2.residential_percent_change_from_baseline               2.975585              NAN              NAN             NAN
+L2.transit_stations_percent_change_from_baseline         -1.280390              NAN              NAN             NAN
+L3.confirmed_cases                                       -1.434745         0.000000    -16437920.267           0.000
+L3.driving                                                0.018719              NAN              NAN             NAN
+L3.transit                                               -0.195199         0.000000    -50856964.158           0.000
+L3.walking                                                0.052640              NAN              NAN             NAN
+L3.workplaces_percent_change_from_baseline               -0.000448              NAN              NAN             NAN
+L3.residential_percent_change_from_baseline               0.343680              NAN              NAN             NAN
+L3.transit_stations_percent_change_from_baseline          0.091459              NAN              NAN             NAN
+L4.confirmed_cases                                        0.616878              NAN              NAN             NAN
+L4.driving                                               -0.771884              NAN              NAN             NAN
+L4.transit                                               -0.081524         0.000000     -3074614.638           0.000
+L4.walking                                               -1.687436              NAN              NAN             NAN
+L4.workplaces_percent_change_from_baseline               -0.872378              NAN              NAN             NAN
+L4.residential_percent_change_from_baseline              -1.108358         0.000000     -3849006.654           0.000
+L4.transit_stations_percent_change_from_baseline          0.949870              NAN              NAN             NAN
+L5.confirmed_cases                                       -0.886064              NAN              NAN             NAN
+L5.driving                                               -0.237458         0.000000    -41719155.474           0.000
+L5.transit                                                1.352056              NAN              NAN             NAN
+L5.walking                                               -1.723384              NAN              NAN             NAN
+L5.workplaces_percent_change_from_baseline               -0.337710         0.000000    -41097707.295           0.000
+L5.residential_percent_change_from_baseline              -1.344002              NAN              NAN             NAN
+L5.transit_stations_percent_change_from_baseline          0.217950         0.000000      4700796.313           0.000
+L6.confirmed_cases                                        0.899449         0.000000      9923817.772           0.000
+L6.driving                                                0.109018         0.000000      6566746.566           0.000
+L6.transit                                                0.309703         0.000000     11852823.170           0.000
+L6.walking                                               -0.445907         0.000000     -5003396.512           0.000
+L6.workplaces_percent_change_from_baseline                0.341620         0.000000     25176387.644           0.000
+L6.residential_percent_change_from_baseline               2.994623         0.000000     10322529.089           0.000
+L6.transit_stations_percent_change_from_baseline         -0.207026              NAN              NAN             NAN
+L7.confirmed_cases                                       -0.264580              NAN              NAN             NAN
+L7.driving                                               -0.649032              NAN              NAN             NAN
+L7.transit                                               -0.367268         0.000000     -5279520.716           0.000
+L7.walking                                               -0.280555         0.000000     -4050165.519           0.000
+L7.workplaces_percent_change_from_baseline               -0.618944              NAN              NAN             NAN
+L7.residential_percent_change_from_baseline               0.718740              NAN              NAN             NAN
+L7.transit_stations_percent_change_from_baseline          0.462378              NAN              NAN             NAN
+L8.confirmed_cases                                       -2.145912         0.000000    -84520868.463           0.000
+L8.driving                                                1.162211              NAN              NAN             NAN
+L8.transit                                               -0.043741              NAN              NAN             NAN
+L8.walking                                               -1.460433              NAN              NAN             NAN
+L8.workplaces_percent_change_from_baseline               -0.203705              NAN              NAN             NAN
+L8.residential_percent_change_from_baseline              -0.491326              NAN              NAN             NAN
+L8.transit_stations_percent_change_from_baseline         -0.016711              NAN              NAN             NAN
+L9.confirmed_cases                                       -1.248756         0.000000    -20348549.430           0.000
+L9.driving                                               -1.696579              NAN              NAN             NAN
+L9.transit                                                1.417147              NAN              NAN             NAN
+L9.walking                                               -0.625670              NAN              NAN             NAN
+L9.workplaces_percent_change_from_baseline               -0.050012         0.000000     -8971397.815           0.000
+L9.residential_percent_change_from_baseline              -0.239677         0.000000     -3929346.985           0.000
+L9.transit_stations_percent_change_from_baseline          0.719354              NAN              NAN             NAN
+L10.confirmed_cases                                       0.741982         0.000000     16056596.497           0.000
+L10.driving                                              -0.084485         0.000000     -1431562.938           0.000
+L10.transit                                              -0.092450         0.000000     -1752040.960           0.000
+L10.walking                                              -0.165197              NAN              NAN             NAN
+L10.workplaces_percent_change_from_baseline               0.480038         0.000000     10565102.803           0.000
+L10.residential_percent_change_from_baseline              1.921616              NAN              NAN             NAN
+L10.transit_stations_percent_change_from_baseline        -0.322753         0.000000     -4812043.746           0.000
+L11.confirmed_cases                                       1.267042              NAN              NAN             NAN
+L11.driving                                               0.490824         0.000000     10134639.520           0.000
+L11.transit                                              -0.041981         0.000000      -835751.797           0.000
+L11.walking                                               0.092362              NAN              NAN             NAN
+L11.workplaces_percent_change_from_baseline               0.366257              NAN              NAN             NAN
+L11.residential_percent_change_from_baseline             -0.336036              NAN              NAN             NAN
+L11.transit_stations_percent_change_from_baseline        -0.855034         0.000000    -32692102.337           0.000
+====================================================================================================================
+
+Results for equation walking
+====================================================================================================================
+                                                       coefficient       std. error           t-stat            prob
+--------------------------------------------------------------------------------------------------------------------
+const                                                     0.003791              NAN              NAN             NAN
+L1.confirmed_cases                                        0.057987              NAN              NAN             NAN
+L1.driving                                               -0.064430              NAN              NAN             NAN
+L1.transit                                                0.234636              NAN              NAN             NAN
+L1.walking                                               -0.011762              NAN              NAN             NAN
+L1.workplaces_percent_change_from_baseline               -0.044525         0.000000     -5279533.216           0.000
+L1.residential_percent_change_from_baseline              -0.220944         0.000000     -2672861.861           0.000
+L1.transit_stations_percent_change_from_baseline         -0.046573              NAN              NAN             NAN
+L2.confirmed_cases                                       -0.231155         0.000000    -24772996.485           0.000
+L2.driving                                                0.328024              NAN              NAN             NAN
+L2.transit                                                0.020185              NAN              NAN             NAN
+L2.walking                                               -0.092634              NAN              NAN             NAN
+L2.workplaces_percent_change_from_baseline                0.127981              NAN              NAN             NAN
+L2.residential_percent_change_from_baseline               0.606427              NAN              NAN             NAN
+L2.transit_stations_percent_change_from_baseline         -0.199693              NAN              NAN             NAN
+L3.confirmed_cases                                       -0.044101         0.000000     -1803803.647           0.000
+L3.driving                                               -0.046658              NAN              NAN             NAN
+L3.transit                                               -0.106110         0.000000    -98694496.499           0.000
+L3.walking                                               -0.263578              NAN              NAN             NAN
+L3.workplaces_percent_change_from_baseline                0.053181              NAN              NAN             NAN
+L3.residential_percent_change_from_baseline               0.154189              NAN              NAN             NAN
+L3.transit_stations_percent_change_from_baseline          0.051383              NAN              NAN             NAN
+L4.confirmed_cases                                        0.177234              NAN              NAN             NAN
+L4.driving                                               -0.052107              NAN              NAN             NAN
+L4.transit                                               -0.123300         0.000000    -16600830.866           0.000
+L4.walking                                               -0.318258              NAN              NAN             NAN
+L4.workplaces_percent_change_from_baseline               -0.158076              NAN              NAN             NAN
+L4.residential_percent_change_from_baseline              -0.399486         0.000000     -4952616.250           0.000
+L4.transit_stations_percent_change_from_baseline          0.202391              NAN              NAN             NAN
+L5.confirmed_cases                                       -0.474586              NAN              NAN             NAN
+L5.driving                                                0.044296         0.000000     27782688.818           0.000
+L5.transit                                                0.093020              NAN              NAN             NAN
+L5.walking                                               -0.302192              NAN              NAN             NAN
+L5.workplaces_percent_change_from_baseline               -0.077796         0.000000    -33798504.201           0.000
+L5.residential_percent_change_from_baseline              -0.477260              NAN              NAN             NAN
+L5.transit_stations_percent_change_from_baseline          0.078659         0.000000      6056624.579           0.000
+L6.confirmed_cases                                       -0.091314         0.000000     -3596719.819           0.000
+L6.driving                                                0.216921         0.000000     46646231.018           0.000
+L6.transit                                               -0.139856         0.000000    -19108273.169           0.000
+L6.walking                                               -0.224666         0.000000     -8999579.827           0.000
+L6.workplaces_percent_change_from_baseline                0.128480         0.000000     33802678.710           0.000
+L6.residential_percent_change_from_baseline               0.568332         0.000000      6993762.628           0.000
+L6.transit_stations_percent_change_from_baseline         -0.128265              NAN              NAN             NAN
+L7.confirmed_cases                                        0.245006              NAN              NAN             NAN
+L7.driving                                               -0.030658              NAN              NAN             NAN
+L7.transit                                               -0.168749         0.000000     -8659987.397           0.000
+L7.walking                                                0.184291         0.000000      9497809.799           0.000
+L7.workplaces_percent_change_from_baseline               -0.081995              NAN              NAN             NAN
+L7.residential_percent_change_from_baseline               0.230815              NAN              NAN             NAN
+L7.transit_stations_percent_change_from_baseline          0.028579              NAN              NAN             NAN
+L8.confirmed_cases                                       -0.288941         0.000000    -40627971.603           0.000
+L8.driving                                                0.501301              NAN              NAN             NAN
+L8.transit                                               -0.075402              NAN              NAN             NAN
+L8.walking                                               -0.429246              NAN              NAN             NAN
+L8.workplaces_percent_change_from_baseline                0.003758              NAN              NAN             NAN
+L8.residential_percent_change_from_baseline              -0.098506              NAN              NAN             NAN
+L8.transit_stations_percent_change_from_baseline         -0.132390              NAN              NAN             NAN
+L9.confirmed_cases                                       -0.482143         0.000000    -28047661.753           0.000
+L9.driving                                               -0.326885              NAN              NAN             NAN
+L9.transit                                                0.215143              NAN              NAN             NAN
+L9.walking                                               -0.062915              NAN              NAN             NAN
+L9.workplaces_percent_change_from_baseline               -0.030603         0.000000    -19598371.490           0.000
+L9.residential_percent_change_from_baseline               0.251522         0.000000     14720894.329           0.000
+L9.transit_stations_percent_change_from_baseline          0.204528              NAN              NAN             NAN
+L10.confirmed_cases                                       0.329410         0.000000     25448471.733           0.000
+L10.driving                                               0.124610         0.000000      7537878.072           0.000
+L10.transit                                              -0.132361         0.000000     -8954931.990           0.000
+L10.walking                                              -0.412784              NAN              NAN             NAN
+L10.workplaces_percent_change_from_baseline               0.036772         0.000000      2889242.674           0.000
+L10.residential_percent_change_from_baseline              0.440759              NAN              NAN             NAN
+L10.transit_stations_percent_change_from_baseline        -0.031032         0.000000     -1651712.331           0.000
+L11.confirmed_cases                                       0.330314              NAN              NAN             NAN
+L11.driving                                               0.246829         0.000000     18194587.032           0.000
+L11.transit                                              -0.072494         0.000000     -5152178.779           0.000
+L11.walking                                              -0.124159              NAN              NAN             NAN
+L11.workplaces_percent_change_from_baseline               0.040619              NAN              NAN             NAN
+L11.residential_percent_change_from_baseline              0.023179              NAN              NAN             NAN
+L11.transit_stations_percent_change_from_baseline        -0.169388         0.000000    -23121035.926           0.000
+====================================================================================================================
+
+Results for equation workplaces_percent_change_from_baseline
+====================================================================================================================
+                                                       coefficient       std. error           t-stat            prob
+--------------------------------------------------------------------------------------------------------------------
+const                                                     0.075094              NAN              NAN             NAN
+L1.confirmed_cases                                        1.445295              NAN              NAN             NAN
+L1.driving                                                2.730928              NAN              NAN             NAN
+L1.transit                                               -0.301593              NAN              NAN             NAN
+L1.walking                                               -7.009344              NAN              NAN             NAN
+L1.workplaces_percent_change_from_baseline               -0.046067         0.000000      -729901.742           0.000
+L1.residential_percent_change_from_baseline               3.488461         0.000001      5639045.457           0.000
+L1.transit_stations_percent_change_from_baseline         -0.696832              NAN              NAN             NAN
+L2.confirmed_cases                                        1.219646         0.000000     17465743.724           0.000
+L2.driving                                               -0.505854              NAN              NAN             NAN
+L2.transit                                                0.076629              NAN              NAN             NAN
+L2.walking                                                3.184584              NAN              NAN             NAN
+L2.workplaces_percent_change_from_baseline               -1.295999              NAN              NAN             NAN
+L2.residential_percent_change_from_baseline              -5.331848              NAN              NAN             NAN
+L2.transit_stations_percent_change_from_baseline          0.479804              NAN              NAN             NAN
+L3.confirmed_cases                                        4.055472         0.000000     22164386.219           0.000
+L3.driving                                                3.559255              NAN              NAN             NAN
+L3.transit                                               -1.507238         0.000000   -187325449.895           0.000
+L3.walking                                               -2.298863              NAN              NAN             NAN
+L3.workplaces_percent_change_from_baseline               -0.074248              NAN              NAN             NAN
+L3.residential_percent_change_from_baseline               6.589519              NAN              NAN             NAN
+L3.transit_stations_percent_change_from_baseline         -0.958681              NAN              NAN             NAN
+L4.confirmed_cases                                       -0.786193              NAN              NAN             NAN
+L4.driving                                               -0.565631              NAN              NAN             NAN
+L4.transit                                               -0.742988         0.000000    -13366774.314           0.000
+L4.walking                                               -1.190279              NAN              NAN             NAN
+L4.workplaces_percent_change_from_baseline               -1.263823              NAN              NAN             NAN
+L4.residential_percent_change_from_baseline               0.397458         0.000001       658417.982           0.000
+L4.transit_stations_percent_change_from_baseline          2.330695              NAN              NAN             NAN
+L5.confirmed_cases                                        2.039524              NAN              NAN             NAN
+L5.driving                                               -1.713264         0.000000   -143587077.760           0.000
+L5.transit                                               -0.481781              NAN              NAN             NAN
+L5.walking                                                0.458120              NAN              NAN             NAN
+L5.workplaces_percent_change_from_baseline               -1.713555         0.000000    -99475018.644           0.000
+L5.residential_percent_change_from_baseline              -3.583068              NAN              NAN             NAN
+L5.transit_stations_percent_change_from_baseline          1.353762         0.000000     13928362.014           0.000
+L6.confirmed_cases                                       -3.322741         0.000000    -17488041.975           0.000
+L6.driving                                                2.311644         0.000000     66422350.204           0.000
+L6.transit                                               -0.734808         0.000000    -13415062.483           0.000
+L6.walking                                               -2.432196         0.000000    -13018521.587           0.000
+L6.workplaces_percent_change_from_baseline               -0.863331         0.000000    -30350728.272           0.000
+L6.residential_percent_change_from_baseline              -3.546264         0.000001     -5831191.165           0.000
+L6.transit_stations_percent_change_from_baseline         -1.030907              NAN              NAN             NAN
+L7.confirmed_cases                                        1.039623              NAN              NAN             NAN
+L7.driving                                                0.111573              NAN              NAN             NAN
+L7.transit                                                1.201448         0.000000      8238702.272           0.000
+L7.walking                                               -1.972595         0.000000    -13584245.186           0.000
+L7.workplaces_percent_change_from_baseline                0.175492              NAN              NAN             NAN
+L7.residential_percent_change_from_baseline              -0.213834              NAN              NAN             NAN
+L7.transit_stations_percent_change_from_baseline         -1.358088              NAN              NAN             NAN
+L8.confirmed_cases                                        1.846583         0.000000     34694700.920           0.000
+L8.driving                                               -2.464010              NAN              NAN             NAN
+L8.transit                                                1.649651              NAN              NAN             NAN
+L8.walking                                                1.474900              NAN              NAN             NAN
+L8.workplaces_percent_change_from_baseline               -0.874360              NAN              NAN             NAN
+L8.residential_percent_change_from_baseline               0.338529              NAN              NAN             NAN
+L8.transit_stations_percent_change_from_baseline          0.445244              NAN              NAN             NAN
+L9.confirmed_cases                                       -2.605162         0.000000    -20250371.036           0.000
+L9.driving                                               -0.212892              NAN              NAN             NAN
+L9.transit                                                2.797104              NAN              NAN             NAN
+L9.walking                                               -4.132446              NAN              NAN             NAN
+L9.workplaces_percent_change_from_baseline               -0.125989         0.000000    -10781043.740           0.000
+L9.residential_percent_change_from_baseline              -0.227443         0.000000     -1778723.423           0.000
+L9.transit_stations_percent_change_from_baseline         -0.006850              NAN              NAN             NAN
+L10.confirmed_cases                                      -4.641987         0.000000    -47918840.787           0.000
+L10.driving                                              -4.150965         0.000000    -33552348.937           0.000
+L10.transit                                               3.843389         0.000000     34745139.914           0.000
+L10.walking                                              -0.347210              NAN              NAN             NAN
+L10.workplaces_percent_change_from_baseline               0.437067         0.000000      4588695.390           0.000
+L10.residential_percent_change_from_baseline              1.936197              NAN              NAN             NAN
+L10.transit_stations_percent_change_from_baseline         1.092160         0.000000      7767616.868           0.000
+L11.confirmed_cases                                       0.544155              NAN              NAN             NAN
+L11.driving                                              -2.746203         0.000000    -27049371.478           0.000
+L11.transit                                               0.346308         0.000000      3288711.581           0.000
+L11.walking                                               2.008023              NAN              NAN             NAN
+L11.workplaces_percent_change_from_baseline               0.308466              NAN              NAN             NAN
+L11.residential_percent_change_from_baseline              2.473238              NAN              NAN             NAN
+L11.transit_stations_percent_change_from_baseline         0.390451         0.000000      7121449.192           0.000
+====================================================================================================================
+
+Results for equation residential_percent_change_from_baseline
+====================================================================================================================
+                                                       coefficient       std. error           t-stat            prob
+--------------------------------------------------------------------------------------------------------------------
+const                                                    -0.006537              NAN              NAN             NAN
+L1.confirmed_cases                                       -0.091709              NAN              NAN             NAN
+L1.driving                                               -0.146310              NAN              NAN             NAN
+L1.transit                                               -0.022065              NAN              NAN             NAN
+L1.walking                                                0.425553              NAN              NAN             NAN
+L1.workplaces_percent_change_from_baseline                0.042078         0.000000      8870196.025           0.000
+L1.residential_percent_change_from_baseline              -0.106389         0.000000     -2288114.282           0.000
+L1.transit_stations_percent_change_from_baseline          0.025559              NAN              NAN             NAN
+L2.confirmed_cases                                        0.009901         0.000000      1886416.876           0.000
+L2.driving                                               -0.088766              NAN              NAN             NAN
+L2.transit                                               -0.021355              NAN              NAN             NAN
+L2.walking                                               -0.199990              NAN              NAN             NAN
+L2.workplaces_percent_change_from_baseline                0.010407              NAN              NAN             NAN
+L2.residential_percent_change_from_baseline              -0.024703              NAN              NAN             NAN
+L2.transit_stations_percent_change_from_baseline          0.093201              NAN              NAN             NAN
+L3.confirmed_cases                                       -0.283216         0.000000    -20594002.040           0.000
+L3.driving                                               -0.212911              NAN              NAN             NAN
+L3.transit                                                0.088469         0.000000    146290782.072           0.000
+L3.walking                                                0.189210              NAN              NAN             NAN
+L3.workplaces_percent_change_from_baseline               -0.005917              NAN              NAN             NAN
+L3.residential_percent_change_from_baseline              -0.738396              NAN              NAN             NAN
+L3.transit_stations_percent_change_from_baseline          0.031321              NAN              NAN             NAN
+L4.confirmed_cases                                       -0.080210              NAN              NAN             NAN
+L4.driving                                               -0.005193              NAN              NAN             NAN
+L4.transit                                                0.124467         0.000000     29792528.512           0.000
+L4.walking                                                0.164110              NAN              NAN             NAN
+L4.workplaces_percent_change_from_baseline                0.130787              NAN              NAN             NAN
+L4.residential_percent_change_from_baseline               0.236348         0.000000      5209219.646           0.000
+L4.transit_stations_percent_change_from_baseline         -0.160970              NAN              NAN             NAN
+L5.confirmed_cases                                        0.052520              NAN              NAN             NAN
+L5.driving                                               -0.001686         0.000000     -1880484.967           0.000
+L5.transit                                                0.071416              NAN              NAN             NAN
+L5.walking                                                0.156910              NAN              NAN             NAN
+L5.workplaces_percent_change_from_baseline                0.183673         0.000000    141863585.214           0.000
+L5.residential_percent_change_from_baseline               0.426904              NAN              NAN             NAN
+L5.transit_stations_percent_change_from_baseline         -0.122769         0.000000    -16805643.547           0.000
+L6.confirmed_cases                                        0.236768         0.000000     16579700.439           0.000
+L6.driving                                               -0.144525         0.000000    -55251672.158           0.000
+L6.transit                                               -0.007261         0.000000     -1763790.932           0.000
+L6.walking                                                0.365405         0.000000     26022406.159           0.000
+L6.workplaces_percent_change_from_baseline                0.054478         0.000000     25481563.611           0.000
+L6.residential_percent_change_from_baseline               0.165877         0.000000      3628964.840           0.000
+L6.transit_stations_percent_change_from_baseline          0.044999              NAN              NAN             NAN
+L7.confirmed_cases                                        0.002419              NAN              NAN             NAN
+L7.driving                                                0.031356              NAN              NAN             NAN
+L7.transit                                               -0.028655         0.000000     -2614367.473           0.000
+L7.walking                                                0.101998         0.000000      9345457.618           0.000
+L7.workplaces_percent_change_from_baseline                0.007179              NAN              NAN             NAN
+L7.residential_percent_change_from_baseline               0.136969              NAN              NAN             NAN
+L7.transit_stations_percent_change_from_baseline          0.070200              NAN              NAN             NAN
+L8.confirmed_cases                                        0.107781         0.000000     26943120.727           0.000
+L8.driving                                                0.099851              NAN              NAN             NAN
+L8.transit                                               -0.094275              NAN              NAN             NAN
+L8.walking                                               -0.036491              NAN              NAN             NAN
+L8.workplaces_percent_change_from_baseline                0.078170              NAN              NAN             NAN
+L8.residential_percent_change_from_baseline              -0.016348              NAN              NAN             NAN
+L8.transit_stations_percent_change_from_baseline          0.000119              NAN              NAN             NAN
+L9.confirmed_cases                                        0.299594         0.000000     30984229.788           0.000
+L9.driving                                               -0.045950              NAN              NAN             NAN
+L9.transit                                               -0.224971              NAN              NAN             NAN
+L9.walking                                                0.385934              NAN              NAN             NAN
+L9.workplaces_percent_change_from_baseline               -0.027594         0.000000    -31416059.920           0.000
+L9.residential_percent_change_from_baseline              -0.348569         0.000000    -36268944.416           0.000
+L9.transit_stations_percent_change_from_baseline          0.018901              NAN              NAN             NAN
+L10.confirmed_cases                                       0.033180         0.000000      4557056.744           0.000
+L10.driving                                               0.389136         0.000000     41848940.511           0.000
+L10.transit                                              -0.346490         0.000000    -41675434.987           0.000
+L10.walking                                               0.117422              NAN              NAN             NAN
+L10.workplaces_percent_change_from_baseline              -0.035896         0.000000     -5014085.647           0.000
+L10.residential_percent_change_from_baseline             -0.376809              NAN              NAN             NAN
+L10.transit_stations_percent_change_from_baseline        -0.127558         0.000000    -12070353.546           0.000
+L11.confirmed_cases                                      -0.162630              NAN              NAN             NAN
+L11.driving                                               0.099473         0.000000     13035807.139           0.000
+L11.transit                                               0.008176         0.000000      1033086.840           0.000
+L11.walking                                              -0.003177              NAN              NAN             NAN
+L11.workplaces_percent_change_from_baseline              -0.005393              NAN              NAN             NAN
+L11.residential_percent_change_from_baseline             -0.187681              NAN              NAN             NAN
+L11.transit_stations_percent_change_from_baseline        -0.011958         0.000000     -2901723.259           0.000
+====================================================================================================================
+
+Results for equation transit_stations_percent_change_from_baseline
+====================================================================================================================
+                                                       coefficient       std. error           t-stat            prob
+--------------------------------------------------------------------------------------------------------------------
+const                                                     0.037312              NAN              NAN             NAN
+L1.confirmed_cases                                        0.528909              NAN              NAN             NAN
+L1.driving                                                1.627438              NAN              NAN             NAN
+L1.transit                                                0.362305              NAN              NAN             NAN
+L1.walking                                               -2.353420              NAN              NAN             NAN
+L1.workplaces_percent_change_from_baseline                0.021729         0.000000       552767.525           0.000
+L1.residential_percent_change_from_baseline               2.172054         0.000000      5637376.799           0.000
+L1.transit_stations_percent_change_from_baseline         -0.827845              NAN              NAN             NAN
+L2.confirmed_cases                                        1.092649         0.000000     25122850.085           0.000
+L2.driving                                                0.132703              NAN              NAN             NAN
+L2.transit                                                0.094268              NAN              NAN             NAN
+L2.walking                                                0.472294              NAN              NAN             NAN
+L2.workplaces_percent_change_from_baseline               -0.755615              NAN              NAN             NAN
+L2.residential_percent_change_from_baseline              -2.405359              NAN              NAN             NAN
+L2.transit_stations_percent_change_from_baseline          0.224955              NAN              NAN             NAN
+L3.confirmed_cases                                        3.401699         0.000000     29850040.920           0.000
+L3.driving                                                1.721953              NAN              NAN             NAN
+L3.transit                                               -0.951752         0.000000   -189921212.453           0.000
+L3.walking                                               -1.496776              NAN              NAN             NAN
+L3.workplaces_percent_change_from_baseline               -0.420784              NAN              NAN             NAN
+L3.residential_percent_change_from_baseline               1.400723              NAN              NAN             NAN
+L3.transit_stations_percent_change_from_baseline          0.186433              NAN              NAN             NAN
+L4.confirmed_cases                                       -0.267271              NAN              NAN             NAN
+L4.driving                                               -1.164814              NAN              NAN             NAN
+L4.transit                                               -0.112927         0.000000     -3261962.060           0.000
+L4.walking                                                0.603986              NAN              NAN             NAN
+L4.workplaces_percent_change_from_baseline               -0.830811              NAN              NAN             NAN
+L4.residential_percent_change_from_baseline               1.328689         0.000000      3534019.542           0.000
+L4.transit_stations_percent_change_from_baseline          1.793334              NAN              NAN             NAN
+L5.confirmed_cases                                        1.454227              NAN              NAN             NAN
+L5.driving                                               -0.423057         0.000000    -56927851.379           0.000
+L5.transit                                               -0.670837              NAN              NAN             NAN
+L5.walking                                                0.372342              NAN              NAN             NAN
+L5.workplaces_percent_change_from_baseline               -0.682009         0.000000    -63568346.477           0.000
+L5.residential_percent_change_from_baseline              -1.189524              NAN              NAN             NAN
+L5.transit_stations_percent_change_from_baseline          0.652268         0.000000     10775024.536           0.000
+L6.confirmed_cases                                       -2.478244         0.000000    -20942257.240           0.000
+L6.driving                                                0.765350         0.000000     35309211.790           0.000
+L6.transit                                               -1.165217         0.000000    -34155466.210           0.000
+L6.walking                                                0.551181         0.000000      4736872.432           0.000
+L6.workplaces_percent_change_from_baseline               -0.595316         0.000000    -33602681.631           0.000
+L6.residential_percent_change_from_baseline              -2.713913         0.000000     -7165012.466           0.000
+L6.transit_stations_percent_change_from_baseline         -0.611615              NAN              NAN             NAN
+L7.confirmed_cases                                       -1.047674              NAN              NAN             NAN
+L7.driving                                                1.140587              NAN              NAN             NAN
+L7.transit                                                0.058518         0.000000       644289.521           0.000
+L7.walking                                               -0.912596         0.000000    -10090458.609           0.000
+L7.workplaces_percent_change_from_baseline                0.001682              NAN              NAN             NAN
+L7.residential_percent_change_from_baseline               0.686677              NAN              NAN             NAN
+L7.transit_stations_percent_change_from_baseline         -1.318877              NAN              NAN             NAN
+L8.confirmed_cases                                        1.708837         0.000000     51550131.010           0.000
+L8.driving                                               -0.568976              NAN              NAN             NAN
+L8.transit                                                1.591511              NAN              NAN             NAN
+L8.walking                                               -0.636792              NAN              NAN             NAN
+L8.workplaces_percent_change_from_baseline                0.050598              NAN              NAN             NAN
+L8.residential_percent_change_from_baseline               0.789470              NAN              NAN             NAN
+L8.transit_stations_percent_change_from_baseline         -0.527765              NAN              NAN             NAN
+L9.confirmed_cases                                       -0.310621         0.000000     -3876721.021           0.000
+L9.driving                                               -1.677658              NAN              NAN             NAN
+L9.transit                                                2.421586              NAN              NAN             NAN
+L9.walking                                               -1.083140              NAN              NAN             NAN
+L9.workplaces_percent_change_from_baseline               -0.156719         0.000000    -21532012.831           0.000
+L9.residential_percent_change_from_baseline              -1.265697         0.000000    -15892820.081           0.000
+L9.transit_stations_percent_change_from_baseline          0.265436              NAN              NAN             NAN
+L10.confirmed_cases                                      -2.947076         0.000000    -48845943.449           0.000
+L10.driving                                              -1.715713         0.000000    -22266563.048           0.000
+L10.transit                                               2.073118         0.000000     30091134.360           0.000
+L10.walking                                              -0.943945              NAN              NAN             NAN
+L10.workplaces_percent_change_from_baseline               0.399288         0.000000      6730720.703           0.000
+L10.residential_percent_change_from_baseline             -0.376653              NAN              NAN             NAN
+L10.transit_stations_percent_change_from_baseline         0.148134         0.000000      1691579.844           0.000
+L11.confirmed_cases                                      -0.058127              NAN              NAN             NAN
+L11.driving                                              -2.575706         0.000000    -40733869.280           0.000
+L11.transit                                               0.744401         0.000000     11350249.384           0.000
+L11.walking                                               1.047803              NAN              NAN             NAN
+L11.workplaces_percent_change_from_baseline              -0.050815              NAN              NAN             NAN
+L11.residential_percent_change_from_baseline              0.058914              NAN              NAN             NAN
+L11.transit_stations_percent_change_from_baseline         0.578599         0.000000     16943937.285           0.000
+====================================================================================================================
+
+Correlation matrix of residuals
+                                                 confirmed_cases   driving   transit   walking  workplaces_percent_change_from_baseline  residential_percent_change_from_baseline  transit_stations_percent_change_from_baseline
+confirmed_cases                                         1.000000 -0.454335 -0.054795 -0.324791                                -0.276897                                  0.229533                                      -0.581222
+driving                                                -0.454335  1.000000  0.372071  0.091591                                 0.182372                                 -0.104469                                       0.541479
+transit                                                -0.054795  0.372071  1.000000  0.446921                                -0.266886                                 -0.237523                                      -0.059457
+walking                                                -0.324791  0.091591  0.446921  1.000000                                -0.098245                                 -0.297247                                       0.074454
+workplaces_percent_change_from_baseline                -0.276897  0.182372 -0.266886 -0.098245                                 1.000000                                 -0.526916                                       0.700519
+residential_percent_change_from_baseline                0.229533 -0.104469 -0.237523 -0.297247                                -0.526916                                  1.000000                                      -0.368239
+transit_stations_percent_change_from_baseline          -0.581222  0.541479 -0.059457  0.074454                                 0.700519                                 -0.368239                                       1.000000

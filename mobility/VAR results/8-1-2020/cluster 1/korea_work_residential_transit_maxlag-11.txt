@@ -1,0 +1,222 @@
+  Summary of Regression Results   
+==================================
+Model:                         VAR
+Method:                        OLS
+Date:           Sat, 01, Aug, 2020
+Time:                     01:03:48
+--------------------------------------------------------------------
+No. of Equations:         4.00000    BIC:                   -27.9366
+Nobs:                     136.000    HQIC:                  -30.2250
+Log likelihood:           1569.93    FPE:                1.72993e-14
+AIC:                     -31.7916    Det(Omega_mle):     5.51404e-15
+--------------------------------------------------------------------
+Results for equation confirmed_cases
+====================================================================================================================
+                                                       coefficient       std. error           t-stat            prob
+--------------------------------------------------------------------------------------------------------------------
+const                                                     0.000773         0.000374            2.068           0.039
+L1.confirmed_cases                                        0.451086         0.095391            4.729           0.000
+L1.workplaces_percent_change_from_baseline                0.008813         0.005652            1.559           0.119
+L1.residential_percent_change_from_baseline               0.057561         0.038821            1.483           0.138
+L1.transit_stations_percent_change_from_baseline          0.024696         0.010516            2.348           0.019
+L2.confirmed_cases                                        0.118833         0.098133            1.211           0.226
+L2.workplaces_percent_change_from_baseline                0.000649         0.006276            0.103           0.918
+L2.residential_percent_change_from_baseline               0.000465         0.047318            0.010           0.992
+L2.transit_stations_percent_change_from_baseline          0.022543         0.013232            1.704           0.088
+L3.confirmed_cases                                       -0.143961         0.085219           -1.689           0.091
+L3.workplaces_percent_change_from_baseline                0.004735         0.006619            0.715           0.474
+L3.residential_percent_change_from_baseline               0.016637         0.056156            0.296           0.767
+L3.transit_stations_percent_change_from_baseline          0.006909         0.015027            0.460           0.646
+L4.confirmed_cases                                        0.295724         0.059746            4.950           0.000
+L4.workplaces_percent_change_from_baseline                0.002118         0.006897            0.307           0.759
+L4.residential_percent_change_from_baseline              -0.006045         0.063166           -0.096           0.924
+L4.transit_stations_percent_change_from_baseline          0.018235         0.016358            1.115           0.265
+L5.confirmed_cases                                        0.004331         0.064970            0.067           0.947
+L5.workplaces_percent_change_from_baseline               -0.000479         0.006921           -0.069           0.945
+L5.residential_percent_change_from_baseline              -0.020999         0.067057           -0.313           0.754
+L5.transit_stations_percent_change_from_baseline          0.010360         0.017061            0.607           0.544
+L6.confirmed_cases                                        0.072826         0.060790            1.198           0.231
+L6.workplaces_percent_change_from_baseline                0.005292         0.006697            0.790           0.429
+L6.residential_percent_change_from_baseline               0.030615         0.065639            0.466           0.641
+L6.transit_stations_percent_change_from_baseline          0.020592         0.016823            1.224           0.221
+L7.confirmed_cases                                       -0.066883         0.042740           -1.565           0.118
+L7.workplaces_percent_change_from_baseline                0.005496         0.007311            0.752           0.452
+L7.residential_percent_change_from_baseline               0.019423         0.066712            0.291           0.771
+L7.transit_stations_percent_change_from_baseline          0.032615         0.017036            1.914           0.056
+L8.confirmed_cases                                        0.079685         0.042475            1.876           0.061
+L8.workplaces_percent_change_from_baseline               -0.003810         0.007108           -0.536           0.592
+L8.residential_percent_change_from_baseline              -0.019873         0.061990           -0.321           0.749
+L8.transit_stations_percent_change_from_baseline          0.014599         0.016342            0.893           0.372
+L9.confirmed_cases                                       -0.048591         0.039136           -1.242           0.214
+L9.workplaces_percent_change_from_baseline                0.009264         0.007049            1.314           0.189
+L9.residential_percent_change_from_baseline               0.071928         0.060342            1.192           0.233
+L9.transit_stations_percent_change_from_baseline          0.025549         0.014814            1.725           0.085
+L10.confirmed_cases                                      -0.133986         0.028441           -4.711           0.000
+L10.workplaces_percent_change_from_baseline               0.007798         0.006408            1.217           0.224
+L10.residential_percent_change_from_baseline              0.057671         0.050378            1.145           0.252
+L10.transit_stations_percent_change_from_baseline         0.028803         0.012644            2.278           0.023
+L11.confirmed_cases                                       0.093944         0.020972            4.480           0.000
+L11.workplaces_percent_change_from_baseline               0.000395         0.005776            0.068           0.945
+L11.residential_percent_change_from_baseline              0.023953         0.039858            0.601           0.548
+L11.transit_stations_percent_change_from_baseline         0.009546         0.008940            1.068           0.286
+====================================================================================================================
+
+Results for equation workplaces_percent_change_from_baseline
+====================================================================================================================
+                                                       coefficient       std. error           t-stat            prob
+--------------------------------------------------------------------------------------------------------------------
+const                                                     0.027221         0.015185            1.793           0.073
+L1.confirmed_cases                                        2.921568         3.873604            0.754           0.451
+L1.workplaces_percent_change_from_baseline               -0.114364         0.229494           -0.498           0.618
+L1.residential_percent_change_from_baseline               4.906463         1.576445            3.112           0.002
+L1.transit_stations_percent_change_from_baseline          0.042025         0.427043            0.098           0.922
+L2.confirmed_cases                                        0.580406         3.984945            0.146           0.884
+L2.workplaces_percent_change_from_baseline                0.081216         0.254851            0.319           0.750
+L2.residential_percent_change_from_baseline               7.193613         1.921478            3.744           0.000
+L2.transit_stations_percent_change_from_baseline          0.848679         0.537329            1.579           0.114
+L3.confirmed_cases                                       -5.414535         3.460562           -1.565           0.118
+L3.workplaces_percent_change_from_baseline                0.556741         0.268775            2.071           0.038
+L3.residential_percent_change_from_baseline              10.256394         2.280365            4.498           0.000
+L3.transit_stations_percent_change_from_baseline          1.366301         0.610210            2.239           0.025
+L4.confirmed_cases                                        1.503689         2.426148            0.620           0.535
+L4.workplaces_percent_change_from_baseline                0.258209         0.280084            0.922           0.357
+L4.residential_percent_change_from_baseline               6.594291         2.565032            2.571           0.010
+L4.transit_stations_percent_change_from_baseline          0.691439         0.664257            1.041           0.298
+L5.confirmed_cases                                        1.414967         2.638274            0.536           0.592
+L5.workplaces_percent_change_from_baseline                0.758898         0.281056            2.700           0.007
+L5.residential_percent_change_from_baseline               6.866074         2.723032            2.521           0.012
+L5.transit_stations_percent_change_from_baseline          0.269544         0.692806            0.389           0.697
+L6.confirmed_cases                                       -1.384206         2.468546           -0.561           0.575
+L6.workplaces_percent_change_from_baseline                0.389872         0.271953            1.434           0.152
+L6.residential_percent_change_from_baseline               4.986922         2.665447            1.871           0.061
+L6.transit_stations_percent_change_from_baseline          0.326911         0.683152            0.479           0.632
+L7.confirmed_cases                                       -1.009514         1.735584           -0.582           0.561
+L7.workplaces_percent_change_from_baseline                0.647174         0.296863            2.180           0.029
+L7.residential_percent_change_from_baseline               5.751390         2.709024            2.123           0.034
+L7.transit_stations_percent_change_from_baseline          0.591454         0.691791            0.855           0.393
+L8.confirmed_cases                                       -1.577548         1.724826           -0.915           0.360
+L8.workplaces_percent_change_from_baseline                0.075645         0.288653            0.262           0.793
+L8.residential_percent_change_from_baseline               1.770420         2.517284            0.703           0.482
+L8.transit_stations_percent_change_from_baseline          0.317368         0.663602            0.478           0.632
+L9.confirmed_cases                                        0.641558         1.589219            0.404           0.686
+L9.workplaces_percent_change_from_baseline                0.062791         0.286252            0.219           0.826
+L9.residential_percent_change_from_baseline               1.030275         2.450338            0.420           0.674
+L9.transit_stations_percent_change_from_baseline          0.081116         0.601581            0.135           0.893
+L10.confirmed_cases                                      -0.025728         1.154918           -0.022           0.982
+L10.workplaces_percent_change_from_baseline              -0.217867         0.260217           -0.837           0.402
+L10.residential_percent_change_from_baseline             -1.097953         2.045753           -0.537           0.591
+L10.transit_stations_percent_change_from_baseline        -0.105263         0.513430           -0.205           0.838
+L11.confirmed_cases                                       0.898846         0.851609            1.055           0.291
+L11.workplaces_percent_change_from_baseline               0.183329         0.234541            0.782           0.434
+L11.residential_percent_change_from_baseline              1.212605         1.618528            0.749           0.454
+L11.transit_stations_percent_change_from_baseline         0.303756         0.363022            0.837           0.403
+====================================================================================================================
+
+Results for equation residential_percent_change_from_baseline
+====================================================================================================================
+                                                       coefficient       std. error           t-stat            prob
+--------------------------------------------------------------------------------------------------------------------
+const                                                    -0.005174         0.002893           -1.788           0.074
+L1.confirmed_cases                                       -0.492819         0.738051           -0.668           0.504
+L1.workplaces_percent_change_from_baseline               -0.056959         0.043726           -1.303           0.193
+L1.residential_percent_change_from_baseline              -1.257680         0.300365           -4.187           0.000
+L1.transit_stations_percent_change_from_baseline         -0.045695         0.081366           -0.562           0.574
+L2.confirmed_cases                                        0.183388         0.759265            0.242           0.809
+L2.workplaces_percent_change_from_baseline               -0.069968         0.048558           -1.441           0.150
+L2.residential_percent_change_from_baseline              -1.404460         0.366106           -3.836           0.000
+L2.transit_stations_percent_change_from_baseline         -0.072258         0.102379           -0.706           0.480
+L3.confirmed_cases                                        0.760447         0.659353            1.153           0.249
+L3.workplaces_percent_change_from_baseline               -0.079292         0.051211           -1.548           0.122
+L3.residential_percent_change_from_baseline              -1.610100         0.434486           -3.706           0.000
+L3.transit_stations_percent_change_from_baseline         -0.169645         0.116265           -1.459           0.145
+L4.confirmed_cases                                       -0.180440         0.462262           -0.390           0.696
+L4.workplaces_percent_change_from_baseline               -0.105861         0.053365           -1.984           0.047
+L4.residential_percent_change_from_baseline              -1.337299         0.488724           -2.736           0.006
+L4.transit_stations_percent_change_from_baseline         -0.150987         0.126563           -1.193           0.233
+L5.confirmed_cases                                       -0.095948         0.502679           -0.191           0.849
+L5.workplaces_percent_change_from_baseline               -0.151769         0.053550           -2.834           0.005
+L5.residential_percent_change_from_baseline              -1.232912         0.518828           -2.376           0.017
+L5.transit_stations_percent_change_from_baseline         -0.080980         0.132003           -0.613           0.540
+L6.confirmed_cases                                        0.150177         0.470340            0.319           0.750
+L6.workplaces_percent_change_from_baseline               -0.137779         0.051816           -2.659           0.008
+L6.residential_percent_change_from_baseline              -1.122669         0.507857           -2.211           0.027
+L6.transit_stations_percent_change_from_baseline         -0.158558         0.130163           -1.218           0.223
+L7.confirmed_cases                                        0.111974         0.330687            0.339           0.735
+L7.workplaces_percent_change_from_baseline               -0.087179         0.056562           -1.541           0.123
+L7.residential_percent_change_from_baseline              -0.531968         0.516159           -1.031           0.303
+L7.transit_stations_percent_change_from_baseline         -0.088476         0.131809           -0.671           0.502
+L8.confirmed_cases                                        0.091081         0.328637            0.277           0.782
+L8.workplaces_percent_change_from_baseline               -0.031667         0.054998           -0.576           0.565
+L8.residential_percent_change_from_baseline              -0.176465         0.479627           -0.368           0.713
+L8.transit_stations_percent_change_from_baseline         -0.053604         0.126438           -0.424           0.672
+L9.confirmed_cases                                       -0.046741         0.302799           -0.154           0.877
+L9.workplaces_percent_change_from_baseline               -0.010986         0.054541           -0.201           0.840
+L9.residential_percent_change_from_baseline               0.017864         0.466871            0.038           0.969
+L9.transit_stations_percent_change_from_baseline         -0.029845         0.114621           -0.260           0.795
+L10.confirmed_cases                                       0.174198         0.220050            0.792           0.429
+L10.workplaces_percent_change_from_baseline               0.015736         0.049580            0.317           0.751
+L10.residential_percent_change_from_baseline              0.199770         0.389784            0.513           0.608
+L10.transit_stations_percent_change_from_baseline         0.050083         0.097826            0.512           0.609
+L11.confirmed_cases                                      -0.296093         0.162260           -1.825           0.068
+L11.workplaces_percent_change_from_baseline               0.009179         0.044688            0.205           0.837
+L11.residential_percent_change_from_baseline              0.108563         0.308384            0.352           0.725
+L11.transit_stations_percent_change_from_baseline         0.012017         0.069168            0.174           0.862
+====================================================================================================================
+
+Results for equation transit_stations_percent_change_from_baseline
+====================================================================================================================
+                                                       coefficient       std. error           t-stat            prob
+--------------------------------------------------------------------------------------------------------------------
+const                                                     0.002935         0.006116            0.480           0.631
+L1.confirmed_cases                                        4.060069         1.560164            2.602           0.009
+L1.workplaces_percent_change_from_baseline               -0.035513         0.092433           -0.384           0.701
+L1.residential_percent_change_from_baseline              -0.133841         0.634942           -0.211           0.833
+L1.transit_stations_percent_change_from_baseline         -0.692929         0.171999           -4.029           0.000
+L2.confirmed_cases                                       -2.163874         1.605009           -1.348           0.178
+L2.workplaces_percent_change_from_baseline               -0.071294         0.102646           -0.695           0.487
+L2.residential_percent_change_from_baseline              -0.652528         0.773910           -0.843           0.399
+L2.transit_stations_percent_change_from_baseline         -0.725567         0.216419           -3.353           0.001
+L3.confirmed_cases                                       -2.612068         1.393804           -1.874           0.061
+L3.workplaces_percent_change_from_baseline               -0.127595         0.108254           -1.179           0.239
+L3.residential_percent_change_from_baseline              -0.113042         0.918458           -0.123           0.902
+L3.transit_stations_percent_change_from_baseline         -0.581693         0.245773           -2.367           0.018
+L4.confirmed_cases                                        1.342091         0.977175            1.373           0.170
+L4.workplaces_percent_change_from_baseline                0.170771         0.112809            1.514           0.130
+L4.residential_percent_change_from_baseline               0.560184         1.033113            0.542           0.588
+L4.transit_stations_percent_change_from_baseline         -0.224567         0.267541           -0.839           0.401
+L5.confirmed_cases                                       -0.501680         1.062613           -0.472           0.637
+L5.workplaces_percent_change_from_baseline                0.068697         0.113200            0.607           0.544
+L5.residential_percent_change_from_baseline              -0.419582         1.096750           -0.383           0.702
+L5.transit_stations_percent_change_from_baseline         -0.407081         0.279040           -1.459           0.145
+L6.confirmed_cases                                        0.366171         0.994252            0.368           0.713
+L6.workplaces_percent_change_from_baseline                0.031265         0.109534            0.285           0.775
+L6.residential_percent_change_from_baseline              -0.461496         1.073557           -0.430           0.667
+L6.transit_stations_percent_change_from_baseline         -0.238915         0.275152           -0.868           0.385
+L7.confirmed_cases                                       -0.578416         0.699038           -0.827           0.408
+L7.workplaces_percent_change_from_baseline                0.054618         0.119567            0.457           0.648
+L7.residential_percent_change_from_baseline              -0.823699         1.091108           -0.755           0.450
+L7.transit_stations_percent_change_from_baseline         -0.092761         0.278631           -0.333           0.739
+L8.confirmed_cases                                        0.179028         0.694705            0.258           0.797
+L8.workplaces_percent_change_from_baseline               -0.088348         0.116260           -0.760           0.447
+L8.residential_percent_change_from_baseline              -1.739432         1.013882           -1.716           0.086
+L8.transit_stations_percent_change_from_baseline         -0.329453         0.267278           -1.233           0.218
+L9.confirmed_cases                                       -0.297709         0.640087           -0.465           0.642
+L9.workplaces_percent_change_from_baseline               -0.082237         0.115293           -0.713           0.476
+L9.residential_percent_change_from_baseline              -1.270738         0.986918           -1.288           0.198
+L9.transit_stations_percent_change_from_baseline         -0.133846         0.242298           -0.552           0.581
+L10.confirmed_cases                                      -0.794195         0.465164           -1.707           0.088
+L10.workplaces_percent_change_from_baseline              -0.036916         0.104807           -0.352           0.725
+L10.residential_percent_change_from_baseline             -1.184682         0.823964           -1.438           0.150
+L10.transit_stations_percent_change_from_baseline        -0.169533         0.206793           -0.820           0.412
+L11.confirmed_cases                                       1.185212         0.343001            3.455           0.001
+L11.workplaces_percent_change_from_baseline              -0.167985         0.094466           -1.778           0.075
+L11.residential_percent_change_from_baseline             -1.325775         0.651892           -2.034           0.042
+L11.transit_stations_percent_change_from_baseline        -0.188382         0.146214           -1.288           0.198
+====================================================================================================================
+
+Correlation matrix of residuals
+                                                 confirmed_cases  workplaces_percent_change_from_baseline  residential_percent_change_from_baseline  transit_stations_percent_change_from_baseline
+confirmed_cases                                         1.000000                                 0.106573                                 -0.072830                                       0.025286
+workplaces_percent_change_from_baseline                 0.106573                                 1.000000                                 -0.829989                                       0.359079
+residential_percent_change_from_baseline               -0.072830                                -0.829989                                  1.000000                                      -0.705564
+transit_stations_percent_change_from_baseline           0.025286                                 0.359079                                 -0.705564                                       1.000000
