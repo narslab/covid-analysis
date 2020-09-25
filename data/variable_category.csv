@@ -1,0 +1,27 @@
+Variable,Data Source,Type
+confirmed_cases,CSSEGISandData / COVID-19,Endogenous
+driving,Apple Mobility Trends Reports,Endogenous
+walking,Apple Mobility Trends Reports,Endogenous
+"grocery_and_pharmacy_percent_change_from_baseline	",Google Community Mobility Reports,Endogenous
+"parks_percent_change_from_baseline	",Google Community Mobility Reports,Endogenous
+transit_stations_percent_change_from_baseline,Google Community Mobility Reports,Endogenous
+workplaces_percent_change_from_baseline,Google Community Mobility Reports,Endogenous
+residential_percent_change_from_baseline,Google Community Mobility Reports,Endogenous
+retail_and_recreation_percent_change_from_baseline,Google Community Mobility Reports,Endogenous
+pop_WDI_PW,World economics and politics dataverse,Deterministic
+gdp_WDI_PW,World economics and politics dataverse,Deterministic
+gdppc_WDI_PW,World economics and politics dataverse,Deterministic
+growth_WDI_PW,World economics and politics dataverse,Deterministic
+pop_WDI,World economics and politics dataverse,Deterministic
+pop_den_WDI,World economics and politics dataverse,Deterministic
+pop_urb_WDI,World economics and politics dataverse,Deterministic
+pop0_14_WDI,World economics and politics dataverse,Deterministic
+workingpop_WDI,World economics and politics dataverse,Deterministic
+CATEGORY,Government measures,Weakly exogenous
+MEASURE,Government measures,Weakly exogenous
+TARGETED_POP_GROUP,Government measures,Weakly exogenous
+COMMENTS,Government measures,Weakly exogenous
+NON_COMPLIANCE,Government measures,Weakly exogenous
+DATE_IMPLEMENTED,Government measures,Weakly exogenous
+SOURCE,Government measures,Weakly exogenous
+SOURCE_TYPE,Government measures,Weakly exogenous
