@@ -2,10 +2,9 @@
 \usepackage{geometry}
 \geometry{top=.8in, left=.8in,right=.8in,bottom=.8in}
 
-\usepackage{graphicx,booktabs,calc}
+\usepackage{booktabs,calc,soul,xcolor}
 
-%=== GRAPHICS PATH ===========
-%\graphicspath{{./140408-Images/}}
+ 
 % Marginpar width
 %Marginpar width
 \newcommand{\pts}[1]{\marginpar{ \small\hspace{0pt} \textit{[#1]} } }
@@ -84,7 +83,6 @@
 \newcommand{\?}{\stackrel{?}{=}}
 \newcommand{\fr}{\frac}
 \newcommand{\dfr}{\dfrac}
-\newcommand{\ul}{\underline}
 \newcommand{\tn}{\tabularnewline}
 \newcommand{\nl}{\newline}
 \newcommand\relph[1]{\mathrel{\phantom{#1}}}
@@ -98,7 +96,7 @@
 \newcommand{\og}{\color{orange!90!black}}
 \newcommand{\gr}{\color{green!40!black}}
 % Custom colors
-\usepackage{color}
+%\usepackage{color}
 \definecolor{deepblue}{rgb}{0,0,0.5}
 \definecolor{deepred}{rgb}{0.6,0,0}
 \definecolor{deepgreen}{rgb}{0,0.5,0}
@@ -155,6 +153,16 @@ We expect that our model outcomes will guide policymakers to adopt  appropriate 
 \end{frontmatter}
 
 \section{Introduction}
+\textit{\bl This section sets up the motivation and significance of the work presented in this paper. Key questions:
+  \begin{enumerate}
+  \item What is the ongoing and potential future impact of COVID-19 across various countries, particularly on mobility and activity patterns? What are the implications (known and unknown)?
+  \item Briefly what has been done in terms of modeling mobility impacts?
+  \item Where are the current gaps in our knowledge?
+  \item (Final paragraph) What is the summary of this paper's contributions? What is the expected significance of our results?
+  \end{enumerate}
+}
+
+
 COVID-19 has had a severe impact on mobility and social activities since initial reports of the disease emerged in late 2019.
 By May 2020 most countries had implemented social distancing measures and imposed strict travel restrictions to curtail the spread of the virus
 both within their borders and internationally.
@@ -183,7 +191,8 @@ Second, we estimate cluster-representative models using the vector autoregressio
 These models explain which activities impact COVID-19 outcomes and vice versa, providing potential pathways for understanding behavioral responses to the spread of the pandemic and a greater understanding of the disparities and similarities across nationwide outcomes.
 
  
-\section{Literature review}
+\subsection{Related work}
+\hl{Here, 3-4 paragraphs summarizing efforts to analyze activity-mobility patterns (i) historically, (ii) in context of COVID-19, and then (iii) brief history and application of VAR modeling.} 
 
 \section{Data}
 We use transportation data provided by Apple\footnote{\url{https://www.apple.com/covid19/mobility}} along with Community Mobility Reports compiled by Google\footnote{\url{https://www.google.com/covid19/mobility/}}. %The data is publicly available at:
@@ -241,18 +250,20 @@ These yield preliminary insights into the trends at the country level.
 Finally, we intend to estimate vector autoregression models at the country and at the cluster level in order to quantify how changes in activity and mobility trends influence COVID-19 outcomes. 
 In particular, we expect results as well on interdependencies between the mobility and activity variables.
 
-\subsection{Dynamic time warping}
+
+\subsection{Dynamic time warping and clustering}
+\hl{Not sure if we need to perform any exploratory analysis in this manuscript, but these methods might be useful either initially or in analyzing model results}
 The dynamic time warping (DTW) algorithm \cite{giorgino2009computing} computes the optimal distance between pairwise time series.
 Any hierarchical clustering procedure requires a dissimilarity matrix as an input, which DTW provides.
 First, we compute the Euclidean distance matrix for each country across the dimensions of the endogenous variables.
 Second, we apply DTW to find the optimal matching between the countries based on their pairwise distance matrices across the dimensions observed.
 The symmetric dissimilarity matrix is then used an input to the clustering algorithm.
 
-
-\subsection{Clustering}
 We use the Ward method \cite{murtagh2014ward}, which is a hierarchical agglomerative clustering (HAC) approach, to group the countries.
 The dendogram is shown in \autoref{fig:dend}.
 
+
+\subsection{Global vector autoregression model with time-varying weights}
 
 % We use a Global Vector AutoRegression (GVAR) modeling framework \cite{dees2007exploring} (Carteni et al
 % 2020).
@@ -289,9 +300,6 @@ The dendogram is shown in \autoref{fig:dend}.
 % where $w_{ij}$ are the cross-country weights.
 
 
-
-
-\subsection{Vector autoregression model}
 The basic vector autoregression (VAR) model is given by:
 \begin{equation}
   \label{eq:6}
@@ -317,6 +325,9 @@ Country-specific VAR models can also be stacked to yield a global VAR  \cite{mar
 % \item work $y_{9}$
 % \item home $y_{10}$
 % \end{itemize}
+
+
+
 
 
 \section{Results }
@@ -421,7 +432,7 @@ These would allow the inclusion of the effects of observations in other countrie
 
 \section{Discussion}
 
-\section{Conclusion and future work}
+\section{Conclusion }
 We cluster the countries in our sample into four categories based on similar activity and mobility trends.
 % By running the model with a different lag parameter for each country we attempted to estimate the optimal lag for each country.
 % However, our VAR implementation fell short of producing statistically significant results.
