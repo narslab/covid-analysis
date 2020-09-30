@@ -7,3 +7,9 @@ auto
 *.out
 *.pdf
 *.synctex.gz
+*.bcf
+*.maf
+*.mtc0
+*.tex~
+*.run.xml
+*.toc
