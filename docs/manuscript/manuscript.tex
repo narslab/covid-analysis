@@ -25,9 +25,9 @@
 %\usepackage[style=numeric,backend=biber,sorting=none,maxcitenames=2,maxbibnames=99,doi=false,isbn=false,url=false,eprint=false]{biblatex}
 %\addbibresource{references.bib}
 
-\usepackage{lineno}
-\renewcommand\linenumberfont{\normalfont\small}
-\linenumbers
+%\usepackage{lineno}
+%\renewcommand\linenumberfont{\normalfont\small}
+%\linenumbers
 
 
 
@@ -190,7 +190,9 @@ First, we cluster the countries to discover patterns in mobility and activity ch
 Second, we estimate cluster-representative models using the vector autoregression (VAR) framework, allowing for time lags across all endogenous variables, and thus including dynamic interdependencies among them.
 These models explain which activities impact COVID-19 outcomes and vice versa, providing potential pathways for understanding behavioral responses to the spread of the pandemic and a greater understanding of the disparities and similarities across nationwide outcomes.
 
- 
+\subsection{Significance}
+
+
 \subsection{Related work}
 \hl{Here, 3-4 paragraphs summarizing efforts to analyze activity-mobility patterns (i) historically, (ii) in context of COVID-19, and then (iii) brief history and application of VAR modeling.} 
 
@@ -262,6 +264,8 @@ The symmetric dissimilarity matrix is then used an input to the clustering algor
 We use the Ward method \cite{murtagh2014ward}, which is a hierarchical agglomerative clustering (HAC) approach, to group the countries.
 The dendogram is shown in \autoref{fig:dend}.
 
+\subsection{Dimensionality reduction of deterministic variables}
+Perhaps PCA or EFA.
 
 \subsection{Global vector autoregression model with time-varying weights}
 
@@ -311,6 +315,7 @@ $A(\ell)$ is a polynomial in the lag operator and $\varepsilon_{t}\sim iid(0,\Si
 This framework allows for specification of both dynamic and static interdependencies
 among the endogenous variables, as well as cross-sectional heterogeneities (when a panel VAR framework is used).
 Country-specific VAR models can also be stacked to yield a global VAR  \cite{martin2017weighting,dees2007exploring,covid19b}, allowing for the inclusion of weakly exogenous (``foreign'') variables (such as border closures) using weights (such as air travel flows) from each of the countries.
+
 
 % In this case, the domestic variables are as follows (growth rates computed as difference of logs):
 % \begin{itemize}
@@ -372,30 +377,30 @@ Furthermore, the peak for home activities occurs the latest in Cluster 3.
 There are no discernible cluster-specific patterns for park activities for Clusters 1, 2 and 4 (as trends vary by country).
 However, in Cluster 3, many countries observed a decline of up to 75 percentage points through April, followed by a large uptick.
 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{c1-activity}
-  \includegraphics[width=\textwidth]{c2-activity}
-  \includegraphics[width=\textwidth]{c3-activity}
-  \includegraphics[width=\textwidth]{c4-activity}
-  \caption{Activity changes from baseline (100\%) by cluster (Google dataset).  Trends are indicated using a generalized linear (GLM) fit for each country.}
-  \label{fig:act}
-\end{figure}
+% \begin{figure}[h!]
+%   \centering
+%   \includegraphics[width=\textwidth]{c1-activity}
+%   \includegraphics[width=\textwidth]{c2-activity}
+%   \includegraphics[width=\textwidth]{c3-activity}
+%   \includegraphics[width=\textwidth]{c4-activity}
+%   \caption{Activity changes from baseline (100\%) by cluster (Google dataset).  Trends are indicated using a generalized linear (GLM) fit for each country.}
+%   \label{fig:act}
+% \end{figure}
 
 
-The driving, transit and walking activities observed from navigation via Apple devices do not distinctly vary among the clusters (\autoref{fig:mob}).
-This could be explained by the fact that usual activities perhaps do not require navigation.
-And also since Apple Maps users are not always representative of the population, it is less likely that changes in regular activities would be discernible from these data.
+% The driving, transit and walking activities observed from navigation via Apple devices do not distinctly vary among the clusters (\autoref{fig:mob}).
+% This could be explained by the fact that usual activities perhaps do not require navigation.
+% And also since Apple Maps users are not always representative of the population, it is less likely that changes in regular activities would be discernible from these data.
 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=.9\textwidth]{c1-mobility}
-  \includegraphics[width=.9\textwidth]{c2-mobility}
-  \includegraphics[width=.9\textwidth]{c3-mobility}
-  \includegraphics[width=.9\textwidth]{c4-mobility}
-  \caption{Mobility changes from baseline (100\%) by cluster (Apple dataset). Trends are indicated using a generalized linear (GLM) fit for each country.}
-  \label{fig:mob}
-\end{figure}
+% \begin{figure}[h!]
+%   \centering
+%   \includegraphics[width=.9\textwidth]{c1-mobility}
+%   \includegraphics[width=.9\textwidth]{c2-mobility}
+%   \includegraphics[width=.9\textwidth]{c3-mobility}
+%   \includegraphics[width=.9\textwidth]{c4-mobility}
+%   \caption{Mobility changes from baseline (100\%) by cluster (Apple dataset). Trends are indicated using a generalized linear (GLM) fit for each country.}
+%   \label{fig:mob}
+% \end{figure}
 
 
 We show the daily confirmed COVID-19 cases at the country level by cluster in \autoref{fig:cov} on a log-y scale.
