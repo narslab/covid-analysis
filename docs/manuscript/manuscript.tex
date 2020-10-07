@@ -21,6 +21,7 @@
 %\usepackage{minted}
 
 \usepackage{rotating}
+\usepackage{amsmath, amssymb}
 %% Cite Title
 %\usepackage[style=numeric,backend=biber,sorting=none,maxcitenames=2,maxbibnames=99,doi=false,isbn=false,url=false,eprint=false]{biblatex}
 %\addbibresource{references.bib}
@@ -268,9 +269,62 @@ The dendogram is shown in \autoref{fig:dend}.
 Perhaps PCA or EFA.
 
 \subsection{Global vector autoregression model with time-varying weights}
+The global VAR model \cite{dees2007exploring} is given by
 
-% We use a Global Vector AutoRegression (GVAR) modeling framework \cite{dees2007exploring} (Carteni et al
-% 2020).
+\begin{equation}
+  \label{eq:1}
+  x_{i,t} = \sum_{l=1}^{p_{i}}\Phi_{il}x_{i,t-l} + \Lambda_{i0}x_{i,t}^{*} + \sum_{l=1}^{q_{i}}\Lambda_{il}x_{i,t-l}^{*} + \varepsilon_{i,t}
+\end{equation}
+where $x_{i,t}$ is a vector of $k_{i}\times 1$ endogenous variables and $i = 1, 2, \ldots, N$ is the number of buildings
+in the system.  The matrix $\Phi_{il}$ has dimensions $k_{i}\times k_{i}$, while the matrices $\Lambda_{io}$ and
+$\Lambda_{i1}$ both have the dimensions $k_{i}\times k_{i}^{*}$.
+Each country $i$ has $k_{i}$ endogenous variables and $k_{i}^{*}$ foreign (weakly exogenous) variables.
+$\Phi_{il}$ is a coefficient matrix of the cointegrated
+endogenous variables. $\Lambda_{i0}$ is a coefficient matrix for the contemporanoues weakly exogenous variable
+$x_{i,t}^{*}$. $\Lambda_{il}$ is the coefficient matrix of the $q_{i}$ lagged foreign variables $x_{i,t-l}^{*}$, where
+\begin{equation}
+  \label{eq:2}
+  x_{i,t}^{*} = \ol{W}_{i}^{'}x_{t}.
+\end{equation}
+The matrix $\ol{W}_{i}^{'}$ is the $k^{*} \times N$ matrix of building-specific weights.
+Stacking the domestic and foreign variables, we obtain
+\begin{equation}
+  \label{eq:3}
+  z_{i,t} =
+  \begin{bmatrix}
+    x_{i,t}^{'}, x_{i,t}^{*'}
+  \end{bmatrix}'  = W_{i}x_{t}
+\end{equation}
+where $W_{i} = E_{i}\ol{W}_{i}$ and $E_{i}$ is a selection matrix We
+can then compactly write the model as
+\begin{equation}
+  \label{eq:4}
+  G_{0}x_{t} = \sum_{l=1}^{p}G_{l}x_{t-l} + \varepsilon_{t}
+\end{equation}
+where
+\begin{equation}
+  \label{eq:5}
+  G_{l} =
+  \begin{bmatrix}
+    A_{1,l}W_{1}\\ A_{2,l}W_{2}\\ \vdots \\A_{N,l}W_{N}
+  \end{bmatrix}
+  % =
+  % \begin{bmatrix}
+  %   \Phi_{1l} & \Lambda_{2l} \\ \vdots  & \vdots \\     \Phi_{Nl} & \Lambda_{Nl} 
+  % \end{bmatrix}
+\end{equation}
+and $A_{i,l} = [\Phi_{1l}  \Lambda_{2l}]$.
+
+The global model can then be compactly written as
+\begin{equation}
+  \label{eq:6}
+  x_{t} = \sum_{l=1}^{p}G_{0}^{-1}G_{l }x_{t-l} + G_{0}^{-1}u_{t}
+\end{equation}
+where $x_{t}$ $x_{t-l}$ and $u_{t}$ are stacked vectors of length $kN$.
+
+
+
+
 % Given country $i$ with $k_{i}$ endogenous variables $x_{i,t}$, the model is specified as
 % \begin{equation}
 %   \label{eq:1}
@@ -304,17 +358,17 @@ Perhaps PCA or EFA.
 % where $w_{ij}$ are the cross-country weights.
 
 
-The basic vector autoregression (VAR) model is given by:
-\begin{equation}
-  \label{eq:6}
-  y_{t} = A_{0}(t) + A(\ell)Y_{t-1} + \varepsilon_{t}
-\end{equation}
-where $y_{t}$ is a $k\times 1$ vector of endogenous variables for a given unit at time $t\in \{1,\ldots, T\}$,
-$A_{0}(t)$ captures the deterministic components and 
-$A(\ell)$ is a polynomial in the lag operator and $\varepsilon_{t}\sim iid(0,\Sigma_{\varepsilon})$ are random disturbances.
-This framework allows for specification of both dynamic and static interdependencies
-among the endogenous variables, as well as cross-sectional heterogeneities (when a panel VAR framework is used).
-Country-specific VAR models can also be stacked to yield a global VAR  \cite{martin2017weighting,dees2007exploring,covid19b}, allowing for the inclusion of weakly exogenous (``foreign'') variables (such as border closures) using weights (such as air travel flows) from each of the countries.
+% The basic vector autoregression (VAR) model is given by:
+% \begin{equation}
+%   \label{eq:6}
+%   y_{t} = A_{0}(t) + A(\ell)Y_{t-1} + \varepsilon_{t}
+% \end{equation}
+% where $y_{t}$ is a $k\times 1$ vector of endogenous variables for a given unit at time $t\in \{1,\ldots, T\}$,
+% $A_{0}(t)$ captures the deterministic components and 
+% $A(\ell)$ is a polynomial in the lag operator and $\varepsilon_{t}\sim iid(0,\Sigma_{\varepsilon})$ are random disturbances.
+% This framework allows for specification of both dynamic and static interdependencies
+% among the endogenous variables, as well as cross-sectional heterogeneities (when a panel VAR framework is used).
+% Country-specific VAR models can also be stacked to yield a global VAR  \cite{martin2017weighting,dees2007exploring,covid19b}, allowing for the inclusion of weakly exogenous (``foreign'') variables (such as border closures) using weights (such as air travel flows) from each of the countries.
 
 
 % In this case, the domestic variables are as follows (growth rates computed as difference of logs):
