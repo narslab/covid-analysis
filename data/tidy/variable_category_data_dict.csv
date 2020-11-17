@@ -1,27 +1,23 @@
-Variable,Data Source,Type
-confirmed_cases,CSSEGISandData / COVID-19,Endogenous
-driving,Apple Mobility Trends Reports,Endogenous
-walking,Apple Mobility Trends Reports,Endogenous
-"grocery_and_pharmacy_percent_change_from_baseline	",Google Community Mobility Reports,Endogenous
-"parks_percent_change_from_baseline	",Google Community Mobility Reports,Endogenous
-transit_stations_percent_change_from_baseline,Google Community Mobility Reports,Endogenous
-workplaces_percent_change_from_baseline,Google Community Mobility Reports,Endogenous
-residential_percent_change_from_baseline,Google Community Mobility Reports,Endogenous
-retail_and_recreation_percent_change_from_baseline,Google Community Mobility Reports,Endogenous
-pop_WDI_PW,World economics and politics dataverse,Deterministic
-gdp_WDI_PW,World economics and politics dataverse,Deterministic
-gdppc_WDI_PW,World economics and politics dataverse,Deterministic
-growth_WDI_PW,World economics and politics dataverse,Deterministic
-pop_WDI,World economics and politics dataverse,Deterministic
-pop_den_WDI,World economics and politics dataverse,Deterministic
-pop_urb_WDI,World economics and politics dataverse,Deterministic
-pop0_14_WDI,World economics and politics dataverse,Deterministic
-workingpop_WDI,World economics and politics dataverse,Deterministic
-CATEGORY,Government measures,Weakly exogenous
-MEASURE,Government measures,Weakly exogenous
-TARGETED_POP_GROUP,Government measures,Weakly exogenous
-COMMENTS,Government measures,Weakly exogenous
-NON_COMPLIANCE,Government measures,Weakly exogenous
-DATE_IMPLEMENTED,Government measures,Weakly exogenous
-SOURCE,Government measures,Weakly exogenous
-SOURCE_TYPE,Government measures,Weakly exogenous
+Variable,Data Source,Type,Description
+cases,confirmed_cases_global.csv,Endogenous,New COVID cases tracked by JHU
+deaths,covid_deaths_global.csv,Endogenous,COVID-related deaths tracked by JHU
+grocery,google_activity.csv,Endogenous,"Grocery and pharmacy activity percent change from baseline	"
+parks,google_activity.csv,Endogenous,"Parks percent change from baseline	"
+transit,google_activity.csv,Endogenous,Transit stations activity percent change from baseline
+work,google_activity.csv,Endogenous,Workplaces activity percent change from baseline
+home,google_activity.csv,Endogenous,Residential activity percent change from baseline
+retail,google_activity.csv,Endogenous,Retail and recreation activity percent change from baseline
+pop,deterministic_wdi_iso.csv,Deterministic,Population
+gdp,deterministic_wdi_iso.csv,Deterministic,GDP
+gdppc,deterministic_wdi_iso.csv,Deterministic,GDP Per Capita
+growth,deterministic_wdi_iso.csv,Deterministic,Growth
+pop_den,deterministic_wdi_iso.csv,Deterministic,Population Density
+pop_urb,deterministic_wdi_iso.csv,Deterministic,Urban Population
+pop0_14,deterministic_wdi_iso.csv,Deterministic,Population Ages 0 to 14
+workpop,deterministic_wdi_iso.csv,Deterministic,Working population
+pub_health,govt_measures.csv,Weakly exogenous,Government Measures - Public Health
+soc_econ,govt_measures.csv,Weakly exogenous,Government Measures - Socio-economic
+soc_dist,govt_measures.csv,Weakly exogenous,Government Measures - Social Distancing
+mov_rest,govt_measures.csv,Weakly exogenous,Government Measures - Movement Restrictions
+lockdown,govt_measures.csv,Weakly exogenous,Government Measures - Lockdown
+human,govt_measures.csv,Weakly exogenous,Government Measures - Humanitarian Exemption

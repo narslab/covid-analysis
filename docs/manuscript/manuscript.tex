@@ -238,10 +238,19 @@ residential\_percent\_change\_from\_baseline             & Retail and recreation
 \end{tabular}
 \end{table}
 
-
-
-
+\subsection{Aggregation Procedure}
+Four of the data sets had to be aggregated in order to standardize the GVAR model inputs. 
  
+  \begin{enumerate}
+  \item New Cases and Deaths.
+   Both new cases and death statistics are provided by JHU and follow the same format. First we sum up province data into a country total by checking each row if the 'province/state' field is NA.
+   If that is not the case, we add all rows for the entire series. Then we incorporate the 'ISO' based on 3-digit alpha codes. Finally, we apply the melt function to the newly created DataFrame
+   and use 'pivot table', with iso and activity set as index.
+  \item Google Activity.
+   We retain a subset of the original data containing national stats without the subregional breakdown. Afterwards, we rename activity types for conventional purposes (i.e. retail and recreation  as retail). Again, we apply melt and 'pivot table' with ISO and activity set as index. 2-digit country codes are replaced with the 3-digit ISO convention.
+  \item Government Interventions.
+  We create a new DataFrame with 'MultiIndex' for Category and ISO. We ensure the ISO code conforms to the 3-digit convention.
+  \end{enumerate}
 
 %\href{https://github.com/narslab/live-dashboard}{Dashboard}
 %\url{https://github.com/narslab/live-dashboard}
