@@ -210,11 +210,13 @@ The integrated dataset (along with the code and plots generated for this paper) 
   \caption{Summary of data sources}
   \label{tab:sources}
 \begin{tabular}{ll}\toprule
-\bf Source                         & \bf Overview                                                                              \\\midrule
-Johns Hopkins University          & Time series summary globally.                                                               \\
-Apple Maps                        & Compared to a baseline volume on January 13th, 2020.                                          \\
-  Google Community Mobility Reports & Compared to a baseline day \\
-  & (median value over period from Jan 3 to Feb 6, 2020)\\\bottomrule
+\bf Source                         		         & \bf Overview                                                                              \\\midrule
+Johns Hopkins University          	         & New COVID cases and COVID-related deaths \\
+  & (global time series summary)                                                              \\
+Google Community Mobility Reports      & Change in traffic compared to a baseline day \\
+  & (median value over period from Jan 3 to Feb 6, 2020) 			\\
+World Data Indicators 		         & Economic indicators (growth, GDP) \\
+Government Measures		         & ACAPS Government Measures Dataset \\\bottomrule
 \end{tabular}
 \end{table}
 
@@ -224,17 +226,28 @@ Apple Maps                        & Compared to a baseline volume on January 13t
 \label{tab:variables}
 \small
 \begin{tabular}{ll}\toprule
-\textbf{Variable}                                         & \textbf{Description}                                    \\\midrule
-confirmed\_cases                                         & Newly confirmed cases of COVID-19              \\
-driving                                                  & Requests for driving directions in Apple Maps.    \\
-walking                                                  & Requests for walking directions in Apple Maps   \\
-transit                                                  & Requests for transit directions in Apple Maps   \\
-retail\_and\_recreation\_percent\_change\_from\_baseline & Retail and recreation movement trends.            \\
-grocery\_and\_pharmacy\_percent\_change\_from\_baseline  & Grocery and pharmacy movement trends.             \\
-parks\_percent\_change\_from\_baseline                   & Parks movement trends.                           \\
-transit\_stations\_percent\_change\_from\_baseline       & Transit stations movement trends.                \\
-workplaces\_percent\_change\_from\_baseline              & Workplaces movement trends.                      \\
-residential\_percent\_change\_from\_baseline             & Retail and recreation movement trends.          \\\bottomrule
+\textbf{Variable}                                  & \textbf{Description}                                    \\\midrule
+cases                                                    & New COVID cases tracked by JHU              \\
+deaths                                                  & COVID-related deaths tracked by JHU    \\
+grocery                                                 & Grocery and pharmacy activity percent change from baseline   \\
+parks                                                     & Parks percent change from baseline   \\
+transit                                                   & Transit stations activity percent change from baseline            \\
+work					        & Workplaces activity percent change from baseline             \\
+home				                   & Residential activity percent change from baseline                           \\
+retail					        & Retail and recreation activity percent change from baseline                \\
+pop				                   & Population                      \\
+gdppc					         & GDP Per Capita		\\
+growth				         & Growth			\\
+pop\_den				         & Population Density 	\\
+pop\_urb				         & Urban Population		\\
+pop0\_14				         & Population Ages 0 to 14   \\
+workpop				         & Working population (Ages 15-64) \\
+pub\_health				         & Government Measures - Public Health  \\
+soc\_econ				         & Government Measures - Socio-economic  \\
+soc\_dist				         & Government Measures - Social Distancing  \\
+mov\_rest				         & Government Measures - Movement Restrictions \\
+lockdown				         & Government Measures - Lockdown  \\	
+human				         & Government Measures - Humanitarian Exemption         \\\bottomrule
 \end{tabular}
 \end{table}
 
