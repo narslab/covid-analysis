@@ -209,25 +209,17 @@ These models explain which activities impact COVID-19 outcomes and vice versa, p
 \hl{Provide a preamble summarizing what this section entails.}
 
 \subsection{Data sources and variables}
-We use transportation data provided by Apple\footnote{\url{https://www.apple.com/covid19/mobility}} along with Community
-Mobility Reports compiled by
-Google\footnote{\url{https://www.google.com/covid19/mobility/}}.\marginnote{\scriptsize\rd Please read this paragraph
-  carefully and revise. This needs some overhauling. For instance, we are no longer using Apple.}[-3cm]
-The new confirmed cases global data set is provided by the Johns Hopkins University COVID-19 Data
-initiative\footnote{\url{https://github.com/CSSEGISandData/COVID-19}}.\marginnote{\scriptsize\rd There should be a
-  citation in the bibliography for the JHU dataset. Let me know if you have any issues locating it.}
-\st{Apple's data set focuses on transportation types
-(walking, driving, transit)} whereas Google tracks movement trends by region and segments them into categories such as
-residential, workplace and transit. Our integrated data set captures changes in requests for directions from January 22
-to \hl{July 14} as well as aggregated location data for a variety of categorized places. The data shows us the change in
-visitors from February 15 to July 12 compared to a baseline of days (January 3 - February 6, 2020).
-\marginnote{\scriptsize\rd All the dates need to be updated. Again, this section needs work. }
-\st{By tracking user
-requests of their Maps application, Apple contributes a snapshot of incidental trips as opposed to actual foot traffic
-which is the approach taken by Google for their Community Mobility Reports.}  The sources are summarized in
-\autoref{tab:sources} and the variables are described in \autoref{tab:variables}.  The integrated dataset (along with
-the code and plots generated for this paper) is publicly available on
-Github.\footnote{\url{https://github.com/narslab/covid-analysis/tree/master/mobility}}
+We use four disparate data sources in performing our COVID-19 mobility analysis. The endogenous category represents the variables in our model which we aim to predict. It covers daily COVID-19 counts, a global data set of new confirmed cases and deaths provided by Johns Hopkins University\footnote{\url{https://github.com/CSSEGISandData/COVID-19}}, as well as an activity benchmark – movement trends tracked by Google which are segmented by geographic region and type such as residential, workplace and transit. Google’s Community Mobility reports capture aggregated location data for a variety of categorized places from February 15 to August 31. 
+
+The Google data set\footnote{\url{https://www.google.com/covid19/mobility/}} reveals the change in the number of visitors from that period compared to a pre-COVID baseline (January 3 – February 6, 2020). Google tracks actual foot traffic for their Reports which is reflective of the trips taken in each country. In contrast, Apple offers a snapshot of user requests made on its Apple Maps web service which constitutes hypothetical traffic and is not the focus of this research. However, the set of countries with available Apple Maps data influenced the geographic distribution in our analysis due to higher technological development in these areas.
+
+The exogenous category represents measures implemented by governments worldwide in response to the pandemic and is put together by ACAPS – a non-profit project based in Geneva, Switzerland – along with the United Nations and other sources. The exogenous variables are external to the model.
+
+The deterministic category spans a range of world development indicators tracked by the World Bank. The variables included in this model are primarily demographic and economic, measuring population growth and GDP. Unlike the endogenous and exogenous data sets which are presented in a time-series format, deterministic variables are collected for a single year (2015).
+
+Finally, we utilize a flight data set measuring the number of incoming and outgoing flights from a specified set of countries. This data set is used to calculate a country-specific weight matrix passed as an argument to the GVAR model. The flight data is obtained from the travel data intelligence agency Airsavvi. 
+
+The sources are summarized in \autoref{tab:sources} and the variables are described in \autoref{tab:variables}. The integrated dataset (along with the code and plots generated for this paper) is publicly available on Github.\footnote{\url{https://github.com/narslab/covid-analysis/tree/master/mobility}}
 
 
 \begin{table}[h!]
@@ -282,28 +274,18 @@ Government Measures		         & ACAPS Government Measures Dataset \\\bottomrule
   \bottomrule
 \end{tabular}
 \end{table}
+
 \marginnote{\scriptsize\rd When it's not immediately obvious, include units in the description of each variable (Table
   2)}
 
 \subsection{Data aggregation}
 Four of the data sets had to be aggregated in order to standardize the GVAR model inputs.
-\marginnote{\scriptsize{\rd This is a good start. However, you need to rewrite it as a paragraph. Remove the overly
-    technical details, such as ``melt'', ``ISO'', ``MultiIndex'', etc. Try to explain what you did in a way that is most
-  accessible to the lay reader here.}}
- 
-  \begin{enumerate}
-  \item New Cases and Deaths.
-   Both new cases and death statistics are provided by JHU and follow the same format. First we sum up province data into a country total by checking each row if the 'province/state' field is NA.
-   If that is not the case, we add all rows for the entire series. Then we incorporate the 'ISO' based on 3-digit alpha codes. Finally, we apply the melt function to the newly created DataFrame
-   and use 'pivot table', with iso and activity set as index.
-  \item Google Activity.
-   We retain a subset of the original data containing national stats without the subregional breakdown. Afterwards, we rename activity types for conventional purposes (i.e. retail and recreation  as retail). Again, we apply melt and 'pivot table' with ISO and activity set as index. 2-digit country codes are replaced with the 3-digit ISO convention.
-  \item Government Interventions.
-  We create a new DataFrame with 'MultiIndex' for Category and ISO. We ensure the ISO code conforms to the 3-digit convention.
-  \end{enumerate}
 
-  \hl{You also want to highlight here that the outcome of this effort is an integrated dataset that is publicly
-    available. Put the github link in a footnote.}
+Four of the data sets had to be aggregated in order to standardize the GVAR model
+inputs. The new cases and death statistics follow the same format as they both originate from JHU. Since countries are broken down into subregions, we first sum up province data into a country total by
+checking each row if the ’province/state’ field is NA. If that is not the case, we add
+all rows for the entire series. We standardize the set of countries used in each data set through a list of unique country codes. Additionally, we retain a subset of the original Google data containing national-level statistics. We adopt a uniform naming convention to streamline the use of variables across our processing scripts as described in \autoref{tab:variables}. Finally, government interventions are combined by country – from February 15 to August 31. The outcome of the data aggregation effort is an integrated dataset which is publicly available on GitHub. \footnote{\url{https://github.com/narslab/covid-analysis/tree/master/mobility}}
+
 %\href{https://github.com/narslab/live-dashboard}{Dashboard}
 %\url{https://github.com/narslab/live-dashboard}
 
