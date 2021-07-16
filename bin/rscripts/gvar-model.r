@@ -6,7 +6,7 @@ library(dtw)
 #p_load(tidyverse,panelvar)
 
 #setwd('Projects/covid-analysis/')
-df <- read.csv('mobility/cases_mobility_activity.csv')
+df <- read.csv('../../data/raw/cases_mobility_activity.csv')
 df <- df[, c(2,3,7:190)] #36:95
 
 # Infer missing Apple data
