@@ -69,8 +69,8 @@ for (i in unique(m.dat$Country)) {
   }
 }
 
-write.csv(dm,file='disimilarity-matrix-mobility-google.csv')
-
+path_out = '../../results/'
+write.csv(dm,file=paste(path_out,'disimilarity-matrix-mobility-google.csv',sep = ''))
 
 ### OLDER 
 

@@ -12,7 +12,7 @@ library(gridExtra)
 library(stats)
 #setwd('Projects/covid-analysis/')
 
-d <- read.csv('../results/disimilarity-matrix-mobility.csv',row.names = 1)
+d <- read.csv('../../results/disimilarity-matrix-mobility-google.csv',row.names = 1)
 num_clust = 4
 clusterFit <- function(dm, m) {
   fit <- hclust(as.dist(dm), method=m) # apply hierarchical clustering 
