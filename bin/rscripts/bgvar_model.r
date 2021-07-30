@@ -136,8 +136,8 @@ for (i in unique(df_exo$iso)) {
     colnames(country_df) = country_df[1,]
     country_df = country_df[-1,]
     country_df = as.data.frame(sapply(country_df, as.numeric))
+    country_df = subset(country_df, select = c('sd', 'ld'))
     country_df = ts(country_df, start = c(2020, as.numeric(format(formatted_dates[1], "%j"))), frequency = 365)
-    country_df = subset(country_df, select = c('ld'))
     exoList[[i]] <- country_df 
 }
 
@@ -202,7 +202,9 @@ for ( i in rownames(weight_matrix)) {
 rowSums(weight_matrix)
 
 #all(names(endoList) == names(bWList))
-exoList[1]
+## Finalize list of countries
+exoList = exoList[row.names(weight_matrix)]
+endoList = endoList[row.names(weight_matrix)]
 
 ## BGVAR
 # SSVS prior
@@ -219,17 +221,35 @@ variable.list$covid <-c("cases") #variable.list$fin<-c("stir","ltir","rer")
 #                        q_ij   = 0.5   # prior inclusion probability of covariances
 #                       )
 
-model <- bgvar(Data = endoList, #endogenous variables
+model.1 <- bgvar(Data = endoList, #endogenous variables
                #Ex = exoList, # exogenous variables
                W = weight_matrix, #WList["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
-               plag = 14,
-               draws=100, burnin=100, prior="SSVS", SV=FALSE, #hyperpara=Hyperparm.ssvs, 
-               hold.out = 10, 
+               plag =1,
+               draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs, 
+               hold.out = 30, 
+               eigen = 1,
                expert = list(cores=4)
                #thin = 1, 
                #trend = FALSE,
 )
 
+model.2 <- bgvar(Data = endoList, #endogenous variables
+                 #Ex = exoList, # exogenous variables
+                 W = weight_matrix, #WList["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
+                 plag =2,
+                 draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs, 
+                 hold.out = 30, 
+                 eigen = 1,
+                 expert = list(cores=4)
+                 #thin = 1, 
+                 #trend = FALSE,
+)
+
 summary(model)
 
 plot(model)
+
+fcast <- predict(model.1, n.ahead=20, save.store=TRUE)
+lps.model <- lps(fcast)
+rmse.model <- rmse(fcast)
+plot(fcast, resp="AE.cases", cut=10)
