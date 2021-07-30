@@ -1,5 +1,6 @@
 library(BGVAR) #load library
 library(ggplot2)
+library(GVAR)
 #library(zoo)
 #library(janitor) #rowtonames function
 library(data.table)
@@ -38,15 +39,17 @@ df_interv$variable <- gsub(x = df_interv$variable, pattern = "Humanitarian exemp
 
 #sort all df's by iso: (TODO)
 sort_df_by_iso <- function(df) {
-    df <- df[order(df[['iso']]), ]
-    rownames(df)<-1:nrow(df)
-    return(df)
+  df <- df[order(df[['iso']]), ]
+  rownames(df)<-1:nrow(df)
+  return(df)
 }
 
 df_covid = sort_df_by_iso(df_covid)
 df_google = sort_df_by_iso(df_google)
 df_interv = sort_df_by_iso(df_interv)
 df_deter = sort_df_by_iso(df_deter)
+
+df_google = subset(df_google, !(df_google$variable %in% c('parks','retail'))) 
 
 iso3iso2 = read.csv('../../data/raw/iso3_iso2_country_codes.csv')
 
@@ -58,10 +61,10 @@ head(df_deter)
 tail(iso3iso2)
 
 change_iso3_to_iso2 <- function(iso_code) {
-    if (nchar(iso_code) == 3) {
-        iso_code = subset(iso3iso2, iso_3==iso_code)$iso_2
-    }
-    return(iso_code)
+  if (nchar(iso_code) == 3) {
+    iso_code = subset(iso3iso2, iso_3==iso_code)$iso_2
+  }
+  return(iso_code)
 }
 
 df_covid$iso = apply(df_covid[1], 1, change_iso3_to_iso2)
@@ -108,16 +111,16 @@ df_endo = subset(df_endo, !(iso %in% countries_with_missing_data))
 
 endoList = list()
 for (i in unique(df_endo$iso)) {
-    #country_df = janitor::row_to_names(t(df_endo[df_endo$iso==i, 2:NCOLS]), 1)
-    country_df = transpose(df_endo[df_endo$iso==i, 2:NCOLS])
-    colnames(country_df) = country_df[1,]
-    country_df = country_df[-1, c('cases', 'residential', 'workplaces', 'transit', 'grocery')]
-    country_df = as.data.frame(sapply(country_df, as.numeric))
-    country_df = ts(country_df, start = c(2020, as.numeric(format(formatted_dates[1], "%j"))), frequency = 365)
-    #rownames(country_df) = formatted_dates
-    #country_df = as.xts(country_df)
-    #rownames(country_df) <- c()
-    endoList[[i]] <- country_df 
+  #country_df = janitor::row_to_names(t(df_endo[df_endo$iso==i, 2:NCOLS]), 1)
+  country_df = transpose(df_endo[df_endo$iso==i, 2:NCOLS])
+  colnames(country_df) = country_df[1,]
+  country_df = country_df[-1, c('cases', 'residential', 'workplaces', 'transit', 'grocery')]
+  country_df = as.data.frame(sapply(country_df, as.numeric))
+  country_df = ts(country_df, start = c(2020, as.numeric(format(formatted_dates[1], "%j"))), frequency = 365)
+  #rownames(country_df) = formatted_dates
+  #country_df = as.xts(country_df)
+  #rownames(country_df) <- c()
+  endoList[[i]] <- country_df 
 }
 
 endoList[1]
@@ -131,14 +134,14 @@ unique(df_exo$iso)
 
 exoList = list()
 for (i in unique(df_exo$iso)) {
-    #country_df = janitor::row_to_names(t(df_exo[df_exo$iso==i, 2:NCOLS]), 1)
-    country_df = transpose(df_exo[df_exo$iso==i, 2:NCOLS])
-    colnames(country_df) = country_df[1,]
-    country_df = country_df[-1,]
-    country_df = as.data.frame(sapply(country_df, as.numeric))
-    country_df = subset(country_df, select = c('sd', 'ld'))
-    country_df = ts(country_df, start = c(2020, as.numeric(format(formatted_dates[1], "%j"))), frequency = 365)
-    exoList[[i]] <- country_df 
+  #country_df = janitor::row_to_names(t(df_exo[df_exo$iso==i, 2:NCOLS]), 1)
+  country_df = transpose(df_exo[df_exo$iso==i, 2:NCOLS])
+  colnames(country_df) = country_df[1,]
+  country_df = country_df[-1,]
+  country_df = as.data.frame(sapply(country_df, as.numeric))
+  country_df = subset(country_df, select = c('sd', 'ld'))
+  country_df = ts(country_df, start = c(2020, as.numeric(format(formatted_dates[1], "%j"))), frequency = 365)
+  exoList[[i]] <- country_df 
 }
 
 #Check for consistency across exo and endo countries
@@ -196,10 +199,17 @@ weight_matrix[is.na(weight_matrix)] = 0
 weight_matrix['AE']
 
 for ( i in rownames(weight_matrix)) {
-    weight_matrix[i, ] = weight_matrix[i, ]/rowSums(weight_matrix)[i]
+  weight_matrix[i, ] = weight_matrix[i, ]/rowSums(weight_matrix)[i]
 }
 
 rowSums(weight_matrix)
+
+bWList <- list()
+weakly_exo_var_list = c("covid")
+for (i in weakly_exo_var_list) {
+  bWList[[i]] <- weight_matrix
+}
+
 
 #all(names(endoList) == names(bWList))
 ## Finalize list of countries
@@ -210,6 +220,7 @@ endoList = endoList[row.names(weight_matrix)]
 # SSVS prior
 variable.list<-list()
 variable.list$covid <-c("cases") #variable.list$fin<-c("stir","ltir","rer")
+variable.list$activity <- c("residential", "workplaces", "transit", "grocery")
 
 # Hyperparm.ssvs <- list(tau0   = 0.1,  # coefficients: prior variance for the spike # (tau0 << tau1)
 #                        tau1   = 3,    # coefficients: prior variance for the slab  # (tau0 << tau1)
@@ -222,21 +233,22 @@ variable.list$covid <-c("cases") #variable.list$fin<-c("stir","ltir","rer")
 #                       )
 
 model.1 <- bgvar(Data = endoList, #endogenous variables
-               #Ex = exoList, # exogenous variables
-               W = weight_matrix, #WList["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
-               plag =1,
-               draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs, 
-               hold.out = 30, 
-               eigen = 1,
-               expert = list(cores=4)
-               #thin = 1, 
-               #trend = FALSE,
+                 #Ex = exoList, # exogenous variables
+                 W = bWList, #["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
+                 plag =1,
+                 draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs, 
+                 hold.out = 30, 
+                 eigen = 1,
+                 expert = list(cores=4, variable.list = variable.list)
+                 #thin = 1, 
+                 #trend = FALSE,
 )
+
 
 model.2 <- bgvar(Data = endoList, #endogenous variables
                  #Ex = exoList, # exogenous variables
                  W = weight_matrix, #WList["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
-                 plag =2,
+                 plag = 1,
                  draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs, 
                  hold.out = 30, 
                  eigen = 1,
