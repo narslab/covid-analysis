@@ -37,8 +37,12 @@ melted.df <- melt(df_google, id.vars = c('iso', 'activity'))
 m.dat <- dcast(melted.df, iso + variable ~ activity)
 colnames(m.dat)[1:2] = c('Country', 'Date') #, 'car', 'groc', 'parks', 'home', 'reta', 'tran', 'tstop', 'walk', 'work' )
 
+countries_complete_data_bgvar = c("AE","AR","AU","AT","BE","BG","BR","CA","CL","CO","CZ","DE","DK","EG","ES","EE","FI","FR","GB","GR",
+                                  "HR","HU","ID","IN","IE","IL","IT","JP","KH","KR","LT","LV","MA","MX","MY","NL","NZ","PH","PT","RU","SA","SG","SK","SI","SE","TH","TR","UA","UY","US","VN","ZA")
+m.dat = subset(m.dat, (m.dat$Country %in% countries_complete_data_bgvar))
+
 # Convert countries to factors
-m.dat$iso <- as.factor(m.dat$iso)
+#m.dat$iso <- as.factor(m.dat$iso)
 m.dat <- subset(m.dat, select = -c(Date) )
 
 m.dat <- na.omit(m.dat) # remove NAs
