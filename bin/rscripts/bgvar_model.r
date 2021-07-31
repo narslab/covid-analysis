@@ -220,7 +220,7 @@ endoList = endoList[row.names(weight_matrix)]
 # SSVS prior
 variable.list<-list()
 variable.list$covid <-c("cases") #variable.list$fin<-c("stir","ltir","rer")
-variable.list$activity <- c("residential", "workplaces", "transit", "grocery")
+#variable.list$activity <- c("residential", "workplaces", "transit", "grocery")
 
 # Hyperparm.ssvs <- list(tau0   = 0.1,  # coefficients: prior variance for the spike # (tau0 << tau1)
 #                        tau1   = 3,    # coefficients: prior variance for the slab  # (tau0 << tau1)
