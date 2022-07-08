@@ -232,17 +232,17 @@ variable.list$covid <-c("cases") #variable.list$fin<-c("stir","ltir","rer")
 #                        q_ij   = 0.5   # prior inclusion probability of covariances
 #                       )
 
-model.1 <- bgvar(Data = endoList, #endogenous variables
-                 #Ex = exoList, # exogenous variables
-                 W = bWList, #["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
-                 plag =1,
-                 draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs, 
-                 hold.out = 30, 
-                 eigen = 1,
-                 expert = list(cores=4, variable.list = variable.list)
-                 #thin = 1, 
-                 #trend = FALSE,
-)
+# model.1 <- bgvar(Data = endoList, #endogenous variables
+#                  #Ex = exoList, # exogenous variables
+#                  W = bWList, #["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
+#                  plag =1,
+#                  draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs, 
+#                  hold.out = 30, 
+#                  eigen = 1,
+#                  expert = list(cores=4, variable.list = variable.list)
+#                  #thin = 1, 
+#                  #trend = FALSE,
+# )
 
 
 model.2 <- bgvar(Data = endoList, #endogenous variables
@@ -257,11 +257,10 @@ model.2 <- bgvar(Data = endoList, #endogenous variables
                  #trend = FALSE,
 )
 
-summary(model)
-
-plot(model)
-
-fcast <- predict(model.1, n.ahead=20, save.store=TRUE)
-lps.model <- lps(fcast)
-rmse.model <- rmse(fcast)
-plot(fcast, resp="AE.cases", cut=10)
+summary(model.2)
+plot(model.2)
+# 
+# fcast <- predict(model.2, n.ahead=20, save.store=TRUE)
+# lps.model <- lps(fcast)
+# rmse.model <- rmse(fcast)
+# plot(fcast, resp="AE.cases", cut=10)
