@@ -100,6 +100,8 @@ unique(df_covid$country)[!unique(df_covid$country) %in% unique(df_google$country
 unique(df_interv$country)[!unique(df_interv$country) %in% unique(df_deter$iso)]
 
 
+## ENDOGENOUS VARIABLES
+
 #Convert endogenous data into list of dataframes; each list element corresponds to country
 # For each country, rows = time obs; columns = endogenous variables
 df_endo <- rbind(df_covid[,1:NCOLS], df_google[,1:NCOLS]) #endogenous variables
@@ -126,12 +128,11 @@ for (i in unique(df_endo$iso)) {
 endoList[1]
 #colnames(endoList[[1]])
 
+
+## EXOGENOUS VARIABLES
 df_exo <- df_interv[,1:NCOLS] #strictly exogenous variables
 df_exo = subset(df_exo, !(iso %in% countries_with_missing_data))
 unique(df_exo$iso)
-
-
-
 exoList = list()
 for (i in unique(df_exo$iso)) {
   #country_df = janitor::row_to_names(t(df_exo[df_exo$iso==i, 2:NCOLS]), 1)
@@ -139,7 +140,7 @@ for (i in unique(df_exo$iso)) {
   colnames(country_df) = country_df[1,]
   country_df = country_df[-1,]
   country_df = as.data.frame(sapply(country_df, as.numeric))
-  country_df = subset(country_df, select = c('sd', 'ld'))
+  country_df = subset(country_df, select = c('ld')) # determine which exogenous variables are used
   country_df = ts(country_df, start = c(2020, as.numeric(format(formatted_dates[1], "%j"))), frequency = 365)
   exoList[[i]] <- country_df 
 }
@@ -148,9 +149,11 @@ for (i in unique(df_exo$iso)) {
 names(exoList)
 names(endoList)
 all(names(endoList) == names(exoList))
-NCOLS
+# is.na(exoList['AE'])
 
-is.na(exoList['CA'])
+
+
+## WEIGHTS
 
 # Create uniform weight matrix (static in the current implementation)
 bW = data.frame(matrix(0, ncol = length(endoList), nrow = length(endoList)))
@@ -210,17 +213,22 @@ for (i in weakly_exo_var_list) {
   bWList[[i]] <- weight_matrix
 }
 
+# Explicitly specifying zero weights for other endogenous variables
+weight_matrix_zeros = weight_matrix
+weight_matrix_zeros[] <- 0L
+bWList[['activity']] = weight_matrix_zeros
 
 #all(names(endoList) == names(bWList))
 ## Finalize list of countries
 exoList = exoList[row.names(weight_matrix)]
 endoList = endoList[row.names(weight_matrix)]
 
-## BGVAR
+
+## MODEL SPECIFICATIONS
 # SSVS prior
-variable.list<-list()
-variable.list$covid <-c("cases") #variable.list$fin<-c("stir","ltir","rer")
-#variable.list$activity <- c("residential", "workplaces", "transit", "grocery")
+var.list<-list()
+var.list$covid <-c("cases") 
+var.list$activity <- c("residential", "workplaces", "transit", "grocery")
 
 # Hyperparm.ssvs <- list(tau0   = 0.1,  # coefficients: prior variance for the spike # (tau0 << tau1)
 #                        tau1   = 3,    # coefficients: prior variance for the slab  # (tau0 << tau1)
@@ -232,22 +240,23 @@ variable.list$covid <-c("cases") #variable.list$fin<-c("stir","ltir","rer")
 #                        q_ij   = 0.5   # prior inclusion probability of covariances
 #                       )
 
-# model.1 <- bgvar(Data = endoList, #endogenous variables
-#                  #Ex = exoList, # exogenous variables
-#                  W = bWList, #["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
-#                  plag =1,
-#                  draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs, 
-#                  hold.out = 30, 
-#                  eigen = 1,
-#                  expert = list(cores=4, variable.list = variable.list)
-#                  #thin = 1, 
-#                  #trend = FALSE,
-# )
+model.1 <- bgvar(Data = endoList, #endogenous variables
+                 Ex = exoList, # exogenous variables
+                 W = bWList,#[c("covid")], #["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
+                 plag =3,
+                 draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs,
+                 hold.out = 30,
+                 eigen = 1,
+                 expert = list(cores=1,
+                             variable.list = var.list) #specifies which variable is weakly exogenous
+                 #thin = 1,
+                 #trend = FALSE,
+)
 
 
 model.2 <- bgvar(Data = endoList, #endogenous variables
                  #Ex = exoList, # exogenous variables
-                 W = weight_matrix, #WList["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
+                 W = weight_matrix, #weight_matrix, #WList["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
                  plag = 1,
                  draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs, 
                  hold.out = 30, 
@@ -257,10 +266,19 @@ model.2 <- bgvar(Data = endoList, #endogenous variables
                  #trend = FALSE,
 )
 
-summary(model.2)
-plot(model.2)
+# print(model.1)
+## This just prints the submitted arguments of the bgvar object along with the model specification for each unit. 
+## The asterisks indicate weakly exogenous variables, double asterisks exogenous variables and 
+    # variables without asterisks the endogenous variables per unit. 
+
+# summary(model.2)
+# plot(model.2)
 # 
 # fcast <- predict(model.2, n.ahead=20, save.store=TRUE)
 # lps.model <- lps(fcast)
 # rmse.model <- rmse(fcast)
 # plot(fcast, resp="AE.cases", cut=10)
+
+# To compute model fitness metrics:
+# (a) Log-likelihood (the greater it is, the better the fit)
+# logLik(model.1)
