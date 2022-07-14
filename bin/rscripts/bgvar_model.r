@@ -140,7 +140,7 @@ for (i in unique(df_exo$iso)) {
   colnames(country_df) = country_df[1,]
   country_df = country_df[-1,]
   country_df = as.data.frame(sapply(country_df, as.numeric))
-  country_df = subset(country_df, select = c('ld')) # determine which exogenous variables are used
+  country_df = subset(country_df, select = c('sd')) # determine which exogenous variables are used
   country_df = ts(country_df, start = c(2020, as.numeric(format(formatted_dates[1], "%j"))), frequency = 365)
   exoList[[i]] <- country_df 
 }
@@ -240,14 +240,15 @@ var.list$activity <- c("residential", "workplaces", "transit", "grocery")
 #                        q_ij   = 0.5   # prior inclusion probability of covariances
 #                       )
 
+# Seems the issue is it does not like if a country has all 0's in its exogenous list
 model.1 <- bgvar(Data = endoList, #endogenous variables
                  Ex = exoList, # exogenous variables
                  W = bWList,#[c("covid")], #["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
-                 plag =3,
+                 plag = c(7, 4),
                  draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs,
                  hold.out = 30,
                  eigen = 1,
-                 expert = list(cores=1,
+                 expert = list(cores=4,
                              variable.list = var.list) #specifies which variable is weakly exogenous
                  #thin = 1,
                  #trend = FALSE,
