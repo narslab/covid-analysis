@@ -1,4 +1,5 @@
 data/lfs/
+models/
 .ipynb_checkpoints
 #LaTeX
 auto
