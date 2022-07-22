@@ -1,11 +1,13 @@
 library(BGVAR) #load library
 library(ggplot2)
-library(GVAR)
+#library(GVAR)
 #library(zoo)
 #library(janitor) #rowtonames function
 library(data.table)
 #library(xts)
 library(readxl)
+library(foreach)
+library(doParallel)
 
 flights = read_excel('../../data/raw/airsavvi_flight_data_20201215.xlsx')
 
@@ -272,14 +274,29 @@ model.2 <- bgvar(Data = endoList, #endogenous variables
 ## The asterisks indicate weakly exogenous variables, double asterisks exogenous variables and 
     # variables without asterisks the endogenous variables per unit. 
 
-# summary(model.2)
-# plot(model.2)
+s1 <- summary(model.1)
+p1 <- plot(model.1)
+
+s2 <- summary(model.2)
+p2 <- plot(model.2)
 # 
-# fcast <- predict(model.2, n.ahead=20, save.store=TRUE)
-# lps.model <- lps(fcast)
-# rmse.model <- rmse(fcast)
-# plot(fcast, resp="AE.cases", cut=10)
+fcast.1 <- predict(model.1, n.ahead=20, save.store=TRUE)
+#saveRDS(fcast.1,"forecast_1.rds")
+lps.model <- lps(fcast)
+rmse.model <- rmse(fcast)
+plot(fcast, resp="AE.cases", cut=10)
 
 # To compute model fitness metrics:
-# (a) Log-likelihood (the greater it is, the better the fit)
+# (a) Log-likelihood (the greater it is, the belpstter the fit)
 # logLik(model.1)
+
+plot_heatmap <- function(coeff_name,file_name) {
+  # Takes a coefficient name (country) and generates a heatmap
+  # ex: coeff_name <- model.1$cc.results$coeffs$US
+  #     file_name <- "model1_US_coeff_heatmap.jpg"
+  # TODO: Add colorbar.
+  data_matrix <- data.matrix(coeff_name)
+  jpeg(filename=file_name, width=500, height=750, quality=180)
+  heatmap(data_matrix, Rowv=NA, Colv=NA, col=heat.colors(256), scale="column", margins=c(5,10))
+  dev.off()
+}
