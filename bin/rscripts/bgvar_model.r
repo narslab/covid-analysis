@@ -280,8 +280,8 @@ print(cl)
 #x <- c("p" , "q", "logLikelihood")
 #colnames(df) <- x
 
-model.search <- foreach(i=3:7, .combine=cbind, .packages = 'BGVAR') %:% #%dopar% {
-  foreach(j=1:10, .combine=cbind, .packages = 'BGVAR') %dopar% {
+model.search <- foreach(i=8:15, .combine=cbind, .packages = 'BGVAR') %:% #%dopar% {
+  foreach(j=1:8, .combine=cbind, .packages = 'BGVAR') %dopar% {
   #exp <- c(i,i)
   model.c <- bgvar(Data = endoList, #endogenous variables
                    Ex = exoList, # exogenous variables
@@ -302,7 +302,7 @@ model.search <- foreach(i=3:7, .combine=cbind, .packages = 'BGVAR') %:% #%dopar%
   #df[nrow(df)+1,] = c(exp[1],exp[2],log.likelihood)
   #model.c #Equivalent to finalMatrix = cbind(finalMatrix, tempMatrix)
 }
-write.csv(df,"../../results/log_likelihood_results_2dim.csv", row.names=FALSE)
+#write.csv(df,"../../results/log_likelihood_results_2dim.csv", row.names=FALSE)
 #stop cluster
 stopCluster(cl)
 ####
