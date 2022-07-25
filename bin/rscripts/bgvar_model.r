@@ -243,67 +243,68 @@ var.list$activity <- c("residential", "workplaces", "transit", "grocery")
 #                       )
 
 # Seems the issue is it does not like if a country has all 0's in its exogenous list
-model.1 <- bgvar(Data = endoList, #endogenous variables
-                 Ex = exoList, # exogenous variables
-                 W = bWList,#[c("covid")], #["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
-                 plag = c(7, 4),
-                 draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs,
-                 hold.out = 30,
-                 eigen = 1,
-                 expert = list(cores=4,
-                             variable.list = var.list) #specifies which variable is weakly exogenous
-                 #thin = 1,
-                 #trend = FALSE,
-)
-saveRDS(model.1, file="../../models/model7_4.RDS")
-
-model.2 <- bgvar(Data = endoList, #endogenous variables
-                 #Ex = exoList, # exogenous variables
-                 W = weight_matrix, #weight_matrix, #WList["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
-                 plag = 1,
-                 draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs, 
-                 hold.out = 30, 
-                 eigen = 1,
-                 expert = list(cores=4)
-                 #thin = 1, 
-                 #trend = FALSE,
-)
-saveRDS(model.2, file="../../models/model1.RDS")
+#model.1 <- bgvar(Data = endoList, #endogenous variables
+#                 Ex = exoList, # exogenous variables
+#                 W = bWList,#[c("covid")], #["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
+#                 plag = c(7, 4),
+#                 draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs,
+#                 hold.out = 30,
+#                 eigen = 1,
+#                 expert = list(cores=4,
+#                             variable.list = var.list) #specifies which variable is weakly exogenous
+#                 #thin = 1,
+#                 #trend = FALSE,
+#)
+#saveRDS(model.1, file="../../models/model7_4.RDS")
+#
+#model.2 <- bgvar(Data = endoList, #endogenous variables
+#                 #Ex = exoList, # exogenous variables
+#                 W = weight_matrix, #weight_matrix, #WList["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
+#                 plag = 1,
+#                 draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs, 
+#                 hold.out = 30, 
+#                 eigen = 1,
+#                 expert = list(cores=4)
+#                 #thin = 1, 
+#                 #trend = FALSE,
+#)
+#saveRDS(model.2, file="../../models/model1.RDS")
 
 ### Find best model based on logLikelihood
 #setup parallel backend to use many processors
-#cores=detectCores()
-#cl <- makeCluster(cores[1]-1) #not to overload your computer
-#registerDoParallel(cl)
+cores=detectCores()
+cl <- makeCluster(cores[1]-1) #not to overload your computer
+registerDoParallel(cl)
+print(cl)
 #df <- data.frame(matrix(ncol = 3, nrow = 0))
 #x <- c("p" , "q", "logLikelihood")
 #colnames(df) <- x
-#
-#model.search <- foreach(i=3:14, .combine=cbind, .packages = 'BGVAR') %dopar% {
-#  
-#  exp <- c(i,i)
-#  model.c <- bgvar(Data = endoList, #endogenous variables
-#                   Ex = exoList, # exogenous variables
-#                   W = bWList,#[c("covid")], #["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
-#                   plag = exp,#c(i, i),
-#                   draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs,
-#                   hold.out = 30,
-#                   eigen = 1,
-#                   expert = list(cores=4,
-#                                 variable.list = var.list) #specifies which variable is weakly exogenous
-#                   #thin = 1,
-#                   #trend = FALSE,
-#  )
-#  
-#  model.name <- gsub(" ","",paste("../../models/model",toString(exp[1]),".RDS"))
-#  saveRDS(model.c, file=model.name)
-#  log.likelihood <- logLik(model.c)
-#  df[nrow(df)+1,] = c(exp[1],exp[2],log.likelihood)
-#  #model.c #Equivalent to finalMatrix = cbind(finalMatrix, tempMatrix)
-#}
-#write.csv(df,"../../results/log_likelihood_results.csv", row.names=FALSE)
-##stop cluster
-#stopCluster(cl)
+
+model.search <- foreach(i=3:7, .combine=cbind, .packages = 'BGVAR') %:% #%dopar% {
+  foreach(j=1:10, .combine=cbind, .packages = 'BGVAR') %dopar% {
+  #exp <- c(i,i)
+  model.c <- bgvar(Data = endoList, #endogenous variables
+                   Ex = exoList, # exogenous variables
+                   W = bWList,#[c("covid")], #["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
+                   plag = c(i, j),
+                   draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs,
+                   hold.out = 30,
+                   eigen = 1,
+                   expert = list(cores=4,
+                                 variable.list = var.list) #specifies which variable is weakly exogenous
+                   #thin = 1,
+                   #trend = FALSE,
+  )
+  
+  model.name <- gsub(" ","",paste("../../models/model",toString(i),"_",toString(j),".RDS"))
+  saveRDS(model.c, file=model.name)
+  log.likelihood <- logLik(model.c)
+  #df[nrow(df)+1,] = c(exp[1],exp[2],log.likelihood)
+  #model.c #Equivalent to finalMatrix = cbind(finalMatrix, tempMatrix)
+}
+write.csv(df,"../../results/log_likelihood_results_2dim.csv", row.names=FALSE)
+#stop cluster
+stopCluster(cl)
 ####
 
 # print(model.1)
