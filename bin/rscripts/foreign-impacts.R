@@ -51,8 +51,26 @@ plot_foreign_impact <- function(wide_matrix) {
     scale_fill_distiller(palette = "Spectral",direction=1)
   }
 
+plot_social_distancing <- function(wide_matrix) {
+  wide_matrix <- wide_matrix[,c(1,12)]
+  wide_matrix$sd <- as.double(wide_matrix$sd)
+  ggplot(wide_matrix, aes(sd, reorder(country,sd))) +
+    geom_bar(stat="identity") +
+    xlab("Social distancing coefficient") +
+    ylab("Country")
+}
+
 plot_foreign_impact(cases)
+plot_social_distancing(cases)
+
 plot_foreign_impact(home)
+plot_social_distancing(home)
+
 plot_foreign_impact(work)
+plot_social_distancing(work)
+
 plot_foreign_impact(transit)
+plot_social_distancing(transit)
+
 plot_foreign_impact(grocery)
+plot_social_distancing(grocery)
