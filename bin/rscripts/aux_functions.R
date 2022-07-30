@@ -11,6 +11,8 @@
 
 library(BGVAR)
 library(scatterplot3d)
+library(ggplot2)
+library(tidyverse)
 
 generateLogLikelihood <- function(models.path) { # models.path = "models"
 	files <- list.files(path=models.path, pattern="*.RDS", full.names=TRUE, recursive=FALSE)
@@ -68,6 +70,34 @@ plot_3d_top_n <- function(csv_input,n) { #csv_input = "results/scatterplot3d_inp
 	dev.off()
 }
 plot_3d_top_n("../../results/scatterplot3d_input.csv",25)
+
+remove_outliers <- function(x, na.rm = TRUE, ...) {
+  # Helper function to identify outliers (>75pctl/<25pctl)
+  # https://stackoverflow.com/questions/4787332/how-to-remove-outliers-from-a-dataset/4788102#4788102
+  qnt <- quantile(x, probs=c(.25, .75), na.rm = na.rm, ...)
+  H <- 1.5 * IQR(x, na.rm = na.rm)
+  y <- x
+  y[x < (qnt[1] - H)] <- NA
+  y[x > (qnt[2] + H)] <- NA
+  y
+}
+
+plot_2d_scatter <- function(csv_input) {
+  df <- read.csv(csv_input)
+  df1 <- df
+  df1$log_likelihood <- remove_outliers(df1$log_likelihood)
+  df1 <- na.omit(df1)  
+  df1 %>%
+    mutate(highlight_flag = ifelse(log_likelihood > -215000, T, F)) %>%
+    ggplot(aes(x=p_lag, y=log_likelihood)) +
+    geom_point(aes(color= highlight_flag)) +
+    scale_color_manual(values = c('#595959', 'red'))
+  
+}
+
+plot_2d_scatter("../../results/scatterplot3d_input.csv")
+
+
 
 # model_fcast <- function(x) { 
 # 	model <- readRDS(x)
