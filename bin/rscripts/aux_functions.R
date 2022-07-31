@@ -54,6 +54,7 @@ generate3DScatterDataFrame <- function(model.ll) { # model.ll = "results/model_l
 
 plot_3d_top_n <- function(csv_input,n) { #csv_input = "results/scatterplot3d_input.csv"
 	df <- read.csv(csv_input)
+	#df$log_likelihood <- as.double(format(df$log_likelihood, scientific = F))
 	graphics.off()
 	png(filename = "../../figures/model_lag_3d_scatter.png", width = 8, height = 6, units = "in", res = 300)
 	my_color <- ifelse(df$log_likelihood > -215000, "red", "black")
@@ -64,12 +65,14 @@ plot_3d_top_n <- function(csv_input,n) { #csv_input = "results/scatterplot3d_inp
 				  xlab = "p lag",
 				  ylab = "q lag",
 				  zlab = "log likelihood",
-				  lab=c(4,4,4))
+				  lab=c(4,4,4),
+				  type="h")
 	#my.lm <- lm(df$log_likelihood ~ df$p_lag + df$q_lag) 
 	#s3d$plane3d(my.lm, lty.box = "solid")
 	dev.off()
+	head(df,n)
 }
-plot_3d_top_n("../../results/scatterplot3d_input.csv",25)
+plot_3d_top_n("../../results/scatterplot3d_input.csv",10)
 
 remove_outliers <- function(x, na.rm = TRUE, ...) {
   # Helper function to identify outliers (>75pctl/<25pctl)

@@ -1,6 +1,7 @@
 library(ggplot2)
 library(data.table)
 library(BGVAR)
+library(tidyverse)
 
 #df <- read.csv('../../results/cases_lag.csv')
 #names(df)[2:11] =  seq(0,9)
@@ -12,6 +13,7 @@ library(BGVAR)
 #ggplot(melted.df, aes(variable, country, fill= value)) + 
 #    geom_tile() +
 #    scale_fill_distiller(palette = "Spectral",direction=1) 
+
 
 estimate_foreign_impact <- function(exog_var) {
   model_opt <- readRDS("../../models/model7_9.RDS")
@@ -58,6 +60,27 @@ plot_social_distancing <- function(wide_matrix) {
     geom_bar(stat="identity") +
     xlab("Social distancing coefficient") +
     ylab("Country")
+}
+
+get_coeff_foreign_var <- function() {
+  country_codes <- read.csv("../../data/raw/iso3_iso2_country_codes.csv")
+  contemp_effects <- read.csv("../../results/contemporaneous_effects_foreign_cases.csv")
+  full_name <- c()
+  for(i in 1:length(contemp_effects$country_name))
+  {
+    for(j in 1:length(country_codes$iso_2))
+    {
+      ifelse(contemp_effects$country_name[i] == country_codes$iso_2[j],
+              full_name <- c(full_name,country_codes$Definition[j]), 1)
+    }
+  }
+  contemp_effects$full_name <- full_name
+  contemp_effects <- contemp_effects[,c(1,3,2)]
+  colnames(contemp_effects) <- c("country_code","country_name","contemporaneous_cases_coefficient")
+  contemp_effects <- contemp_effects[order(contemp_effects$country_name),]
+  contemp_effects$contemporaneous_cases_coefficient <- as.double(format(contemp_effects$contemporaneous_cases_coefficient, scientific = F))
+  write.csv(contemp_effects[2:3],"../../results/coefficients_foreign_variable_alpha.csv",row.names = F)
+  contemp_effects
 }
 
 plot_foreign_impact(cases)
