@@ -19,3 +19,5 @@ auto
 *.synctex.gz
 *.spl
 *.mtc
+*.RData
+*.Rhistory
