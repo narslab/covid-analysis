@@ -15,6 +15,22 @@ library(tidyverse)
 #    scale_fill_distiller(palette = "Spectral",direction=1) 
 
 
+estimate_girf <- function(impact="cases") {
+  model_opt <- readRDS("../../models/model7_9.RDS")
+  endo_cases <- readLines("../../data/tidy/endolist_cases.txt")
+  endo_transit <- readLines("../../data/tidy/endolist_transit.txt")
+  shockinfo_girf <- get_shockinfo("girf", nr_rows = 8)
+  shockinfo_girf$shock <- c("ZA.cases", "ZA.transit", "US.cases", "US.transit", "KR.cases", "KR.transit", "DE.cases", "DE.transit")
+  shockinfo_girf$scale <- 1
+  
+  irf.girf.cases.transit <- irf(model_opt, n.ahead=30, shockinfo=shockinfo_girf, expert=list(save.store=TRUE,cores=4))
+  
+  ifelse(impact == "cases", 
+         plot(irf.girf.cases.transit, resp=endo_cases, shock="US.cases"),
+         plot(irf.girf.cases.transit, resp=endo_transit, shock="US.transit"))
+  return(irf.girf.cases.transit)
+}
+
 estimate_foreign_impact <- function(exog_var) {
   model_opt <- readRDS("../../models/model7_9.RDS")
   idx <- ifelse(exog_var=="cases", 1, 
@@ -36,6 +52,11 @@ estimate_foreign_impact <- function(exog_var) {
   m1_wider <- as.data.frame(m) %>% pivot_wider(names_from=foreign_variable,values_from = coefficient)
   m1_wider
 }
+
+
+#jpeg(file="../../figures/test_irf1.jpeg")#,width=256, height=256, res=720)
+#plot(girf_obj, resp=readLines("../../data/tidy/endolist_transit.txt"), shock="KR.transit", ylim(min,max))
+#dev.off()
 
 cases <- estimate_foreign_impact("cases")
 home <- estimate_foreign_impact("residential")
