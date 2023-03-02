@@ -1,8 +1,9 @@
-#load libraries
+# set working directory (setwd) to ../covid-analysis/bin/rscripts
+# load libraries
 library(BGVAR) 
-library(ggplot2)
 library(tidyr)
 library(tibble)
+library(dplyr)
 
 # load forecast with lag params p=7, q=9 based on optimal model
 fcast7.9 <- readRDS("../../models/predictions/model7_9_forecast_n30.RDS")
