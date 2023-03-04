@@ -4,6 +4,7 @@ library(BGVAR)
 library(tidyr)
 library(tibble)
 library(dplyr)
+library(ggplot2)
 
 # load forecast with lag params p=7, q=9 based on optimal model
 fcast7.9 <- readRDS("../../models/predictions/model7_9_forecast_n30.RDS")
@@ -29,9 +30,17 @@ rmse.final <- rmse.final %>%
   summarize_all(funs(max(., na.rm = TRUE))) %>% 
   ungroup()
 
+write.csv(rmse.final, file="../../results/rmse.csv")
+
 # filter the data for the specified countries
 df_countries <- rmse.final[rmse.final$country %in% c("US", "ZA", "KR", "DE"), ]
 
+# melt the dataframe
+rmse_df_melted <- reshape2::melt(df_countries, id.vars = "country", variable.name = "category")
 
-
-write.csv(rmse.final, file="../../results/rmse.csv")
+# create the facet plot
+ggplot(rmse_df_melted, aes(x = country, y = value)) + 
+  geom_bar(stat = "identity", position = "dodge", fill = "steelblue") + 
+  facet_wrap(~category, scales = "free_y") +
+  labs(x = "Country", y = "RMSE") +
+  theme_bw()
