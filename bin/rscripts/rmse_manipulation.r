@@ -35,12 +35,14 @@ write.csv(rmse.final, file="../../results/rmse.csv")
 # filter the data for the specified countries
 df_countries <- rmse.final[rmse.final$country %in% c("US", "ZA", "KR", "DE"), ]
 
-# melt the dataframe
-rmse_df_melted <- reshape2::melt(df_countries, id.vars = "country", variable.name = "category")
 
-# create the facet plot
-ggplot(rmse_df_melted, aes(x = country, y = value)) + 
-  geom_bar(stat = "identity", position = "dodge", fill = "steelblue") + 
-  facet_wrap(~category, scales = "free_y") +
-  labs(x = "Country", y = "RMSE") +
-  theme_bw()
+# convert the data frame from wide to long format, 
+df_long <- gather(rmse.final, variable, value, -country)
+
+# create a bar plot with country on the x-axis and value on the y-axis
+ggplot(df_long, aes(x = country, y = value)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  facet_wrap(~ variable, nrow = 5, scales = "free_y") +
+  labs(x = "", y = "") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
