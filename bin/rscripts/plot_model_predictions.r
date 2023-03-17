@@ -52,14 +52,15 @@ colnames(mtx_melt)[1] <- "destination_origin"
 flights.heatmap <- ggplot(mtx_melt, aes(destination_origin, variable, fill= value)) + 
   geom_tile(color = "white") +
   scale_fill_gradientn(colors = brew_colors, na.value = "white", name = "Number of flights") +
+  labs(title = "Origin-Destination Heatmap of Week 1 Flights", 
+       x = "Origin", 
+       y = "Destination") +
   theme(plot.title = element_text(hjust = 0.5),
         legend.key.height = unit(1.5, "cm"), # adjust height of legend key
         legend.key.width = unit(0.5, "cm"), # adjust width of legend key
         legend.key.size = unit(0.5, "cm"), # adjust overall size of legend key
-        legend.text.align = 0.5) # center legend text) +
-  labs(title = "Origin-Destination Heatmap of Week 1 Flights", 
-       x = "Origin", 
-       y = "Destination")
+        legend.text.align = 0.5) # center legend text) 
+  
 ggsave("../../figures/week1_flights_heatmap.png", flights.heatmap, width = 14, height = 14, device = "png")
 
 
