@@ -10,6 +10,8 @@ library(scales)
 library(extrafont)
 library(gridExtra)
 library(stats)
+library(rworldmap) #joinCountryData2Map
+
 #setwd('Projects/covid-analysis/')
 
 d <- read.csv('../../results/disimilarity-matrix-mobility-google.csv',row.names = 1)
@@ -121,6 +123,99 @@ plotD <- function (clusfit,kk,meth,labels)
 }
 
 plotD(results,num_clust,"Ward.D2",row.names(d))
+
+plotTypologyWorldMap <- function(df){
+  colnames(df) = c('region', 'value') # change column names for ggplot
+  
+  # This is to convert country names in df to match those in the worldMap dataframe
+  coords <- joinCountryData2Map(df, joinCode = "NAME", nameJoinColumn = "region")
+  coords = data.frame(coords)
+  colnames(coords) = tolower(colnames(coords))
+  colnames(coords)
+  coords = drop_na(coords, value)
+  print(coords$name)
+  setdiff(df$region,coords$name)
+  
+  # Correct the country names in DF
+  df[df=='Timor-Leste'] = "East Timor"
+  df[df=='Central African Republic'] = "Central African Rep."
+  df[df=='Cote d\'Ivoire'] = "Ivory Coast"
+  df[df=='Dominican Republic'] = "Dominican Rep."
+  df[df=='Kyrgyz Republic'] = "Kyrgyzstan"
+  df[df=='Eswatini'] = "Swaziland"
+  df[df=='Congo'] = "Congo (Brazzaville)"
+  df[df=='Congo Democratic Republic'] = "Congo (Kinshasa)"
+  
+  print(head(df))
+  # Get world map data (lat/long)
+  countrynames = df$region
+  worldMap <- getMap()
+  country_indices <- which(worldMap$NAME%in%countrynames)
+  
+  # Get coordinates for all countries to plot base map
+  allCoords <- lapply(seq(1,243), function(i){
+    dfn <- data.frame(worldMap@polygons[[i]]@Polygons[[1]]@coords)
+    dfn$region =as.character(worldMap$NAME[i])
+    colnames(dfn) <- list("long", "lat", "region")
+    return(dfn)
+  })
+  allCoords <- do.call("rbind", allCoords)
+  
+  # Get coordinates strictly for those in water accessibility dataset
+  waterCoords <- lapply(country_indices, function(i){
+    dfn <- data.frame(worldMap@polygons[[i]]@Polygons[[1]]@coords)
+    dfn$region =as.character(worldMap$NAME[i])
+    colnames(dfn) <- list("long", "lat", "region")
+    return(dfn)
+  })
+  
+  waterCoords <- do.call("rbind", waterCoords)
+  waterCoords$value <- df$value[match(waterCoords$region,df$region)]
+  waterCoords$value <- factor(waterCoords$value)
+  
+  # Plot
+  #options(repr.plot.width=10, repr.plot.height=7)
+  par(mar = c(0,0,0,0))
+  par(cex=1)
+  m <- ggplot() +
+    geom_sf(color = "black", fill= 'antiquewhite') +
+    xlab("") + ylab("") +
+    geom_polygon(data= allCoords, mapping = aes(x =long, y=lat, group = region), color="grey", fill=NA) + 
+    geom_polygon( data = waterCoords, mapping = aes(x = long, y = lat, group = region, fill=value), linewidth=.3,color="black") +
+    expand_limits(x = waterCoords$long, y = waterCoords$lat)  + 
+    scale_fill_brewer(palette='Set2', name="", #"Water Accessibility Typologies", 
+                      na.value = "white",
+                      labels = c("Decentralized" , "Hybrid", "Centralized") )  + 
+    theme(
+      # Hide panel borders and remove grid lines
+      panel.border = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      # Change axis line
+      axis.line = element_line(colour = "white")
+    ) + 
+    theme(legend.position = c(.8,-0.05), legend.direction = 'horizontal',
+          axis.text.x = element_blank(),
+          axis.text.y = element_blank(),
+          axis.ticks = element_blank(),
+          rect = element_blank(), 
+          axis.text=element_text(size=18),
+          axis.title=element_text(size=18)) +
+    theme(legend.key.size = unit(.7, 'cm'), #change legend key size
+          #legend.key.height = unit(.7, 'cm'), #change legend key height
+          #legend.key.width = unit(.7, 'cm'),
+          legend.title = element_text(size=18,face=),
+          legend.text = element_text(size=18)) +
+    scale_x_continuous(limits = c(-145, 190)) +
+    scale_y_continuous(limits = c(-55, 100)) +  
+    #     #guides(fill = guide_colorbar(barwidth = 10, barheight = .5))
+    pdf(file = "../../images/pdf-images/typology-world-map.pdf",width=15, height=7)
+  print(m + coord_map(xlim = c(-85, 145),ylim = c(-35, 50))) #print required to generate pdf within function
+  dev.off()
+}
+
+plotTypologyWorldMap(df.clusters)
+
 
 # plotDgg <- function (clusfit,kk,meth,scores,ff) 
 # {
