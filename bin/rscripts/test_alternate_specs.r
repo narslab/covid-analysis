@@ -8,7 +8,7 @@ endoList <- readRDS("../../data/tidy/endoList.RDS")
 exoList <- readRDS("../../data/tidy/exoList.RDS")
 var.list <- readRDS("../../data/tidy/var_list.RDS")
 
-params <- list(list(p=6, q=4), list(p=7, q=1), list(p=5, q=7), list(p=4, q=8))
+params <- list(list(p=4, q=8), list(p=5, q=7), list(p=7, q=9))
 
 # Set up a parallel backend with the desired number of cores
 cores=detectCores()
@@ -43,6 +43,7 @@ results <- foreach(i = 1:length(params), .combine = "list", .packages = "BGVAR")
   setTxtProgressBar(pb, i)
   estModel(p_lag, q_lag, endoList, exoList, bwList, var.list)
 }
+
 
 # Save the models
 for (i in seq_along(results)) {
