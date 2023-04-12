@@ -15,7 +15,6 @@ cores=detectCores()
 cl <- makeCluster(cores[1]-1) #not to overload your computer
 registerDoParallel(cl)
 
-
 # Define the function to estimate the model
 estimateModel <- function(p, q, endogenous, exogenous, weights, variables) {
   model <- bgvar(Data = endogenous, 
@@ -31,27 +30,34 @@ estimateModel <- function(p, q, endogenous, exogenous, weights, variables) {
   return(model)
 }
 
-# Initialize the progress bar
-pb <- txtProgressBar(min = 0, max = length(params), style = 3)
+# Time the execution of the code
+timing <- system.time({
+  # Run the loop in parallel using foreach
+  foreach(i = 1:length(params), .combine = "list", .packages = "BGVAR") %dopar% {
+    p_lag <- params[[i]]$p
+    q_lag <- params[[i]]$q
+    
+    model_name <- paste0("../../models/testing/model", p_lag, "_", q_lag, ".RDS")
+    fcast_name <- paste0("../../models/predictions/", p_lag, "_", q_lag, "_forecast_n30.RDS")
+  
+    model <- estimateModel(p_lag, q_lag, endoList, exoList, bwList, var.list)
+    fcast <- predict(model, n.ahead = 30)
+    
+    print(paste0("Saving model with parameters p=", p_lag, " and q=", q_lag, " to ", model_name))
+    # Save the model
+    saveRDS(model, file = model_name)
+    print(paste0("Saving model predictions to ", fcast_name))
+    # Save the forecast
+    saveRDS(fcast, file = fcast_name)
+  }
+})
 
-# Run the loop in parallel using foreach
-foreach(i = 1:length(params), .combine = "list", .packages = "BGVAR") %dopar% {
-  p_lag <- params[[i]]$p
-  q_lag <- params[[i]]$q
-  
-  filename <- paste0("../../models/testing/model", p_lag, "_", q_lag, ".RDS")
-  # Update the progress bar with the current iteration number
-  setTxtProgressBar(pb, i)
-  
-  model <- estimateModel(p_lag, q_lag, endoList, exoList, bwList, var.list)
-  # Track execution
-  print(head(model$args$Data))
-  
-  print(paste("Saving model with parameters p=", p_lag, " and q=", q_lag, " to ", filename, sep=""))
-  # Save the model
-  saveRDS(model, file = filename)
-}
+# Convert the elapsed time to minutes and seconds
+mins <- as.integer(timing["elapsed"] %/% 60)
+secs <- as.integer(timing["elapsed"] %% 60)
 
+# Print the timing in minutes and seconds
+cat("Execution time:", mins, "minutes", secs, "seconds")
 
 # Stop the parallel backend
 stopCluster(cl)
