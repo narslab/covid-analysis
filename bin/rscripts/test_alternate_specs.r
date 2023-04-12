@@ -36,6 +36,7 @@ results <- foreach(i = 1:length(params), .combine = "list", .packages = "BGVAR")
   p_lag <- params[[i]]$p
   q_lag <- params[[i]]$q
   
+  print(paste("Estimation in progress for model with parameters p=", p_lag, " and q=", q_lag, sep=""))
   estModel(p_lag, q_lag, endoList, exoList, bwList, var.list)
 }
 
