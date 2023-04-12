@@ -8,7 +8,7 @@ endoList <- readRDS("../../data/tidy/endoList.RDS")
 exoList <- readRDS("../../data/tidy/exoList.RDS")
 var.list <- readRDS("../../data/tidy/var_list.RDS")
 
-params <- list(list(p=4, q=8), list(p=5, q=7), list(p=7, q=9))
+params <- list(list(p=4, q=8), list(p=5, q=7), list(p=6, q=4), list(p=7, q=1), list(p=7, q=9))
 
 # Set up a parallel backend with the desired number of cores
 cores=detectCores()
@@ -17,7 +17,7 @@ registerDoParallel(cl)
 
 
 # Define the function to estimate the model
-estModel <- function(p, q, endogenous, exogenous, weights, variables) {
+estimateModel <- function(p, q, endogenous, exogenous, weights, variables) {
   model <- bgvar(Data = endogenous, 
                  Ex = exogenous,
                  W = weights,
@@ -35,25 +35,23 @@ estModel <- function(p, q, endogenous, exogenous, weights, variables) {
 pb <- txtProgressBar(min = 0, max = length(params), style = 3)
 
 # Run the loop in parallel using foreach
-results <- foreach(i = 1:length(params), .combine = "list", .packages = "BGVAR") %dopar% {
+foreach(i = 1:length(params), .combine = "list", .packages = "BGVAR") %dopar% {
   p_lag <- params[[i]]$p
   q_lag <- params[[i]]$q
   
+  filename <- paste0("../../models/testing/model", p_lag, "_", q_lag, ".RDS")
   # Update the progress bar with the current iteration number
   setTxtProgressBar(pb, i)
-  estModel(p_lag, q_lag, endoList, exoList, bwList, var.list)
-}
-
-
-# Save the models
-for (i in seq_along(results)) {
-  p_lag <- params[[i]]$p
-  q_lag <- params[[i]]$q
-  filename <- paste0("../../models/testing/model", p_lag, "_", q_lag, ".RDS")
+  
+  model <- estimateModel(p_lag, q_lag, endoList, exoList, bwList, var.list)
+  # Track execution
+  print(head(model$args$Data))
   
   print(paste("Saving model with parameters p=", p_lag, " and q=", q_lag, " to ", filename, sep=""))
-  saveRDS(results[[i]], file = filename)
+  # Save the model
+  saveRDS(model, file = filename)
 }
+
 
 # Stop the parallel backend
 stopCluster(cl)
