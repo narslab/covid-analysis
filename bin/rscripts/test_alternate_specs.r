@@ -31,12 +31,16 @@ estModel <- function(p, q, endogenous, exogenous, weights, variables) {
   return(model)
 }
 
+# Initialize the progress bar
+pb <- txtProgressBar(min = 0, max = length(params), style = 3)
+
 # Run the loop in parallel using foreach
 results <- foreach(i = 1:length(params), .combine = "list", .packages = "BGVAR") %dopar% {
   p_lag <- params[[i]]$p
   q_lag <- params[[i]]$q
   
-  print(paste("Estimation in progress for model with parameters p=", p_lag, " and q=", q_lag, sep=""))
+  # Update the progress bar with the current iteration number
+  setTxtProgressBar(pb, i)
   estModel(p_lag, q_lag, endoList, exoList, bwList, var.list)
 }
 
