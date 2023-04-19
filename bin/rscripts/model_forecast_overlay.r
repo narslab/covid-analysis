@@ -4,13 +4,13 @@ library(ggplot2)
 library(ggallin)
 
 # load optimal model and forecast
-model_opt <- readRDS("../../models/model7_9.RDS")
-fcast <- readRDS("../../models/predictions/model7_9_forecast_n30.RDS")
+#model_opt <- readRDS("../../models/model7_9.RDS")
+#fcast <- readRDS("../../models/predictions/model7_9_forecast_n30.RDS")
 endo_vars <- c("cases", "residential", "workplaces", "transit", "grocery")
 
-generate_overlay <- function(observed, predicted, var, save=FALSE) {
-  obs  <- observed$args$Data
-  pred <- predicted$fcast
+generate_overlay <- function(bgvar_model, bgvar_forecast, var, save=FALSE) {
+  obs  <- bgvar_model$args$Data
+  pred <- bgvar_forecast$fcast
   
   if(var == "cases") {
     index <- seq(1, 260, 5)
@@ -60,7 +60,7 @@ generate_overlay <- function(observed, predicted, var, save=FALSE) {
   
   # Get a list of all country names
   countries <- names(obs)
-  # Use lapply() to extract data for the last 30 days for each country
+  # Use lapply() to extract observed data for the last 30 days for each country
   if(var == "cases") {
     last_30_days <- lapply(obs[countries], function(x) x[170:199, 1])
   } else if (var == "residential") {
@@ -75,8 +75,8 @@ generate_overlay <- function(observed, predicted, var, save=FALSE) {
   
   
   # Combine variable into a matrix
-  last_30_days_matrix <- do.call(cbind, last_30_days)
-  last_30_days_df <- as.data.frame(last_30_days_matrix)
+  #last_30_days_matrix <- do.call(cbind, last_30_days)
+  last_30_days_df <- as.data.frame(last_30_days)
   last_30_days_df$Day <- 1:nrow(last_30_days_df)
   last_30_days_melted_df <- reshape2::melt(last_30_days_df, id.vars = "Day")
   
@@ -91,6 +91,7 @@ generate_overlay <- function(observed, predicted, var, save=FALSE) {
   } else {
     y_axis_label <- "Percent change from baseline"
   }
+  plot_title <- paste0(var, ": p_lag = ", bgvar_model$args$plag[[1]], ", q_lag = ", bgvar_model$args$plag[[2]])
   
   predicted_observed_overlay <- ggplot(merged_data, aes(Day)) + 
     geom_line(aes(y=Q50, color = "Median"), size = 0.5, linetype = "dashed") + 
@@ -99,10 +100,13 @@ generate_overlay <- function(observed, predicted, var, save=FALSE) {
     geom_ribbon(aes(ymin=Q5, ymax=Q95, fill = "95% Credible Interval"), alpha=0.1) +
     facet_wrap(vars(Country), nrow = 4, ncol = 13) +
     ylab(y_axis_label) +
-    labs(color = "Values", fill = "Values")
+    labs(color = "", fill = "", title = plot_title) +
+    theme(legend.margin = margin(l = 0, r = 0, t = 0, b = 0),
+          legend.spacing = unit(0.05, "cm"),
+          plot.title = element_text(hjust = 0.5))
   
   if(save) {
-    fname <- paste0("../../figures/",var,"_observed_predicted.png")
+    fname <- paste0("../../figures/",var,"_observed_predicted_",bgvar_model$args$plag[[1]],"_",bgvar_model$args$plag[[2]],".png")
     print(fname)
     ggsave(filename = fname, plot = predicted_observed_overlay, width = 20, height=15, device = "png")  
   }
@@ -110,6 +114,6 @@ generate_overlay <- function(observed, predicted, var, save=FALSE) {
   plot(predicted_observed_overlay)
 }
 
-for(v in endo_vars) {
-  generate_overlay(model_opt, fcast, v)  
-}
+#for(v in endo_vars) {
+#  generate_overlay(model_opt, fcast, v)  
+#}
