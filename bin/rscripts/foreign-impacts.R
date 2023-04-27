@@ -64,9 +64,19 @@ work <- estimate_foreign_impact("work")
 transit <- estimate_foreign_impact("transit")
 grocery <- estimate_foreign_impact("grocery")
 
+# create a new type for each variable
+cases$type <- "cases"
+home$type <- "home"
+work$type <- "work"
+transit$type <- "transit"
+grocery$type <- "grocery"
+
+combined_data <- rbind(cases, home, work, grocery, transit)
+
+
 plot_foreign_impact <- function(wide_matrix) {
   wide_matrix <- wide_matrix[1:11]
-  names(wide_matrix)[2:11] =  seq(0,9)  
+  names(wide_matrix)[2:11] =  c("cases",paste0("lag_",seq(1,9)))#seq(0,9)  
   melted.mtx <- melt(as.data.table(wide_matrix), id.vars = 'country')
   melted.mtx$value <- as.numeric(melted.mtx$value)
   ggplot(melted.mtx, aes(variable, country, fill= value)) + 
@@ -74,14 +84,69 @@ plot_foreign_impact <- function(wide_matrix) {
     scale_fill_distiller(palette = "Spectral",direction=1)
   }
 
-plot_social_distancing <- function(wide_matrix) {
+plot_social_distancing <- function(wide_matrix, v="cases") {
   wide_matrix <- wide_matrix[,c(1,12)]
   wide_matrix$sd <- as.double(wide_matrix$sd)
-  ggplot(wide_matrix, aes(sd, reorder(country,sd))) +
-    geom_bar(stat="identity") +
+  plot_color <- ifelse(v == "cases", "darkblue", 
+                       ifelse(v == "work", "darkred", 
+                              ifelse(v == "grocery", "lightblue",
+                                     ifelse(v == "transit", "pink", 
+                                            "darkgreen"))))
+  ggplot(wide_matrix, aes(sd, country)) + #reorder(country,sd)
+    geom_bar(stat="identity", fill=plot_color) +
     xlab("Social distancing coefficient") +
     ylab("Country")
 }
+
+
+plot_social_distancing_new <- function(wide_matrix) {
+  wide_matrix <- wide_matrix[, c(1, 12, 13)]
+  wide_matrix$sd <- as.double(wide_matrix$sd)
+  wide_matrix$type <- factor(wide_matrix$type, levels = c("cases", "work", "grocery", "transit", "home"))
+  
+  plot_color <- ifelse(wide_matrix$type == "cases", "darkblue",
+                       ifelse(wide_matrix$type == "work", "darkred",
+                              ifelse(wide_matrix$type == "grocery", "lightblue",
+                                     ifelse(wide_matrix$type == "transit", "pink",
+                                            "darkgreen"))))
+  
+  ggplot(wide_matrix, aes(x = country, y = sd, fill = type)) +
+    geom_bar(stat = "identity") +
+    xlab("Country") +
+    ylab("Social distancing coefficient") +
+    facet_wrap(~ type, nrow = 5, scales = "free_y") +
+    scale_fill_manual(values=c("darkblue","darkred","lightblue","pink","darkgreen")) +
+    theme_gray() +
+    theme(legend.position = "none",
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          panel.background = element_rect(fill = "#F0F0F0")) ##F0F0F0
+}
+
+plot_social_distancing_new(combined_data)
+
+#######
+function(wide_matrix, v="cases") {
+  wide_matrix <- wide_matrix[,c(1,13)]
+  wide_matrix$sd <- as.double(wide_matrix$sd)
+  plot_color <- ifelse(v == "cases", "darkblue", 
+                       ifelse(v == "work", "darkred", 
+                              ifelse(v == "grocery", "lightblue",
+                                     ifelse(v == "transit", "pink", 
+                                            "darkgreen"))))
+}
+
+p<-ggplot(combined_data, aes(x=sd, y=country, fill = type))+
+  geom_col(alpha= 3.2, position = "dodge", color= "grey")
+
+#######
+
+ggplot(combined_data, aes(sd, country, fill=type, color=type, group=type)) + #reorder(country,sd)
+  geom_bar(stat="identity", fill=type) +
+  xlab("Social distancing coefficient") +
+  ylab("Country")
+
+plot_social_distancing_new(combined_data) + coord_flip()
 
 get_coeff_foreign_var <- function() {
   country_codes <- read.csv("../../data/raw/iso3_iso2_country_codes.csv")
@@ -104,6 +169,12 @@ get_coeff_foreign_var <- function() {
   contemp_effects
 }
 
+head(df_contour,15) %>%
+ ggplot(aes(p_lag,q_lag,color=log_likelihood)) +
+ geom_point(alpha=0.5,size=2) +
+ labs(x="p lag",y="q lag") +
+ scale_y_continuous(breaks= pretty_breaks())
+
 plot_foreign_impact(cases)
 plot_social_distancing(cases)
 
@@ -111,7 +182,7 @@ plot_foreign_impact(home)
 plot_social_distancing(home)
 
 plot_foreign_impact(work)
-plot_social_distancing(work)
+plot_social_distancing(work) + coord_flip()
 
 plot_foreign_impact(transit)
 plot_social_distancing(transit)
