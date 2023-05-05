@@ -81,6 +81,7 @@ generate_irf_plots <- function(irf_object, origin_type=c("ZA", "cases"), all_cou
   
   if(all_countries) {
     irf_final_df <- melted_shock_irf
+    all_tag <- "_all"
   } else {
     irf_final_df <- subset(melted_shock_irf, Country %in% relevant_subset ) #response countries only
   }
@@ -93,12 +94,16 @@ generate_irf_plots <- function(irf_object, origin_type=c("ZA", "cases"), all_cou
   if(save_file) {
     origin_type[1] <- tolower(origin_type[1])
     plot_title <- paste(origin_type, collapse = "_")
-    fname <- paste0("../../figures/irf_origin_",plot_title,".png")
-    ggsave(filename = fname, plot = irf_plot, width = 9, height = 6, device = "png", dpi = "retina")
+    if(all_countries){
+      fname <- paste0("../../figures/irf_origin_",plot_title, all_tag,".png")
+    } else {
+      fname <- paste0("../../figures/irf_origin_",plot_title,".png")  
+    }
+    ggsave(filename = fname, plot = irf_plot, width = 15, height = 12, device = "png", dpi = "retina")
   }
   
   plot(irf_plot)
 }
 
-generate_irf_plots(irf, us_cases, all_countries = TRUE) #, all_countries = TRUE, save_file = TRUE
+generate_irf_plots(irf, de_cases, all_countries = TRUE, save_file = TRUE) 
   
