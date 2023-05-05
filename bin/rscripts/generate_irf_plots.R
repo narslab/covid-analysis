@@ -4,13 +4,23 @@ library(tidyverse)
 library(BGVAR)
 
 irf = readRDS('../../results/global_irf_cases.RDS')
+
+za_cases <- c("ZA", 'cases')
+za_transit <- c("ZA", "transit")
+
 us_cases <- c("US", "cases")
 us_transit <- c("US", "transit")
 
 kr_cases <- c("KR", "cases")
-de_cases <- c("DE", "cases")
+kr_transit <- c("KR", "transit")
 
-generate_irf_plots <- function(irf_object, origin_type=c("ZA", "cases")){
+de_cases <- c("DE", "cases")
+de_transit <- c("DE", "transit")
+
+all_cases <- c(za_cases, us_cases, kr_cases, de_cases)
+all_transit <- c(za_transit, us_transit, kr_transit, de_transit)
+
+generate_irf_plots <- function(irf_object, origin_type=c("ZA", "cases"), all_countries = FALSE, save_file = FALSE){
   irf_post <- irf_object$posterior
   cases_index = seq(1,260,5)
   transit_index = seq(4,260,5)
@@ -60,20 +70,35 @@ generate_irf_plots <- function(irf_object, origin_type=c("ZA", "cases")){
                               shock_irf_q84$value, 
                               shock_irf_q90$value,
                               shock_irf_q95$value)
+  
   colnames(melted_shock_irf) = c("Country","Day", "Q5", "Q10", "Q16", "Q50", "Q84", "Q90", "Q95" )
+  
   if(origin_type[2] == "cases"){
     melted_shock_irf$Country <- gsub(".cases", "", as.character(melted_shock_irf$Country))  
   } else {
     melted_shock_irf$Country <- gsub(".transit", "", as.character(melted_shock_irf$Country))  
   }
   
-  response_countries <- subset(melted_shock_irf, Country %in% relevant_subset )
+  if(all_countries) {
+    irf_final_df <- melted_shock_irf
+  } else {
+    irf_final_df <- subset(melted_shock_irf, Country %in% relevant_subset ) #response countries only
+  }
   
-  irf_plot <- ggplot(response_countries, aes(Day)) + 
+  irf_plot <- ggplot(irf_final_df, aes(Day)) + 
     geom_line(aes(y=Q50), colour="blue") + 
-    geom_ribbon(aes(ymin=Q5, ymax=Q95), alpha=0.2, fill='red')
+    geom_ribbon(aes(ymin=Q5, ymax=Q95), alpha=0.2, fill='red') +
+    facet_wrap(vars(Country))
   
-  irf_plot + facet_wrap(vars(Country))
+  if(save_file) {
+    origin_type[1] <- tolower(origin_type[1])
+    plot_title <- paste(origin_type, collapse = "_")
+    fname <- paste0("../../figures/irf_origin_",plot_title,".png")
+    ggsave(filename = fname, plot = irf_plot, width = 9, height = 6, device = "png", dpi = "retina")
+  }
+  
+  plot(irf_plot)
 }
 
-generate_irf_plots(irf)
+generate_irf_plots(irf, us_cases, all_countries = TRUE) #, all_countries = TRUE, save_file = TRUE
+  
