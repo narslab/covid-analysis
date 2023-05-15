@@ -38,7 +38,7 @@ getClusters <- function (clusfit, k, labels) {
 
 clustered.data <- getClusters(results, num_clust, row.names(d)) #f9scores only for names!!
 clustered.data.ordered <- clustered.data[order(clustered.data$cluster),,drop=FALSE]
-write.csv(clustered.data.ordered, "../results/country-clusters.csv")
+write.csv(clustered.data.ordered, "../../results/country-clusters.csv")
 
 colors = c( # '#ffff99', ##d8ac93', # '#ffff99', #or yellowversions 
     '#66c2a5',
@@ -134,7 +134,7 @@ plotD(results,num_clust,"Ward.D2",row.names(d))
 #     geom_hline(yintercept=3.6, color="gray",lty=3,lwd=1) + 
 #     theme_black() +
 #     theme(panel.border = element_blank(),
-#             panel.grid.major = element_blank(),
+#             panel.grid.http://127.0.0.1:46509/graphics/d591cc1a-be1d-4ac8-ab5d-5f37f88ae17b.pngmajor = element_blank(),
 #             panel.grid.minor = element_blank(),
 #             axis.title=element_blank(),
 #             axis.ticks=element_blank(),

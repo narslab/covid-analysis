@@ -3,11 +3,11 @@ library(dtw)
 
 #setwd('Projects/covid-analysis/')
 df_google = read.csv('../../data/tidy/google_activity.csv')
-
+path_out = '../../results/'
 
 # Here, we make all the names uniform
 # Ideally, this should be done in the preprocessing script in python (make this a TODO)
-names(df_google)[3:(ncol(df_google))] = names(df_covid)[3:(ncol(df_covid))]
+#names(df_google)[3:(ncol(df_google))] = names(df_covid)[3:(ncol(df_covid))]
 
 #Standardize names of first 2 columns (This can/should also be done in python pre-processing script) (TODO)
 #names(df_google)[1:2] = c('iso','variable') 
@@ -39,13 +39,16 @@ colnames(m.dat)[1:2] = c('Country', 'Date') #, 'car', 'groc', 'parks', 'home', '
 
 countries_complete_data_bgvar = c("AE","AR","AU","AT","BE","BG","BR","CA","CL","CO","CZ","DE","DK","EG","ES","EE","FI","FR","GB","GR",
                                   "HR","HU","ID","IN","IE","IL","IT","JP","KH","KR","LT","LV","MA","MX","MY","NL","NZ","PH","PT","RU","SA","SG","SK","SI","SE","TH","TR","UA","UY","US","VN","ZA")
-m.dat = subset(m.dat, (m.dat$Country %in% countries_complete_data_bgvar))
+m.dat = subset(m.dat, (m.dat$Country %in% countries_complete_data_bgvar)) 
+m.dat <- subset(m.dat, select = -c(parks, retail))
+m.dat <- na.omit(m.dat) # remove NAs
 
 # Convert countries to factors
 #m.dat$iso <- as.factor(m.dat$iso)
-m.dat <- subset(m.dat, select = -c(Date) )
+write.csv(m.dat, file=paste(path_out, 'melted-data.csv', sep = '')) # Save melted-data with Date column needed for activity plots
+m.dat <- subset(m.dat, select = -c(Date) ) # Remove Date as it is not needed for DTW
 
-m.dat <- na.omit(m.dat) # remove NAs
+#m.dat <- na.omit(m.dat) # remove NAs
 
 # Convert numbers to numeric
 for (i in seq(3, ncol(m.dat))) {
@@ -68,12 +71,13 @@ for (i in unique(m.dat$Country)) {
   for (j in unique(m.dat$Country)) {
     jj = jj + 1
     if (jj > ii) {
-      dm[i,j] <- dtw(dist(m.dat[m.dat$Country==i,2:7], m.dat[m.dat$Country==j,2:7]), distance.only = T)$normalizedDistance
+      dm[i,j] <- dtw(dist(m.dat[m.dat$Country==i,2:5], m.dat[m.dat$Country==j,2:5]), distance.only = T)$normalizedDistance
     }
   }
 }
 
-path_out = '../../results/'
+head(melted.df)
+
 write.csv(dm,file=paste(path_out,'disimilarity-matrix-mobility-google.csv',sep = ''))
 
 ### OLDER 

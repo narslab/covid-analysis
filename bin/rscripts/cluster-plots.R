@@ -26,12 +26,17 @@ colors = c( # '#ffff99', ##d8ac93', # '#ffff99', #or yellowversions
 
 #par(mfrow = c(2, 2)) # Create a 2 x 2 plotting matrix
 
-cobs$Date <- as.POSIXct(str_remove(cobs$Date, "X"),format="%m.%d.%Y")
+#cobs$Date <- as.POSIXct(str_remove(cobs$Date, "X"),format="%m.%d.%Y")
+cobs$Date <- as.POSIXct(str_remove(cobs$Date, "X"),format="%Y.%m.%d") # Fix Date format to match lims
 #cobs$Date <- as.Date(cobs$Date)
 #plotpars <-  
 
-cobs1 <- subset(cobs, select= c('cluster','Country', 'Date','work','tstop','groc','home')) #'reta',,'parks'
+# Update endogenous variable names
+cobs1 <- subset(cobs, select= c('cluster','Country', 'Date','workplaces','transit','grocery','residential')) #'reta',,'parks'
 cobs1 <- melt(cobs1, id.vars = c('cluster','Country', 'Date'))
+
+#cobs1 <- subset(cobs, select= c('cluster','Country', 'Date','work','tstop','groc','home')) #'reta',,'parks'
+#cobs1 <- melt(cobs1, id.vars = c('cluster','Country', 'Date'))
 
 
 cobs2 <- subset(cobs, select= c('cluster','Country', 'Date','car','tran','walk'))
@@ -52,8 +57,11 @@ lims <- as.POSIXct(strptime(c("2020-02-15", "2020-07-15"), format = "%Y-%m-%d"))
 lims2 <- as.POSIXct(strptime(c("2020-01-15", "2020-07-15"), format = "%Y-%m-%d"))
 
 
-google.names <- c("Work", "Transit Stops", "Groceries", "Retail", "Home", "Parks")
-names(google.names) <- c('work','tstop','groc','reta','home','parks')
+tail(cobs1)
+
+google.names <- c("Work", "Transit", "Grocery", "Home") #"Retail", "Parks"
+names(google.names) <- c('workplaces','transit','grocery','residential')
+#names(google.names) <- c('work','tstop','groc','reta','home','parks')
 
 apple.names <- c("Driving", "Transit", "Walking")
 names(apple.names) <- c('car','tran','walk')
@@ -68,10 +76,10 @@ ggplot(data = cobs1[cobs1$cluster==1,], aes(x = Date, y = value, color = Country
   #theme() + 
   theme_bw(base_size=11) +
   labs(y="Change from 100% baseline", x="",color="Cluster 1") + 
-  theme(legend.key = element_rect(size = 7),  legend.key.height = unit(.3, "cm"), strip.text.x = element_text(size = 14)) +
+  theme(legend.key = element_rect(size = 7),  legend.key.height = unit(.3, "cm"), strip.text.x = element_text(size = 14)) #+
   scale_x_datetime(limits = lims) #breaks = date_breaks("1 month"), labels=date_format("%m"),
 
-ggsave("../../results/c1-activity.png", width = 14, height = 4, units="in", dpi="retina" )
+#ggsave("../../results/c1-activity.png", width = 14, height = 4, units="in", dpi="retina" )
 
 
 ggplot(data = cobs1[cobs1$cluster==2,], aes(x = Date, y = value, color = Country, group = Country)) +
@@ -84,7 +92,7 @@ ggplot(data = cobs1[cobs1$cluster==2,], aes(x = Date, y = value, color = Country
   theme(legend.key = element_rect(size = 7),  legend.key.height = unit(.3, "cm"), strip.text.x = element_text(size = 14)) +
   scale_x_datetime(limits = lims) #breaks = date_breaks("1 month"), labels=date_format("%m"),
 
-ggsave("../../results/c2-activity.png", width = 14, height = 4, units="in", dpi="retina" )
+#ggsave("../../results/c2-activity.png", width = 14, height = 4, units="in", dpi="retina" )
 
 ggplot(data = cobs1[cobs1$cluster==3,], aes(x = Date, y = value, color = Country, group = Country)) +
   geom_point(size=1, alpha=.4) + 
@@ -97,7 +105,7 @@ ggplot(data = cobs1[cobs1$cluster==3,], aes(x = Date, y = value, color = Country
   scale_x_datetime(limits = lims) + 
   guides(col=guide_legend(ncol=1))
 
-ggsave("../../results/c3-activity.png", width = 14, height = 4, units="in", dpi="retina" )
+#ggsave("../../results/c3-activity.png", width = 14, height = 4, units="in", dpi="retina" )
 
 ggplot(data = cobs1[cobs1$cluster==4,], aes(x = Date, y = value, color = Country, group = Country)) +
   geom_point(size=1, alpha=.4) + 
@@ -109,7 +117,7 @@ ggplot(data = cobs1[cobs1$cluster==4,], aes(x = Date, y = value, color = Country
   theme(legend.key = element_rect(size = 7),  legend.key.height = unit(.3, "cm"), strip.text.x = element_text(size = 14)) +
   scale_x_datetime(limits = lims) + 
   guides(col=guide_legend(ncol=1))
-ggsave("../../results/c4-activity.png", width = 14, height = 4, units="in", dpi="retina" )
+#ggsave("../../results/c4-activity.png", width = 14, height = 4, units="in", dpi="retina" )
 
 
 ### APPLE
