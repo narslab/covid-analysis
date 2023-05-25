@@ -4,11 +4,13 @@ library(BGVAR)
 
 # Load the data
 bwList <- readRDS("../../data/tidy/bwList.RDS")
-endoList <- readRDS("../../data/tidy/endoList.RDS")
+#endoList <- readRDS("../../data/tidy/endoList.RDS")
+endoList <- readRDS("../../data/tidy/endoListNoWork.RDS")
 exoList <- readRDS("../../data/tidy/exoList.RDS")
-var.list <- readRDS("../../data/tidy/var_list.RDS")
+#var.list <- readRDS("../../data/tidy/var_list.RDS")
+var.list <- readRDS("../../data/tidy/var_list_no_work.RDS")
 
-params <- list(list(p=4, q=8), list(p=5, q=7), list(p=6, q=4), list(p=7, q=1), list(p=7, q=9))
+params <- list(list(p=4, q=8), list(p=7, q=9))
 
 # Set up a parallel backend with the desired number of cores
 cores=detectCores()
@@ -37,8 +39,8 @@ timing <- system.time({
     p_lag <- params[[i]]$p
     q_lag <- params[[i]]$q
     
-    model_name <- paste0("../../models/testing/model", p_lag, "_", q_lag, ".RDS")
-    fcast_name <- paste0("../../models/predictions/", p_lag, "_", q_lag, "_forecast_n30.RDS")
+    model_name <- paste0("../../models/no_workplaces/model", p_lag, "_", q_lag, ".RDS")
+    fcast_name <- paste0("../../models/no_workplaces/", p_lag, "_", q_lag, "_forecast_n30.RDS")
   
     model <- estimateModel(p_lag, q_lag, endoList, exoList, bwList, var.list)
     fcast <- predict(model, n.ahead = 30)

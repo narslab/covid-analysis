@@ -1,6 +1,6 @@
 #library(BGVAR) #load library
 library(ggplot2)
-library(GVAR)
+#library(GVAR)
 #library(zoo)
 #library(janitor) #rowtonames function
 library(data.table)
@@ -129,6 +129,18 @@ countries_in_flight_data = names(flights_week1)[2:ncol(flights_week1)]
 countries_notmissing_but_notin_flight_data = setdiff(countries_without_missing_data, countries_in_flight_data)
 
 
+# Define the desired subset of country names with complete BGVAR data (52)
+desired_subset <- c("AE", "AR", "AU", "AT", "BE", "BG", "BR", "CA", "CL", "CO", "CZ", "DE", "DK", "EG", "ES", "EE", "FI", "FR", "GB", "GR", "HR", "HU", "ID", "IN", "IE", "IL", "IT", "JP",
+                    "KH", "KR", "LT", "LV", "MA", "MX", "MY", "NL", "NZ", "PH", "PT", "RU", "SA", "SG", "SK", "SI", "SE", "TH", "TR", "UA", "UY", "US", "VN", "ZA")
+
+# Subset the ODX matrix for the desired subset of countries
+subset_flights_week1 <- flights_week1[flights_week1$`Destination\r\n Origin` %in% desired_subset, c("Destination\r\n Origin", desired_subset)]
+
+# Print the subset of the ODX matrix
+head(subset_flights_week1)
+saveRDS(subset_flights_week1, file = "../../results/flights_week1.RDS")
+
+
 dfList = list()
 for (i in unique(df_all$iso)) {
     country_df = transpose(df_all[df_all$iso==i, 2:NCOLS])
@@ -153,31 +165,31 @@ all(names(dfList) == row.names(weight_matrix))
 
 
  
-endo <- ord <- we <- d <- vector("list",length=length(row.names(weight_matrix)))
-names(endo) <- names(ord) <- names(we) <- names(d) <- row.names(weight_matrix)
-
-for (i in 1:length(endo)) {
-    endo[[i]] <- c(1:5)
-    ord[[i]] <- c(1:5)
-}
-
-for (i in 1:length(we))
-{
-    we[[i]] <- c(1)
-    #d[[i]] <- c(9,11) #sd, ld
-}
-
-
-res.GVAR <- GVAR(Data = dfList, p = 1,
-                q = 1,
-                weight = weight_matrix, 
-                Case = "I",
-                exo.var = FALSE,
-                #d = c('sd', 'ld')),
-                lex = 1,
-                endo = endo,
-                ord = ord,
-                we = we,
-                caseTest = False,
-                weTest = False
-) 
+#endo <- ord <- we <- d <- vector("list",length=length(row.names(weight_matrix)))
+#names(endo) <- names(ord) <- names(we) <- names(d) <- row.names(weight_matrix)
+#
+#for (i in 1:length(endo)) {
+#    endo[[i]] <- c(1:5)
+#    ord[[i]] <- c(1:5)
+#}
+#
+#for (i in 1:length(we))
+#{
+#    we[[i]] <- c(1)
+#    #d[[i]] <- c(9,11) #sd, ld
+#}
+#
+#
+#res.GVAR <- GVAR(Data = dfList, p = 1,
+#                q = 1,
+#                weight = weight_matrix, 
+#                Case = "I",
+#                exo.var = FALSE,
+#                #d = c('sd', 'ld')),
+#                lex = 1,
+#                endo = endo,
+#                ord = ord,
+#                we = we,
+#                caseTest = False,
+#                weTest = False
+#) 

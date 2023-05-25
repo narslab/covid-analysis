@@ -2,7 +2,9 @@ library(ggplot2)
 library(data.table)
 library(BGVAR)
 library(tidyverse)
-
+library(RColorBrewer)
+library(dplyr)
+library(stringr)
 #df <- read.csv('../../results/cases_lag.csv')
 #names(df)[2:11] =  seq(0,9)
 ##row.names(df) = df$Country
@@ -64,6 +66,8 @@ work <- estimate_foreign_impact("work")
 transit <- estimate_foreign_impact("transit")
 grocery <- estimate_foreign_impact("grocery")
 
+head(cases)
+
 # create a new type for each variable
 cases$type <- "cases"
 home$type <- "home"
@@ -74,15 +78,53 @@ grocery$type <- "grocery"
 combined_data <- rbind(cases, home, work, grocery, transit)
 
 
-plot_foreign_impact <- function(wide_matrix) {
-  wide_matrix <- wide_matrix[1:11]
-  names(wide_matrix)[2:11] =  c("cases",paste0("lag_",seq(1,9)))#seq(0,9)  
-  melted.mtx <- melt(as.data.table(wide_matrix), id.vars = 'country')
+plot_foreign_impact <- function(wide_matrix, save_plot = FALSE) {
+  wide_matrix1 <- wide_matrix[1:11]
+  names(wide_matrix1)[2:11] =  c(seq(0,9))#c("cases",paste0("lag_",seq(1,9)))  
+  melted.mtx <- melt(as.data.table(wide_matrix1), id.vars = 'country')
   melted.mtx$value <- as.numeric(melted.mtx$value)
-  ggplot(melted.mtx, aes(variable, country, fill= value)) + 
-    geom_tile() +
-    scale_fill_distiller(palette = "Spectral",direction=1)
+  
+  melted.mtx <- melted.mtx %>%
+    mutate(country = reorder(country, desc(country)))
+  
+  if(wide_matrix$type[1] == "cases") {
+    xaxis_label <- "Cases"
+  } else if(wide_matrix$type[1] == "home") {
+    xaxis_label <- "Home"
+  } else if(wide_matrix$type[1] == "grocery") {
+    xaxis_label <- "Grocery"
+  } else if(wide_matrix$type[1] == "transit") {
+    xaxis_label <- "Transit"
+  } else if(wide_matrix$type[1] == "work") {
+    xaxis_label <- "Work"
   }
+  
+  foreign_impact <- ggplot(melted.mtx, aes(variable, country, fill= value)) + 
+    geom_tile() +
+    scale_fill_distiller(palette = "RdYlBu",direction=1) +
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, size = 18),
+          axis.text.y = element_text(size = 18),
+          axis.title.x = element_text(size = 20, margin = margin(t = 10, r = 0, b = 2, l = 0)),
+          axis.title.y = element_blank(),#text(size = 20),
+          panel.background = element_blank(),
+          legend.position = "bottom",
+          legend.justification = "center",
+          legend.margin = margin(t = 0, r = 0, b = 0, l = 0),
+          legend.key.size = unit(1, "cm"), # Increase the size of the legend key
+          legend.key.width = unit(1.5, "cm"),
+          legend.text = element_text(size = 16)) + # Increase the width of the legend key
+          labs(fill = "", x = xaxis_label)  # Remove the legend title
+    
+  if(save_plot) {
+    fn <- paste0("../../figures/foreign_impact_",wide_matrix$type[1],".png")
+    ggsave(filename = fn,
+           foreign_impact,
+           width = 4, height = 16,
+           device = "png", dpi = "retina")
+  }
+  
+  plot(foreign_impact)
+}
 
 plot_social_distancing <- function(wide_matrix, v="cases") {
   wide_matrix <- wide_matrix[,c(1,12)]
@@ -99,56 +141,39 @@ plot_social_distancing <- function(wide_matrix, v="cases") {
 }
 
 
-plot_social_distancing_new <- function(wide_matrix) {
+plot_social_distancing_new <- function(wide_matrix, save=FALSE) {
   wide_matrix <- wide_matrix[, c(1, 12, 13)]
   wide_matrix$sd <- as.double(wide_matrix$sd)
-  wide_matrix$type <- factor(wide_matrix$type, levels = c("cases", "work", "grocery", "transit", "home"))
+  wide_matrix$type <- factor(wide_matrix$type, levels = c("cases", "grocery", "home", "transit", "work")) #c("cases", "work", "grocery", "transit", "home")
   
-  plot_color <- ifelse(wide_matrix$type == "cases", "darkblue",
-                       ifelse(wide_matrix$type == "work", "darkred",
-                              ifelse(wide_matrix$type == "grocery", "lightblue",
-                                     ifelse(wide_matrix$type == "transit", "pink",
-                                            "darkgreen"))))
-  
-  ggplot(wide_matrix, aes(x = country, y = sd, fill = type)) +
+  sd_facet <- ggplot(wide_matrix, aes(x = country, y = sd, fill = type)) +
     geom_bar(stat = "identity") +
     xlab("Country") +
     ylab("Social distancing coefficient") +
-    facet_wrap(~ type, nrow = 5, scales = "free_y") +
+    facet_wrap(~ type, nrow = 5, scales = "free_y", strip.position = "right", 
+               labeller = labeller(type = function(x) str_to_title(x))) + #Pass facet titles through the custom labeller function to capitalize the first letter of each word in the facet labels
     scale_fill_manual(values=c("darkblue","darkred","lightblue","pink","darkgreen")) +
     theme_gray() +
-    theme(legend.position = "none",
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, size = 20),
+          axis.text.y = element_text(size = 20),
+          axis.title.x = element_text(size = 24),
+          axis.title.y = element_text(size = 24),
+          strip.text.y = element_text(size = 24),
+          legend.position = "none",
           panel.grid.major = element_blank(),
           panel.grid.minor = element_blank(),
-          panel.background = element_rect(fill = "#F0F0F0")) ##F0F0F0
+          panel.background = element_rect(fill = "white")) ##F0F0F0
+  
+  if(save){
+    ggsave(filename = "../../figures/social_distancing_facet.png", plot = sd_facet, width = 20, height=15, device = "png") 
+  }
+  
+  plot(sd_facet)
 }
 
-plot_social_distancing_new(combined_data)
+plot_social_distancing_new(combined_data, TRUE)
 
-#######
-function(wide_matrix, v="cases") {
-  wide_matrix <- wide_matrix[,c(1,13)]
-  wide_matrix$sd <- as.double(wide_matrix$sd)
-  plot_color <- ifelse(v == "cases", "darkblue", 
-                       ifelse(v == "work", "darkred", 
-                              ifelse(v == "grocery", "lightblue",
-                                     ifelse(v == "transit", "pink", 
-                                            "darkgreen"))))
-}
-
-p<-ggplot(combined_data, aes(x=sd, y=country, fill = type))+
-  geom_col(alpha= 3.2, position = "dodge", color= "grey")
-
-#######
-
-ggplot(combined_data, aes(sd, country, fill=type, color=type, group=type)) + #reorder(country,sd)
-  geom_bar(stat="identity", fill=type) +
-  xlab("Social distancing coefficient") +
-  ylab("Country")
-
-plot_social_distancing_new(combined_data) + coord_flip()
-
-get_coeff_foreign_var <- function() {
+  get_coeff_foreign_var <- function() {
   country_codes <- read.csv("../../data/raw/iso3_iso2_country_codes.csv")
   contemp_effects <- read.csv("../../results/contemporaneous_effects_foreign_cases.csv")
   full_name <- c()
@@ -169,23 +194,20 @@ get_coeff_foreign_var <- function() {
   contemp_effects
 }
 
-head(df_contour,15) %>%
- ggplot(aes(p_lag,q_lag,color=log_likelihood)) +
- geom_point(alpha=0.5,size=2) +
- labs(x="p lag",y="q lag") +
- scale_y_continuous(breaks= pretty_breaks())
+#head(df_contour,15) %>%
+# ggplot(aes(p_lag,q_lag,color=log_likelihood)) +
+# geom_point(alpha=0.5,size=2) +
+# labs(x="p lag",y="q lag") +
+# scale_y_continuous(breaks= pretty_breaks())
 
-plot_foreign_impact(cases)
+plot_foreign_impact(cases, TRUE)
+plot_foreign_impact(home, TRUE)
+plot_foreign_impact(work, TRUE)
+plot_foreign_impact(transit, TRUE)
+plot_foreign_impact(grocery, TRUE)
+
 plot_social_distancing(cases)
-
-plot_foreign_impact(home)
 plot_social_distancing(home)
-
-plot_foreign_impact(work)
-plot_social_distancing(work) + coord_flip()
-
-plot_foreign_impact(transit)
+plot_social_distancing(work) 
 plot_social_distancing(transit)
-
-plot_foreign_impact(grocery)
 plot_social_distancing(grocery)

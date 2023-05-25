@@ -6,7 +6,7 @@ endoList <- readRDS("../../data/tidy/endoList.RDS")
 exoList <- readRDS("../../data/tidy/exoList.RDS")
 var.list <- readRDS("../../data/tidy/var_list.RDS")
 
-params <- list(list(p=4, q=8), list(p=5, q=7), list(p=6, q=4), list(p=7, q=1), list(p=7, q=9))
+params <- list(list(p=7, q=9))
 
 # Define the function to estimate the model
 estimateModel <- function(p, q, endogenous, exogenous, weights, variables) {
@@ -32,8 +32,8 @@ timing <- system.time({
     p_lag <- params[[i]]$p
     q_lag <- params[[i]]$q
     
-    model_name <- paste0("../../models/seq/model", p_lag, "_", q_lag, ".RDS")
-    fcast_name <- paste0("../../models/predictions/seq/model", p_lag, "_", q_lag, "_forecast_n30.RDS")
+    model_name <- paste0("../../models/double_check/model", p_lag, "_", q_lag, ".RDS")
+    fcast_name <- paste0("../../models/predictions/double_check/model", p_lag, "_", q_lag, "_forecast_n30.RDS")
     
     # Update the progress bar with the current iteration number
     setTxtProgressBar(pb, i)
