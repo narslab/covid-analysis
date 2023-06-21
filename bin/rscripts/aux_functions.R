@@ -72,7 +72,7 @@ plot_3d_top_n <- function(csv_input,n) { #csv_input = "results/scatterplot3d_inp
 	dev.off()
 	head(df,n)
 }
-plot_3d_top_n("../../results/scatterplot3d_input.csv",10)
+plot_3d_top_n("../../results/scatterplot3d_input.csv",15)
 
 remove_outliers <- function(x, na.rm = TRUE, ...) {
   # Helper function to identify outliers (>75pctl/<25pctl)

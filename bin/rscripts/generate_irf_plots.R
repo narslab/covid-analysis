@@ -1,11 +1,18 @@
+# This script generates the irf plots for a shock originating in a country
+# representative of each cluster identified through dtw over the test set horizon
+# (30 days). The shocks are specified in generate_irf.R; please confirm shock
+# info for a particular country of interest has been generated before sourcing
+# this file. 
+
 library(ggplot2)
 library(data.table)
 library(tidyverse)
 library(BGVAR)
 
 irf = readRDS('../../models/irf/irf7_9.RDS')
-irf$shockinfo
 
+# Shocks in cases and transit originating in each of the following countries:
+# DE, IN, KR, US, ZA
 kr_cases <- c("KR", 'cases')
 kr_transit <- c("KR", "transit")
 
@@ -21,8 +28,6 @@ in_transit <- c("IN", "transit")
 de_cases <- c("DE", "cases")
 de_transit <- c("DE", "transit")
 
-#all_cases <- c(za_cases, us_cases, kr_cases, de_cases)
-#all_transit <- c(za_transit, us_transit, kr_transit, de_transit)
 
 generate_irf_plots <- function(irf_object, origin_type=c("ZA", "cases"), all_countries = FALSE, save_file = FALSE){
   irf_post <- irf_object$posterior

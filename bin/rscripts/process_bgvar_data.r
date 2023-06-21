@@ -1,3 +1,7 @@
+# The purpose of this script is to process the endogenous and exogenous variables
+# as well as the weights (Week 1 flights). The processed data is used to estimate
+# the BGVAR model.
+
 library(BGVAR) #load library
 library(ggplot2)
 #library(GVAR)
@@ -113,15 +117,13 @@ formatted_dates = as.Date(colnames(df_endo)[-c(1,2)], format = c("%m.%d.%Y"))
 countries_with_missing_data = unique(df_endo[rowSums(is.na(df_endo)) > 0,]$iso)
 df_endo = subset(df_endo, !(iso %in% countries_with_missing_data))
 
-#endo_vars_no_work <- c('cases', 'residential', 'transit', 'grocery')
 endo_vars <- c('cases', 'residential', 'transit', 'grocery', 'workplaces')
-endoListNoWork <- list()
 endoList = list()
 for (i in unique(df_endo$iso)) {
   #country_df = janitor::row_to_names(t(df_endo[df_endo$iso==i, 2:NCOLS]), 1)
   country_df = transpose(df_endo[df_endo$iso==i, 2:NCOLS])
   colnames(country_df) = country_df[1,]
-  country_df = country_df[-1, endo_vars] #endo_vars_no_work
+  country_df = country_df[-1, endo_vars] 
   country_df = as.data.frame(sapply(country_df, as.numeric))
   country_df = ts(country_df, start = c(2020, as.numeric(format(formatted_dates[1], "%j"))), frequency = 365)
   #rownames(country_df) = formatted_dates
@@ -234,123 +236,8 @@ var.list<-list()
 var.list$covid <-c("cases") 
 var.list$activity <- c("residential", "workplaces", "transit", "grocery")
 
-var.list.no.work <- list()
-var.list.no.work$covid <-c("cases") 
-var.list.no.work$activity <- c("residential", "transit", "grocery")
-
-var.list.no.work
-
-saveRDS(endoListNoWork, file = "../../data/tidy/endoListNoWork.RDS")
-#saveRDS(exoList, file = "../../data/tidy/exoList.RDS")
-#saveRDS(bWList, file = "../../data/tidy/bwList.RDS")
-saveRDS(var.list.no.work, file = "../../data/tidy/var_list_no_work.RDS")
-
-# Hyperparm.ssvs <- list(tau0   = 0.1,  # coefficients: prior variance for the spike # (tau0 << tau1)
-#                        tau1   = 3,    # coefficients: prior variance for the slab  # (tau0 << tau1)
-#                        kappa0 = 0.1,  # covariances: prior variance for the spike # (kappa0 << kappa1)
-#                        kappa1 = 7,    # covariances: prior variance for the slab # (kappa0 << kappa1)
-#                        a_i    = 0.01, # prior for the shape parameter of the IG
-#                        b_i    = 0.01, # prior for the scale parameter of the IG
-#                        p_i    = 0.5,  # prior inclusion probability of coefficients
-#                        q_ij   = 0.5   # prior inclusion probability of covariances
-#                       )
-
-# Seems the issue is it does not like if a country has all 0's in its exogenous list
-#model.1 <- bgvar(Data = endoList, #endogenous variables
-#                 Ex = exoList, # exogenous variables
-#                 W = bWList,#[c("covid")], #["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
-#                 plag = c(7, 4),
-#                 draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs,
-#                 hold.out = 30,
-#                 eigen = 1,
-#                 expert = list(cores=4,
-#                             variable.list = var.list) #specifies which variable is weakly exogenous
-#                 #thin = 1,
-#                 #trend = FALSE,
-#)
-#saveRDS(model.1, file="../../models/model7_4.RDS")
-#
-#model.2 <- bgvar(Data = endoList, #endogenous variables
-#                 #Ex = exoList, # exogenous variables
-#                 W = weight_matrix, #weight_matrix, #WList["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
-#                 plag = 1,
-#                 draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs, 
-#                 hold.out = 30, 
-#                 eigen = 1,
-#                 expert = list(cores=4)
-#                 #thin = 1, 
-#                 #trend = FALSE,
-#)
-#saveRDS(model.2, file="../../models/model1.RDS")
-
-### Find best model based on logLikelihood
-#setup parallel backend to use many processors
-#cores=detectCores()
-#cl <- makeCluster(cores[1]-1) #not to overload your computer
-#registerDoParallel(cl)
-#print(cl)
-##df <- data.frame(matrix(ncol = 3, nrow = 0))
-##x <- c("p" , "q", "logLikelihood")
-##colnames(df) <- x
-#
-#model.search <- foreach(i=8:15, .combine=cbind, .packages = 'BGVAR') %:% #%dopar% {
-#  foreach(j=1:8, .combine=cbind, .packages = 'BGVAR') %dopar% {
-#  #exp <- c(i,i)
-#  model.c <- bgvar(Data = endoList, #endogenous variables
-#                   Ex = exoList, # exogenous variables
-#                   W = bWList,#[c("covid")], #["covid"], #static weight matrix (use uniform weights) #bWList[c("covid")]
-#                   plag = c(i, j),
-#                   draws=100, burnin=100, prior="SSVS", SV=TRUE, #hyperpara=Hyperparm.ssvs,
-#                   hold.out = 30,
-#                   eigen = 1,
-#                   expert = list(cores=4,
-#                                 variable.list = var.list) #specifies which variable is weakly exogenous
-#                   #thin = 1,
-#                   #trend = FALSE,
-#  )
-#  
-#  model.name <- gsub(" ","",paste("../../models/model",toString(i),"_",toString(j),".RDS"))
-#  saveRDS(model.c, file=model.name)
-#  log.likelihood <- logLik(model.c)
-#  #df[nrow(df)+1,] = c(exp[1],exp[2],log.likelihood)
-#  #model.c #Equivalent to finalMatrix = cbind(finalMatrix, tempMatrix)
-#}
-#write.csv(df,"../../results/log_likelihood_results_2dim.csv", row.names=FALSE)
-#stopCluster(cl)
-####
-
-#> model_opt$cc.results$coeffs[[1]][c("cases*","cases*_lag1","cases*_lag2"),1]
-#cases*   cases*_lag1   cases*_lag2
-#-0.0149428562 -0.0001338819  0.0008761391
-
-# print(model.1)
-## This just prints the submitted arguments of the bgvar object along with the model specification for each unit. 
-## The asterisks indicate weakly exogenous variables, double asterisks exogenous variables and 
-    # variables without asterisks the endogenous variables per unit. 
-
-#s1 <- summary(model.1)
-##p1 <- plot(model.1)
-#
-#s2 <- summary(model.2)
-#p2 <- plot(model.2)
-## 
-#fcast.1 <- predict(model.1, n.ahead=20, save.store=TRUE)
-##saveRDS(fcast.1,"forecast_1.rds")
-#lps.model <- lps(fcast)
-#rmse.model <- rmse(fcast)
-#plot(fcast, resp="AE.cases", cut=10)
-
-# To compute model fitness metrics:
-# (a) Log-likelihood (the greater it is, the belpstter the fit)
-# logLik(model.1)
-
-#plot_heatmap <- function(coeff_name,file_name) {
-#  # Takes a coefficient name (country) and generates a heatmap
-#  # ex: coeff_name <- model.1$cc.results$coeffs$US
-#  #     file_name <- "model1_US_coeff_heatmap.jpg"
-#  # TODO: Add colorbar.
-#  data_matrix <- data.matrix(coeff_name)
-#  jpeg(filename=file_name, width=500, height=750, quality=180)
-#  heatmap(data_matrix, Rowv=NA, Colv=NA, col=heat.colors(256), scale="column", margins=c(5,10))
-#  dev.off()
-#}#
+# Save processed data
+saveRDS(endoList, file = "../../data/tidy/endoList.RDS")
+saveRDS(exoList, file = "../../data/tidy/exoList.RDS")
+saveRDS(bWList, file = "../../data/tidy/bwList.RDS")
+saveRDS(var.list, file = "../../data/tidy/var_list.RDS")

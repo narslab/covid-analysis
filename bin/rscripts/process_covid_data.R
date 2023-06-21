@@ -26,7 +26,7 @@ change_iso3_to_iso2 <- function(iso_code) {
 df_covid$iso = apply(df_covid[1], 1, change_iso3_to_iso2)
 
 # Appropriately difference COVID cases and Google activity data
-df_covid[, 5:201] = matrixStats::rowDiffs(as.matrix(df_covid[, 3:201]), differences=2L) # convert to daily cases and then difference
+df_covid[, 5:201] = matrixStats::rowDiffs(as.matrix(df_covid[, 3:201])) # convert to daily cases and then difference
 names(df_covid)[names(df_covid) == "variable"] <- "cov"
 
 head(df_covid)

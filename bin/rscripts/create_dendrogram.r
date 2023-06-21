@@ -110,23 +110,6 @@ theme_black = function(base_size = 12, base_family = "") {
   
 }
 
-plotD <- function (clusfit,kk,meth,labels) 
-{
-  nodeP <- list(lab.cex = 0.8, pch = c(NA, NA), cex = 1.5,font=1)
-  dend <- as.dendrogram(clusfit)
-  #dend <- reorder(dend, 1:13, mean)
-  labels(dend) <- as.character(labels[clusfit$order])
-  dend <- set(dend, "labels_cex", .65)
-  #dend <- set(dend, "hang_leaves", 1)
-  d1=color_branches(dend,k=kk,col = colors) # brewer.pal(kk,"Paired"))
-  dcol <- get_leaves_branches_col(d1)
-  d1 <- color_labels(d1,k=kk,col=colors) #brewer.pal(kk,"Paired"))
-  #png(file=paste0("../results/Dendrogram-",kk,"-clusters-","-Method-",meth,".png"),family="CM Sans", width=2400,height=2000, res=240) #5300 #2600
-  plot(d1, main = "", xlab = "", ylab = "")
-  #colored_bars(dcol, dend, rowLabels = c("13 Typologies"))
-  #dev.off()
-}
-
 plotD1 <- function(clusfit, kk, meth, labels) {
   dend <- as.dendrogram(clusfit)
   labels(dend) <- as.character(labels[clusfit$order])
@@ -134,10 +117,9 @@ plotD1 <- function(clusfit, kk, meth, labels) {
   d1 = color_branches(dend, k = kk, col = colors)
   d1 = color_labels(d1, k = kk, col = colors)
   par(mar = c(5, 1, 4, 2))  # Adjust the margins to center the plot
+  #png(file=paste0("../../figures/Dendrogram-",kk,"-clusters-","-Method-",meth,".png"),family="CM Sans", width=2400,height=2000, res=240) #5300 #2600
   plot(d1, axes = FALSE,)
-  #png
 }
 
 plotD1(results, num_clust,"Ward.D2", row.names(d))
-
 

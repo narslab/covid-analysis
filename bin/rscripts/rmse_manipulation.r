@@ -8,7 +8,7 @@ library(ggplot2)
 
 
 # load forecast with lag params p=7, q=9 based on optimal model
-fcast7.9 <- readRDS("../../models/predictions/model7_9_forecast_n30.RDS")
+fcast7.9 <- readRDS("../../models/double_check/model7_9_forecast_n30.RDS")
 
 generate_rmse_plot <- function(bgvar_forecast, pq_lag='p_q_lag', save_file = FALSE) {
   rmse <- rmse(bgvar_forecast)
@@ -94,4 +94,4 @@ generate_rmse_plot <- function(bgvar_forecast, pq_lag='p_q_lag', save_file = FAL
   plot(rmse_facet)
 }
 
-generate_rmse_plot(fcast7.9, save_file = TRUE)
+generate_rmse_plot(fcast7.9)
