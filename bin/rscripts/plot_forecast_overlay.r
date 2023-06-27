@@ -63,15 +63,15 @@ generate_overlay <- function(bgvar_model, bgvar_forecast, var, save=FALSE) {
   countries <- names(obs)
   # Use lapply() to extract observed data for the last 30 days for each country
   if(var == "cases") {
-    last_30_days <- lapply(obs[countries], function(x) x[170:199, 1])
+    last_30_days <- lapply(obs[countries], function(x) x[169:199, 1])
   } else if (var == "residential") {
-    last_30_days <- lapply(obs[countries], function(x) x[170:199, 2])
+    last_30_days <- lapply(obs[countries], function(x) x[169:199, 2])
   } else if (var == "workplaces") {
-    last_30_days <- lapply(obs[countries], function(x) x[170:199, 3])
+    last_30_days <- lapply(obs[countries], function(x) x[169:199, 3])
   } else if (var == "transit") {
-    last_30_days <- lapply(obs[countries], function(x) x[170:199, 4])
+    last_30_days <- lapply(obs[countries], function(x) x[169:199, 4])
   } else if (var == "grocery") {
-    last_30_days <- lapply(obs[countries], function(x) x[170:199, 5])
+    last_30_days <- lapply(obs[countries], function(x) x[169:199, 5])
   } 
   
   
@@ -87,9 +87,29 @@ generate_overlay <- function(bgvar_model, bgvar_forecast, var, save=FALSE) {
   merged_data <- merge(last_30_days_melted_df, melted_forecast, by = c("Country", "Day"))
   names(merged_data)[names(merged_data) == "value"] <- "Observed"
   
+  #print(head(merged_data))
+  max_values <- apply(merged_data[, -c(1, 2)], 2, max)
+  min_values <- apply(merged_data[, -c(1 ,2)], 2, min)
+  
+  print(max_values)
+  print(min_values)
+  
+  top_5_countries <- merged_data %>%
+    group_by(Country) %>%
+    top_n(5, Observed) %>%
+    ungroup() %>%
+    arrange(desc(Observed))
+  
+  lowest_5_observations <- merged_data %>%
+    arrange(Observed) %>%
+    head(10)
+  
+  print(head(top_5_countries, 10))
+  print(head(lowest_5_observations, 10))
+  
   
   if(var == "cases") {
-    y_axis_label <- "New daily COVID-19 cases"
+    y_axis_label <- "Growth in daily new COVID-19 cases"
     yaxis_ticks <- c(-20000, -10000, 0, 10000, 20000)
   } else {
     y_axis_label <- "Percent change from baseline"
@@ -101,7 +121,8 @@ generate_overlay <- function(bgvar_model, bgvar_forecast, var, save=FALSE) {
   predicted_observed_overlay <- ggplot(merged_data, aes(Day)) + 
     geom_line(aes(y=Q50, color = "Posterior Median", linetype = "Posterior Median"), size = 0.5) + 
     geom_line(aes(y=Observed, color = "Observed", linetype = "Observed"), size = 0.25, alpha = 0.9) + # modified color, size, and linetype
-    scale_y_continuous(trans = pseudolog10_trans, expand = expansion(mult = c(0, 0.003))) +
+    scale_y_continuous(trans = pseudolog10_trans, expand = expansion(mult = c(-0.003, 0.003))) +
+    #scale_y_continuous(trans = "log10") + #, expand = expansion(mult = c(0, 0.0001))
     geom_ribbon(aes(ymin=Q5, ymax=Q95, fill = "95% Credible Interval"), alpha=0.1) +
     facet_wrap(vars(Country), nrow = 4, ncol = 13) +
     ylab(y_axis_label) +
@@ -163,7 +184,12 @@ generate_overlay <- function(bgvar_model, bgvar_forecast, var, save=FALSE) {
   plot(my_plot)
 }
 
+generate_overlay(model_opt, fcast, "cases")  
+
 # Uncomment for loop to generate and save the overlay for the optimal model (all endogenous variables)
 for(v in endo_vars) {
   generate_overlay(model_opt, fcast, v)  
 }
+
+
+
